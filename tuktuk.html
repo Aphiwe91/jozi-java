@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tuk Tuk Coffee Conversion - Jozi Java</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      /* Tuk Tuk page — hero rotation (same pattern as index.html) */
+      .home-slider{position:relative;height:750px;overflow:hidden;display:block}
+      .home-slider .slider-item{display:block;position:absolute;top:0;left:0;width:100%;height:100%;
+        background-size:cover;background-position:center center;background-repeat:no-repeat;
+        opacity:0;visibility:hidden;transition:opacity .9s ease-in-out;z-index:0}
+      .home-slider .slider-item.is-active{opacity:1;visibility:visible;z-index:1}
+      @media (max-width:767px){.home-slider,.home-slider .slider-item{height:560px}}
+
+      /* Build price table — the template table rule is sized for the cart (1000px min) */
+      .jj-table{min-width:100% !important; text-align:left !important;}
+      .jj-table thead th{text-align:left;}
+      .jj-table tbody tr td{text-align:left !important; padding:16px 12px !important; vertical-align:middle;}
+      .jj-table tbody tr td.price{color:#fff; font-family:'Barlow Condensed',sans-serif; font-size:20px; white-space:nowrap;}
+      .jj-note{font-size:14px; color:#b7b7b7;}
+      .jj-includes{list-style:none; padding:0; margin:0 0 20px 0;}
+      .jj-includes li{position:relative; padding-left:28px; margin-bottom:8px;}
+      .jj-includes li:before{content:'\2022'; position:absolute; left:6px; color:var(--jj-leaf); font-weight:700;}
+      /* gold services band: keep the script subheading legible */
+      .ftco-services .heading-section .subheading{color:var(--jj-moss);}
+      .ftco-services .heading-section p{color:#1d150b;}
+      /* closing call to action */
+      .jj-cta{background:var(--jj-moss); color:#fff; text-align:center; padding:60px 30px; border-radius:4px;}
+      .jj-cta .subheading{color:#B7CE9C;}
+      .jj-cta h2{color:#fff;}
+      .jj-cta p{color:rgba(255,255,255,.85);}
+      .jj-step-no{display:inline-block; font-family:'Barlow Condensed',sans-serif; font-weight:700;
+        font-size:22px; line-height:1; border:2px solid #1d150b; border-radius:50%;
+        width:46px; height:46px; line-height:44px; margin-bottom:18px;}
+    </style>
+  </head>
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Jozi <small>Java</small></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="equipment.html" class="nav-link">Equipment</a></li>
+          <li class="nav-item active"><a href="tuktuk.html" class="nav-link">Tuk Tuk</a></li>
+          <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Our Story</a></li>
+          <li class="nav-item"><a href="menu.html" class="nav-link">Cafe &amp; Menu</a></li>
+          <li class="nav-item"><a href="finance.html" class="nav-link">Finance</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="cart.html" class="nav-link" aria-label="Cart"><span class="icon-shopping-cart"></span></a></li>
+        </ul>
+	      </div>
+		  </div>
+	  </nav>
+    <!-- END nav -->
+
+    <section class="home-slider owl-carousel">
+
+      <div class="slider-item" style="background-image: url(images/jozi/jozi-07.jpeg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Tuk Tuk Conversion</span>
+              <h1 class="mb-4">A Turnkey Coffee Business on Three Wheels</h1>
+
+              <p><a href="finance.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Estimate Your Monthly Repayment</a> <a href="contact.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Enquire Now</a></p>
+
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Tuk Tuk Conversion</span></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url(images/jozi/jozi-10.jpeg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Piaggio Commercial SA</span>
+              <h1 class="mb-4">Machine, Grinder, Training &amp; Coffee Included</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url(images/jozi/jozi-13.jpeg);">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">One Package, One Repayment</span>
+              <h1 class="mb-4">Financed as a Single Deal Through CCS</h1>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The story -->
+    <section class="ftco-about d-md-flex">
+      <div class="one-half img" style="background-image: url(images/jozi/jozi-11.jpeg);"></div>
+      <div class="one-half ftco-animate">
+        <div class="overlap">
+          <div class="heading-section ftco-animate">
+            <span class="subheading">The Partnership</span>
+            <h2 class="mb-4">A Turnkey Coffee Business on Three Wheels</h2>
+          </div>
+          <p>Jozi Java has partnered with <strong>Piaggio Commercial SA</strong> to sell one all-in-one product: a Piaggio Ape Tuk Tuk, professionally converted into a coffee cart, with the machine, grinder, training and ongoing coffee supply included &mdash; financed as a single package through <strong>Commercial Credit Solutions (CCS)</strong>.</p>
+          <p>The finance relationship happens quietly in the background with CCS. Leads are captured, described and pre-vetted right here on the Jozi Java website first, so when you enquire you are talking to a team that already knows the build, the machine and the numbers.</p>
+          <p><strong>Every conversion package includes:</strong></p>
+          <ul class="jj-includes">
+            <li>Piaggio Ape base vehicle, professionally converted into a coffee cart</li>
+            <li>Commercial espresso machine and grinder, specified for your build</li>
+            <li>Barista and operational training for you and your team</li>
+            <li>Ongoing coffee, bean and consumables supply from our Douglasdale roastery</li>
+            <li>One finance package covering vehicle, conversion and equipment through CCS</li>
+          </ul>
+          <p><a href="finance.html" class="btn btn-primary btn-outline-primary px-4 py-3">Estimate Your Monthly Repayment</a> <a href="contact.html" class="btn btn-white btn-outline-white px-4 py-3">Enquire Now</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">Real Conversions</span>
+            <h2 class="mb-4">Already Trading on the Road</h2>
+            <p>Working Jozi Java Tuk Tuk coffee conversions, out with real customers every day.</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <div class="block-20" style="background-image: url(images/jozi/jozi-15.jpeg);"></div>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2">Ayanda Coffee</h3>
+                <p>A Piaggio Ape coffee conversion built, supplied and kept stocked with coffee by Jozi Java.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <div class="block-20" style="background-image: url(images/jozi/jozi-16.jpeg);"></div>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2">Mugg &amp; Bean</h3>
+                <p>Conversions running at Montecasino, Kyalami and Paulshof &mdash; three sites of social proof for the format.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry align-self-stretch">
+              <div class="block-20" style="background-image: url(images/jozi/jozi-17.jpeg);"></div>
+              <div class="text py-4 d-block">
+                <h3 class="heading mt-2">Nooma</h3>
+                <p>Another Jozi Java coffee conversion, built for Nooma and trading on the same turnkey package.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build path -->
+    <section class="ftco-section ftco-services">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">How It Works</span>
+            <h2 class="mb-4">Your Build Path</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+                <span class="flaticon-choices"></span>
+              </div>
+              <div class="media-body">
+                <span class="jj-step-no">1</span>
+                <h3 class="heading">Choose Base Vehicle</h3>
+                <p>Pick the Piaggio platform that fits your route and load &mdash; Ape City, Ape Auto+, pick-up, van or pop-up chassis.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+                <span class="flaticon-coffee-cup"></span>
+              </div>
+              <div class="media-body">
+                <span class="jj-step-no">2</span>
+                <h3 class="heading">Choose Coffee Build Tier</h3>
+                <p>Choose the level of coffee cart fit-out you need, from a compact service point to a full pop-up bar build.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="media d-block text-center block-6 services">
+              <div class="icon d-flex justify-content-center align-items-center mb-5">
+                <span class="flaticon-coffee-bean"></span>
+              </div>
+              <div class="media-body">
+                <span class="jj-step-no">3</span>
+                <h3 class="heading">Choose Machine</h3>
+                <p>Select the espresso machine and grinder that match your volumes &mdash; then we handle training and ongoing bean supply.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build price reference -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">Build Pricing</span>
+            <h2 class="mb-4">Base Vehicle &amp; Build Reference</h2>
+            <p>Indicative Piaggio base-vehicle and build pricing, including VAT.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 ftco-animate">
+            <table class="table jj-table">
+              <thead class="thead-primary">
+                <tr>
+                  <th>Base / Build</th>
+                  <th>Indicative price (incl. VAT)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ape City 3&ndash;4 seater (petrol)</td>
+                  <td class="price">R 99,500</td>
+                </tr>
+                <tr>
+                  <td>Ape Auto+ 6 seater (diesel)</td>
+                  <td class="price">R 113,500</td>
+                </tr>
+                <tr>
+                  <td>DAC cab/chassis (SWB)</td>
+                  <td class="price">R 95,000</td>
+                </tr>
+                <tr>
+                  <td>Pick-up diesel, 560kg payload</td>
+                  <td class="price">R 108,900</td>
+                </tr>
+                <tr>
+                  <td>Delivery van (SWB / LWB)</td>
+                  <td class="price">R 109,900 / R 118,900</td>
+                </tr>
+                <tr>
+                  <td>Multipurpose canopy pop-up (food)</td>
+                  <td class="price">From R 125,000</td>
+                </tr>
+                <tr>
+                  <td>Food pop-up (SWB or LWB)</td>
+                  <td class="price">From R 164,000</td>
+                </tr>
+                <tr>
+                  <td>Coffee pop-up (SWB or LWB)</td>
+                  <td class="price">From R 187,000</td>
+                </tr>
+                <tr>
+                  <td>Refrigerated / insulated / custom builds</td>
+                  <td class="price">POA</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="jj-note">Reference pricing from Piaggio Commercial SA (January 2026). Prices subject to exchange-rate fluctuation &mdash; confirm current pricing before ordering. Vehicle warranty: 20,000km / 1 year.</p>
+            <p class="jj-note"><strong>Colour range:</strong> Charming Blue, Neptune Blue, Western Red, Golden Yellow, Bianco White, Black, Black/Yellow, Eco Green.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="jj-cta ftco-animate">
+          <div class="heading-section text-center">
+            <span class="subheading">Next Step</span>
+            <h2 class="mb-4">Build Yours With Jozi Java</h2>
+            <p class="mb-4">Run the numbers first, then talk to the team that builds, trains and supplies the coffee behind every conversion.</p>
+            <p class="mb-0">
+              <a href="finance.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Estimate Your Monthly Repayment</a>
+              <a href="contact.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Enquire Now</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer ftco-section img">
+    	<div class="overlay"></div>
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+            <div class="ftco-footer-widget mb-4">
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Recent Blog</h2>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/jozi/jozi-13.jpeg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img mr-4" style="background-image: url(images/jozi/jozi-14.jpeg);"></a>
+                <div class="text">
+                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
+                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
+             <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Services</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Cooked</a></li>
+                <li><a href="#" class="py-2 d-block">Deliver</a></li>
+                <li><a href="#" class="py-2 d-block">Quality Foods</a></li>
+                <li><a href="#" class="py-2 d-block">Mixed</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">The Roastery (Douglasdale) &middot; Monte Circle Office Park &middot; Ford Fourways &middot; Ford Sandton &middot; Ford Woodmead</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+27 68 923 5818</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@jozijava.co.za</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is customised with <i class="icon-heart" aria-hidden="true"></i> by Jozi Java | Template: <a href="https://jozijava.co.za">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+  // Hero rotation (same pattern as index.html — the template's owl init is disabled)
+  document.addEventListener('DOMContentLoaded', function(){
+    var hero = document.querySelector('.home-slider');
+    if(!hero) return;
+    var slides = hero.querySelectorAll('.slider-item');
+    if(!slides.length) return;
+    var i = 0;
+    slides[0].classList.add('is-active');
+    if(slides.length < 2) return;
+    setInterval(function(){
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, 3000);
+  });
+  </script>
+    
+  </body>
+</html>

@@ -1,9 +1,8 @@
-/* Jozi Java shop page: collection sort bar + size pills.
-   Presentation only — no cart integration (Add to Cart still links to cart.html). */
+/* Jozi Java shop page: collection sort bar.
+   Size pills, grind select and Add to Cart live in js/cart.js (single source of truth
+   for prices so the cart always matches what the card shows). */
 (function () {
   'use strict';
-
-  function fmt(n) { return 'R' + n.toFixed(2); }
 
   document.addEventListener('DOMContentLoaded', function () {
     var grid = document.getElementById('jj-grid');
@@ -28,26 +27,5 @@
         ordered.forEach(function (card) { grid.appendChild(card); });
       });
     }
-
-    /* Size pills: picking a size swaps the card price; re-click clears back to "from" */
-    grid.addEventListener('click', function (e) {
-      var btn = e.target.closest ? e.target.closest('.jj-size') : null;
-      if (!btn) return;
-      var group = btn.parentNode;
-      var card = group.closest('.jj-card');
-      var priceEl = card.querySelector('.jj-price span');
-      var prices = JSON.parse(group.getAttribute('data-prices'));
-      var wasActive = btn.classList.contains('active');
-      Array.prototype.forEach.call(group.querySelectorAll('.jj-size'), function (b) {
-        b.classList.remove('active');
-      });
-      if (wasActive) {
-        var min = Math.min.apply(null, Object.keys(prices).map(function (k) { return prices[k]; }));
-        priceEl.textContent = 'from ' + fmt(min);
-      } else {
-        btn.classList.add('active');
-        priceEl.textContent = fmt(prices[btn.textContent.trim()]);
-      }
-    });
   });
 })();

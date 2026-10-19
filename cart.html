@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Jozi Java - Coffee & More</title>
+    <title>Cart - Jozi Java</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -32,7 +32,7 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Jozi <small>Java</small></a>
+	      <a class="navbar-brand" href="index.html" aria-label="Jozi Java home"><img src="images/jozi/jozi-logo.jpeg" alt="Jozi Java" class="jj-nav-logo"></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -72,7 +72,16 @@
 		
 		<section class="ftco-section ftco-cart">
 			<div class="container">
-				<div class="row">
+
+				<!-- shown when the bag is empty -->
+				<div id="jj-cart-empty" class="jj-empty text-center ftco-animate" hidden>
+					<span class="subheading">Your bag</span>
+					<h2 class="mb-3">Your cart is empty</h2>
+					<p class="mb-4">Nothing in the bag yet &mdash; pick a roast and we&rsquo;ll grind it to order.</p>
+					<p><a href="shop.html" class="btn btn-primary py-3 px-5">Shop Beans</a></p>
+				</div>
+
+				<div class="row" id="jj-cart-table-wrap">
     			<div class="col-md-12 ftco-animate">
     				<div class="cart-list">
 	    				<table class="table">
@@ -86,134 +95,99 @@
 						        <th>Total</th>
 						      </tr>
 						    </thead>
-						    <tbody>
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/jozi/jozi-47.jpeg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Creamy Latte Coffee</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">R45.00</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">R45.00</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="icon-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/jozi/jozi-15.jpeg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Grilled Ribs Beef</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">R140.00</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">R140.00</td>
-						      </tr><!-- END TR-->
-						    </tbody>
+						    <tbody id="jj-cart-body"><!-- rendered by js/cart.js --></tbody>
 						  </table>
 					  </div>
     			</div>
     		</div>
-    		<div class="row justify-content-end">
-    			<div class="col col-lg-3 col-md-6 mt-5 cart-wrap ftco-animate">
+    		<div class="row justify-content-end" id="jj-cart-summary" hidden>
+    			<div class="col col-lg-4 col-md-6 mt-5 cart-wrap ftco-animate">
     				<div class="cart-total mb-3">
     					<h3>Cart Totals</h3>
     					<p class="d-flex">
     						<span>Subtotal</span>
-    						<span>R185.00</span>
+    						<span id="jj-sum-subtotal">R0.00</span>
     					</p>
     					<p class="d-flex">
     						<span>Delivery</span>
-    						<span>R25.00</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Discount</span>
-    						<span>R25.00</span>
+    						<span id="jj-sum-delivery">R0.00</span>
     					</p>
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>R160.00</span>
+    						<span id="jj-sum-total">R0.00</span>
     					</p>
     				</div>
-    				<p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    				<!-- PLACEHOLDER: delivery fee + free-delivery threshold pending client sign-off -->
+    				<p class="jj-cart-note" id="jj-delivery-note"></p>
+    				<p class="text-center"><a href="checkout.html" id="jj-proceed" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+    				<p class="text-center"><a href="shop.html" class="jj-continue">&#8592; Continue shopping</a></p>
     			</div>
     		</div>
 			</div>
 		</section>
 
+    <!-- Recommended roasts: same .jj-card markup as shop.html, so Add to Cart works here too -->
     <section class="ftco-section">
     	<div class="container">
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Discover</span>
-            <h2 class="mb-4">Related products</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          	<span class="subheading">Add to the bag</span>
+            <h2 class="mb-4">Our Three Roasts</h2>
+            <p>Whole bean or ground to order &mdash; you pick the grind before the order goes to WhatsApp.</p>
           </div>
         </div>
         <div class="row">
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-46.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>R55.00</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
+        	<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap">
+        		<div class="jj-card" data-sku="wilds" data-name="The Wilds Roast" data-img="images/jozi/jozi-13.jpeg">
+        			<a href="shop.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-13.jpeg);"></a>
+        			<div class="jj-card-body">
+        				<h3><a href="shop.html">The Wilds Roast</a></h3>
+        				<p class="jj-card-notes">Our everyday crowd-pleaser &mdash; balanced and chocolatey.</p>
+        				<div class="jj-sizes" data-prices='{"250g":45,"500g":85,"1kg":129}'>
+        					<button type="button" class="jj-size">250g</button>
+        					<button type="button" class="jj-size">500g</button>
+        					<button type="button" class="jj-size">1kg</button>
+        				</div>
+        				<select class="jj-grind form-control" aria-label="Choose a grind for The Wilds Roast"><option value="">Choose grind&hellip;</option></select>
+        				<p class="jj-card-price jj-price"><span>from R45.00</span></p>
+        				<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
+        			</div>
+        		</div>
         	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-47.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>R55.00</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
+        	<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap">
+        		<div class="jj-card" data-sku="pritchard" data-name="Pritchard Street Roast" data-img="images/jozi/jozi-14.jpeg">
+        			<a href="shop.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-14.jpeg);"></a>
+        			<div class="jj-card-body">
+        				<h3><a href="shop.html">Pritchard Street Roast</a></h3>
+        				<p class="jj-card-notes">Bolder and brighter &mdash; coffee with attitude.</p>
+        				<div class="jj-sizes" data-prices='{"250g":49,"500g":89,"1kg":139}'>
+        					<button type="button" class="jj-size">250g</button>
+        					<button type="button" class="jj-size">500g</button>
+        					<button type="button" class="jj-size">1kg</button>
+        				</div>
+        				<select class="jj-grind form-control" aria-label="Choose a grind for Pritchard Street Roast"><option value="">Choose grind&hellip;</option></select>
+        				<p class="jj-card-price jj-price"><span>from R49.00</span></p>
+        				<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
+        			</div>
+        		</div>
         	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-01.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>R55.00</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-02.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="#">Coffee Capuccino</a></h3>
-    						<p>A small river named Duden flows by their place and supplies</p>
-    						<p class="price"><span>R55.00</span></p>
-    						<p><a href="#" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
-    					</div>
-    				</div>
+        	<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap">
+        		<div class="jj-card" data-sku="decaf" data-name="Douglasdale Decaf" data-img="images/jozi/jozi-15.jpeg">
+        			<a href="shop.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-15.jpeg);"></a>
+        			<div class="jj-card-body">
+        				<h3><a href="shop.html">Douglasdale Decaf</a></h3>
+        				<p class="jj-card-notes">All of the ritual, none of the buzz.</p>
+        				<div class="jj-sizes" data-prices='{"250g":52,"500g":95,"1kg":149}'>
+        					<button type="button" class="jj-size">250g</button>
+        					<button type="button" class="jj-size">500g</button>
+        					<button type="button" class="jj-size">1kg</button>
+        				</div>
+        				<select class="jj-grind form-control" aria-label="Choose a grind for Douglasdale Decaf"><option value="">Choose grind&hellip;</option></select>
+        				<p class="jj-card-price jj-price"><span>from R52.00</span></p>
+        				<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
+        			</div>
+        		</div>
         	</div>
         </div>
     	</div>
@@ -319,5 +293,7 @@
   <script src="js/main.js"></script>
 
     
-  </body>
+    <script src="js/cart.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
 </html>

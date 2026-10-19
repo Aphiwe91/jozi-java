@@ -9389,3 +9389,228 @@ a:hover { color: var(--jj-moss); }
   .jj-collection-bar{justify-content:center; text-align:center;}
   .jj-news-form{flex-direction:column; gap:10px;}
 }
+
+/* ================= Jozi Java UI UPGRADE (brief v2 polish) ================= */
+/* sticky glass navbar that solidifies on scroll */
+.ftco_navbar{ position:sticky; top:0; z-index:1030; transition: background-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease; }
+.ftco_navbar.scrolled { background: rgba(27,24,21,.88) !important; backdrop-filter: blur(8px); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+
+/* full-height hero on homepage */
+.home-slider { height: 100vh; min-height: 620px; }
+.home-slider .slider-text h1 { text-shadow: 0 6px 24px rgba(0,0,0,.35); }
+
+/* reveal-on-scroll utility (applied by enhancements.js) */
+.reveal-up { opacity:0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; will-change: opacity, transform; }
+.reveal-left { opacity:0; transform: translateX(-36px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-scale { opacity:0; transform: scale(.92); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity:1; transform: none; }
+.reveal-stagger > * { transition-delay: 0s; }
+
+/* glass pillar/service cards */
+.jj-glass { background: rgba(255,255,255,.62); border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(10px);
+  border-radius: 14px; box-shadow: 0 12px 34px rgba(0,0,0,.08); transition: transform .3s ease, box-shadow .3s ease; }
+.jj-glass:hover { transform: translateY(-6px); box-shadow: 0 22px 48px rgba(0,0,0,.14); }
+
+/* menu/bean cards: image zoom + lift on hover */
+.menu-entry, #ftco-about .one-half.img { overflow: hidden; }
+.menu-entry > a.img { transition: transform .55s ease; display:block; }
+.menu-entry:hover > a.img { transform: scale(1.06); }
+.menu-entry { transition: transform .35s ease, box-shadow .35s ease; border-radius: 8px; }
+.menu-entry:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+
+/* premium gradient primary button */
+.btn.btn-primary.jj-gradient {
+  background-image: linear-gradient(135deg, var(--jj-leaf) 0%, var(--jj-moss) 100%) !important;
+  box-shadow: 0 8px 20px rgba(59,90,51,.35);
+}
+
+/* floating WhatsApp + back-to-top */
+.jj-fab { position: fixed; right: 22px; width: 54px; height: 54px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; z-index: 1090;
+  box-shadow: 0 10px 26px rgba(0,0,0,.22); transition: transform .25s ease, box-shadow .25s ease;
+  text-decoration: none !important; }
+.jj-fab:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
+.jj-fab--wa { bottom: 22px; background: #25D366; color: #fff; }
+.jj-fab--up { bottom: 88px; background: var(--jj-leaf); color: #fff; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.jj-fab--up.is-visible { opacity: 1; pointer-events: auto; }
+.jj-fab svg { width: 26px; height: 26px; fill: #fff; }
+
+/* modern dark footer */
+.ftco-footer.ftco-section.img { background-color: var(--jj-ink)!important; background-image: none !important; background-size: 0 !important; }
+.ftco-footer .overlay { background: rgba(0,0,0,.2); }
+
+/* newsletter mini form */
+.jj-newsletter .form-control { border-radius: 999px 0 0 999px; border: 1px solid rgba(255,255,255,.2); }
+.jj-newsletter .btn { border-radius: 0 999px 999px 0; background: var(--jj-leaf); color: #fff; border-color: var(--jj-leaf); }
+.jj-newsletter .btn:hover { background: var(--jj-moss); border-color: var(--jj-moss); color:#fff; }
+
+/* faq accordion polish */
+.jj-faq .card { border: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,.06); margin-bottom: 12px; }
+.jj-faq .card-header { background: #f7f7f7; padding: 0; }
+.jj-faq .btn-link { color: var(--jj-ink); font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 600; text-decoration: none; white-space: normal; text-align: left; padding: 14px 18px; }
+.jj-faq .btn-link:hover { color: var(--jj-moss); text-decoration: none; }
+
+/* ================= Jozi Java x Truth-Coffee inspired upgrades ================= */
+/* oversized section titles (truth.coffee style, in Jozi Java green palette) */
+.jj-bigtitle { font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6.2vw, 5.4rem);
+  line-height: .95; letter-spacing: -.01em; text-transform: uppercase; margin: 0; }
+.jj-bigtitle--ink { color: var(--jj-ink); }
+.jj-bigtitle--milk { color: var(--jj-milk); }
+.jj-bigtitle--leaf { color: var(--jj-leaf); }
+.jj-eyebrow { font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 600; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--jj-leaf); font-size: .85rem; display: block; margin-bottom: .6rem; }
+
+/* wordmark hero statement */
+.jj-wordmark { font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 800; font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: .9; text-transform: uppercase; letter-spacing: -.02em; color: #fff; margin: 0;
+  text-shadow: 0 6px 28px rgba(0,0,0,.45); }
+.jj-wordmark small { display:block; font-size: .42em; letter-spacing: .18em; color: var(--jj-sage); font-weight: 600;
+  margin-bottom: .35rem; }
+
+/* seamless marquee band */
+.jj-marquee { overflow: hidden; background: var(--jj-ink); color: #fff; padding: 14px 0; }
+.jj-marquee__track { display: flex; width: max-content; animation: jj-marquee 28s linear infinite; white-space: nowrap; }
+.jj-marquee__item { font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 800; font-size: 1.35rem;
+  letter-spacing: .18em; text-transform: uppercase; padding: 0 42px; display: inline-flex; align-items: center; gap: 42px; }
+.jj-marquee__dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--jj-leaf); }
+.jj-marquee:hover .jj-marquee__track { animation-play-state: paused; }
+@keyframes jj-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .jj-marquee__track { animation: none; } }
+
+/* full-bleed tile grid (like "Shop Online / Become a Barista / Visit Truth") */
+.jj-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.jj-tile { position: relative; min-height: 360px; display: flex; align-items: flex-end; color: #fff; padding: 32px 32px 36px;
+  background-size: cover; background-position: center; overflow: hidden; text-decoration: none !important; transition: filter .4s ease; }
+.jj-tile:hover { filter: brightness(.85); }
+.jj-tile::after { content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.65) 100%); }
+.jj-tile__label { position: relative; z-index: 2;
+  font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+  line-height: 1; text-transform: uppercase; letter-spacing: .04em; border-bottom: 4px solid var(--jj-leaf);
+  padding-bottom: 6px; display: inline-block; }
+.jj-tile__kicker { position: relative; z-index: 2; display: block; font-size: .72rem; letter-spacing: .22em;
+  text-transform: uppercase; margin-bottom: 12px; color: var(--jj-sage); font-weight: 600; }
+@media (max-width: 991px) { .jj-tiles { grid-template-columns: 1fr; } .jj-tile { min-height: 240px; } }
+
+/* perfect-brew quiz teaser */
+.jj-quiz { background: linear-gradient(135deg, var(--jj-ink) 0%, var(--jj-moss) 100%);
+  color: #fff; padding: 70px 40px; text-align: center; border-radius: 6px; position: relative; overflow: hidden; }
+.jj-quiz::before { content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(107,155,71,.25), transparent 55%); }
+.jj-quiz > * { position: relative; z-index: 2; }
+.jj-quiz h2 { color: #fff; font-family: 'Barlow Condensed', Arial, sans-serif; font-size: clamp(2rem,4.6vw,3.6rem);
+  font-weight: 800; text-transform: uppercase; margin-bottom: .4rem; line-height: .95; }
+.jj-quiz p { color: rgba(255,255,255,.85); max-width: 620px; margin: 0 auto 1.6rem; }
+.jj-quiz .btn { margin: 0 .4rem; }
+
+/* community / newsletter bar (truth "JOIN THE TRUTH COMMUNITY") */
+.jj-community { background: var(--jj-leaf); color: #fff; padding: 56px 20px; text-align: center; }
+.jj-community h2 { color: #fff; font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 800;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem); text-transform: uppercase; line-height: 1; margin-bottom: .4rem; }
+.jj-community p { color: rgba(255,255,255,.88); margin-bottom: 1.2rem; }
+.jj-community form .form-control { border-radius: 999px 0 0 999px; border: 0; max-width: 340px; }
+.jj-community form .btn { border-radius: 0 999px 999px 0; background: var(--jj-ink); color: #fff; border-color: var(--jj-ink); }
+.jj-community form .btn:hover { background: var(--jj-moss); border-color: var(--jj-moss); color:#fff; }
+
+/* brewer's choice spotlight row */
+.jj-pick { background: #f5f7f2; padding: 70px 0; }
+.jj-pick .figure-wrap { position: relative; min-height: 420px; background-size: cover; background-position: center; border-radius: 6px; overflow: hidden; }
+
+/* plain dark footer polish */
+.ftco-footer.ftco-section.img { background-image: none !important; background-color: var(--jj-ink); }
+
+/* Jozi Java navbar logo */
+.jj-nav-logo { height: 42px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px; object-fit: contain; }
+@media (max-width: 767.98px) { .jj-nav-logo { height: 34px; } }
+
+/* ==========================================================================
+   Cart & checkout (js/cart.js)
+   ========================================================================== */
+
+/* nav cart link + live count */
+.jj-nav-cart .nav-link { display: inline-flex; align-items: center; gap: .4rem; }
+.jj-cart-badge { display: inline-block; min-width: 20px; height: 20px; line-height: 20px; padding: 0 6px;
+  border-radius: 999px; background: var(--jj-leaf); color: #fff; font-size: 11px; font-weight: 700; text-align: center; }
+.jj-cart-badge[hidden] { display: none; }
+
+/* toast */
+#jj-toast { position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 18px); z-index: 3000;
+  background: var(--jj-ink); color: #fff; padding: 12px 24px; border-radius: 999px; font-size: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .25); opacity: 0; pointer-events: none; max-width: 92vw; text-align: center;
+  transition: opacity .22s ease, transform .22s ease; }
+#jj-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* product card controls */
+.jj-grind { max-width: 230px; margin: 0 auto 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
+  letter-spacing: .04em; text-transform: uppercase; }
+.jj-grind:focus { border-color: var(--jj-leaf); box-shadow: none; }
+
+/* cart rows */
+.jj-line-remove { background: none; border: 0; color: #999; cursor: pointer; padding: 6px; }
+.jj-line-remove:hover { color: #c0392b; }
+.jj-qty { display: inline-flex; align-items: center; border: 1px solid #ddd; background: #fff; }
+.jj-qty button { background: none; border: 0; width: 34px; height: 38px; font-size: 18px; line-height: 1;
+  color: var(--jj-ink); cursor: pointer; }
+.jj-qty button:hover { background: #f5f7f2; }
+.jj-qty input.quantity { width: 44px; height: 38px; padding: 0; border: 0; border-left: 1px solid #eee;
+  border-right: 1px solid #eee; text-align: center; background: #fff; }
+.jj-qty input.quantity:focus { outline: none; }
+.ftco-cart table td { vertical-align: middle; }
+
+/* cart table on a light page — the template styled it for a dark background
+   (white text, white hairline borders), which is invisible here */
+.ftco-cart .table .thead-primary { background: var(--jj-ink); }
+.ftco-cart .table .thead-primary tr th { color: #fff !important; font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase; letter-spacing: .08em; font-size: 15px; }
+.ftco-cart .table tbody tr td { border-bottom: 1px solid #ececec !important; }
+.ftco-cart .table tbody tr td.product-name h3 { color: var(--jj-ink); }
+.ftco-cart .table tbody tr td.product-name p { color: #6b6b6b; margin-bottom: 0; }
+.ftco-cart .table tbody tr td.price,
+.ftco-cart .table tbody tr td.total { color: var(--jj-ink); font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 700; }
+.ftco-cart .table tbody tr td.image-prod .img { background-size: cover; background-position: center; }
+
+/* totals, notes and empty / confirmation states */
+.jj-cart-note { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; letter-spacing: .03em;
+  color: #6b6b6b; text-align: center; margin-bottom: 14px; }
+.ftco-bg-dark .jj-cart-note { color: rgba(255, 255, 255, .6); }
+.jj-continue { color: var(--jj-moss); font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
+  letter-spacing: .05em; text-transform: uppercase; }
+.jj-continue:hover { color: var(--jj-leaf); text-decoration: none; }
+.jj-empty { padding: 30px 15px 10px; }
+.jj-empty h2 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
+
+/* checkout */
+.jj-order-line { font-size: 15px; margin-bottom: .5rem; }
+.jj-order-line em { font-style: normal; color: rgba(255, 255, 255, .55); }
+.jj-delivery-opts label { display: block; margin-bottom: 6px; font-size: 15px; }
+.jj-inline-check { font-size: 14px; font-weight: 400; }
+.billing-form .form-control { color: #fff !important; }  /* typed values were rgba(255,255,255,.4) */
+.billing-form .form-control.is-invalid { border-color: #c0392b !important; }
+.is-invalid { border-color: #c0392b !important; }
+input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 2px; }
+
+/* [hidden] must beat .row{display:flex} — cart/checkout sections toggle with it */
+[hidden] { display: none !important; }
+
+@media (max-width: 767.98px) {
+  /* cart lines stack into cards instead of the template's 1000px-wide scroll table */
+  .ftco-cart .cart-list { overflow-x: visible; }
+  .ftco-cart .table { min-width: 0 !important; }
+  .ftco-cart .table thead { display: none; }
+  .ftco-cart .table tbody tr { display: block; position: relative; padding: 16px 0 16px 116px;
+    border-bottom: 1px solid #ececec; }
+  .ftco-cart .table tbody tr td { display: block; width: auto !important; padding: 2px 0 !important;
+    border: 0 !important; text-align: left !important; }
+  .ftco-cart .table tbody tr td.image-prod { position: absolute; left: 0; top: 16px; }
+  .ftco-cart .table tbody tr td.image-prod .img { width: 100px; height: 100px; margin: 0; }
+  .ftco-cart .table tbody tr td.product-remove { position: absolute; right: 0; top: 8px; width: auto; }
+  .ftco-cart .table tbody tr td.product-name { margin-bottom: 8px; }
+  .ftco-cart .table tbody tr td.product-name h3 { font-size: 17px; margin-bottom: 2px; }
+  .ftco-cart .table tbody tr td.price::before { content: "Price: "; color: #6b6b6b; }
+  .ftco-cart .table tbody tr td.total::before { content: "Line total: "; color: #6b6b6b; }
+  .ftco-cart .table tbody tr td.price,
+  .ftco-cart .table tbody tr td.total { font-size: 17px; }
+  .jj-qty button { width: 30px; height: 34px; }
+  .jj-qty input.quantity { width: 38px; height: 34px; }
+}

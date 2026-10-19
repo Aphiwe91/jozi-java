@@ -65,7 +65,7 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Jozi <small>Java</small></a>
+	      <a class="navbar-brand" href="index.html" aria-label="Jozi Java home"><img src="images/jozi/jozi-logo.jpeg" alt="Jozi Java" class="jj-nav-logo"></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -392,6 +392,37 @@
       </div>
     </section>
 
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">FAQ</span>
+            <h2 class="mb-4">Common questions about finance</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-9 jj-faq" id="jjFaq">
+            <div class="card">
+              <div class="card-header" id="q1"><h4 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#a1" aria-expanded="true" aria-controls="a1">This is asset-funded rental, not a loan &mdash; what does that mean?</button></h4></div>
+              <div id="a1" class="collapse show" aria-labelledby="q1" data-parent="#jjFaq"><div class="card-body">CCS owns the asset for the lease term; at expiry you may negotiate ownership. There is no transfer of ownership during the term.</div></div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="q2"><h4 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a2" aria-expanded="false" aria-controls="a2">Are the online rates my real rate?</button></h4></div>
+              <div id="a2" class="collapse" aria-labelledby="q2" data-parent="#jjFaq"><div class="card-body">No &mdash; the calculator shows demo rates for indicative purposes only. Actual rates and terms are confirmed by CCS on application.</div></div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="q3"><h4 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a3" aria-expanded="false" aria-controls="a3">Who applies through CCS, and what happens after I submit?</button></h4></div>
+              <div id="a3" class="collapse" aria-labelledby="q3" data-parent="#jjFaq"><div class="card-body">You apply directly with CCS (or via a warm introduction from Jozi Java). Jozi Java pre-vets leads before hand-off so our sales team (Chris / Mike / Zama) can follow up on real opportunities. The actual application and agreement are between you and CCS.</div></div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="q4"><h4 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#a4" aria-expanded="false" aria-controls="a4">I don't meet the three CCS criteria yet. What now?</button></h4></div>
+              <div id="a4" class="collapse" aria-labelledby="q4" data-parent="#jjFaq"><div class="card-body">You can still chat to Jozi Java about buying equipment outright, arranging a smaller entry setup, or planning a path to qualify later. Contact us via the form above or WhatsApp.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
@@ -562,5 +593,7 @@
   });
   </script>
     
-  </body>
+    <script src="js/cart.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
 </html>

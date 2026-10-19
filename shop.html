@@ -32,7 +32,7 @@
   <body>
   	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Jozi <small>Java</small></a>
+	      <a class="navbar-brand" href="index.html" aria-label="Jozi Java home"><img src="images/jozi/jozi-logo.jpeg" alt="Jozi Java" class="jj-nav-logo"></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -96,53 +96,53 @@
 
     		<div class="row" id="jj-grid">
     			<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap" data-featured="1" data-price="45" data-name="The Wilds Roast">
-    				<div class="jj-card">
+    				<div class="jj-card" data-sku="wilds" data-name="The Wilds Roast" data-img="images/jozi/jozi-13.jpeg">
     					<a href="product-single.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-13.jpeg);"><span class="jj-badge jj-card-flag">Takealot favourite</span></a>
     					<div class="jj-card-body">
     						<h3><a href="product-single.html">The Wilds Roast</a></h3>
     						<p class="jj-card-notes">Our everyday crowd-pleaser — balanced, chocolatey, works in any brewer.</p>
-    						<p class="jj-card-grind">Whole bean or ground</p>
     						<div class="jj-sizes" data-prices='{"250g":45,"500g":85,"1kg":129}'>
     							<button type="button" class="jj-size">250g</button>
     							<button type="button" class="jj-size">500g</button>
     							<button type="button" class="jj-size">1kg</button>
     						</div>
+    						<select class="jj-grind form-control" aria-label="Choose a grind for The Wilds Roast"><option value="">Choose grind&hellip;</option></select>
     						<p class="jj-card-price jj-price"><span>from R45.00</span></p>
-    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+    						<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
     					</div>
     				</div>
     			</div>
     			<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap" data-featured="2" data-price="49" data-name="Pritchard Street Roast">
-    				<div class="jj-card">
+    				<div class="jj-card" data-sku="pritchard" data-name="Pritchard Street Roast" data-img="images/jozi/jozi-14.jpeg">
     					<a href="product-single.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-14.jpeg);"><span class="jj-badge jj-card-flag">New</span></a>
     					<div class="jj-card-body">
     						<h3><a href="product-single.html">Pritchard Street Roast</a></h3>
     						<p class="jj-card-notes">Bolder and brighter — for the ones who like their coffee with attitude.</p>
-    						<p class="jj-card-grind">Whole bean or ground</p>
     						<div class="jj-sizes" data-prices='{"250g":49,"500g":89,"1kg":139}'>
     							<button type="button" class="jj-size">250g</button>
     							<button type="button" class="jj-size">500g</button>
     							<button type="button" class="jj-size">1kg</button>
     						</div>
+    						<select class="jj-grind form-control" aria-label="Choose a grind for Pritchard Street Roast"><option value="">Choose grind&hellip;</option></select>
     						<p class="jj-card-price jj-price"><span>from R49.00</span></p>
-    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+    						<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
     					</div>
     				</div>
     			</div>
     			<div class="col-md-4 col-sm-6 ftco-animate jj-card-wrap" data-featured="3" data-price="52" data-name="Douglasdale Decaf">
-    				<div class="jj-card">
+    				<div class="jj-card" data-sku="decaf" data-name="Douglasdale Decaf" data-img="images/jozi/jozi-15.jpeg">
     					<a href="product-single.html" class="jj-card-img" style="background-image: url(images/jozi/jozi-15.jpeg);"></a>
     					<div class="jj-card-body">
     						<h3><a href="product-single.html">Douglasdale Decaf</a></h3>
     						<p class="jj-card-notes">All of the ritual, none of the buzz — smooth enough for a late-night cup.</p>
-    						<p class="jj-card-grind">Whole bean or ground</p>
     						<div class="jj-sizes" data-prices='{"250g":52,"500g":95,"1kg":149}'>
     							<button type="button" class="jj-size">250g</button>
     							<button type="button" class="jj-size">500g</button>
     							<button type="button" class="jj-size">1kg</button>
     						</div>
+    						<select class="jj-grind form-control" aria-label="Choose a grind for Douglasdale Decaf"><option value="">Choose grind&hellip;</option></select>
     						<p class="jj-card-price jj-price"><span>from R52.00</span></p>
-    						<p><a href="cart.html" class="btn btn-primary btn-outline-primary">Add to Cart</a></p>
+    						<p><button type="button" class="btn btn-primary btn-outline-primary jj-add">Add to Cart</button></p>
     					</div>
     				</div>
     			</div>
@@ -374,5 +374,7 @@
   <script src="js/shop.js"></script>
   <script src="js/main.js"></script>
     
-  </body>
+    <script src="js/cart.js"></script>
+    <script src="js/enhancements.js"></script>
+</body>
 </html>

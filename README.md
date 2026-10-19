@@ -14,8 +14,8 @@ python3 -m http.server 8002
 
 - `css/style.css` — template CSS + custom brand styles at the end
   (`jj-*` classes, `--jj-ink/milk/leaf/sage/moss` palette, Barlow / Barlow Condensed fonts)
-- Navbar: logo sits at the **right end** with the social handles beside it
-  (`.jj-nav-right` / `.jj-nav-social`); menu links stay left. `.jj-nav-logo` needs an
+- Navbar: logo at the **left end** with the social handles beside it
+  (`.jj-nav-brand` / `.jj-nav-social`); menu links sit right. `.jj-nav-logo` needs an
   explicit width — the source mark is square and a flex row would otherwise squeeze it.
 - Page banner / backdrop: the client poster (`images/jozi/jozi-bg.jpeg`) replaces the
   photo strips behind every page title. It is portrait, so it is drawn whole (`contain`)

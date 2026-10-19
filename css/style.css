@@ -9558,12 +9558,12 @@ a:hover { color: var(--jj-moss); }
 .ftco-footer.ftco-section.img { background-image: none !important; background-color: var(--jj-ink); }
 
 /* Jozi Java navbar logo */
-/* nav right cluster: social handles next to the logo, logo at the right end */
-.jj-nav-right { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; margin-left: auto; }
-.jj-nav-right .navbar-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center;
+/* nav brand cluster (left): logo with the social handles beside it */
+.jj-nav-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; }
+.jj-nav-brand .navbar-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center;
   margin: 0; padding: 0; }
 .jj-nav-social { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; gap: 7px;
-  margin: 0 16px; padding: 0; list-style: none; }
+  margin: 0 0 0 16px; padding: 0; list-style: none; }
 .jj-nav-social a { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; align-items: center;
   justify-content: center; width: 30px; height: 30px; border: 1px solid rgba(255, 255, 255, .28);
   border-radius: 50%; color: rgba(255, 255, 255, .85); background: rgba(255, 255, 255, .04);
@@ -9573,23 +9573,26 @@ a:hover { color: var(--jj-moss); }
 /* the source mark is square (1280x1280); an explicit width keeps it from being
    squeezed to 30px by the flex row + max-width:100% (which shrank the drawn logo) */
 .jj-nav-logo { height: 52px; width: 52px; max-width: none; display: inline-block; vertical-align: middle; object-fit: contain; }
-/* tighter link padding makes room for the social cluster + logo at 1200px+ */
+/* tighter link padding keeps a gap between the logo cluster and the menu links */
 @media (min-width: 768px) {
-  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 15px; padding-right: 15px; }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 12px; padding-right: 12px; }
 }
+/* collapsed bar: brand + socials left, Menu button right */
+#ftco-navbar .navbar-toggler { margin-left: auto; }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   /* the 960px container cannot hold menu + socials + logo; keep menu + logo */
   .jj-nav-social { display: none; }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 10px; padding-right: 10px; }
 }
 @media (max-width: 991.98px) {
   .jj-nav-logo { height: 42px; width: 42px; }
-  .jj-nav-social { margin: 0 12px 0 10px; gap: 6px; }
+  .jj-nav-social { margin-left: 12px; gap: 6px; }
   .jj-nav-social a { width: 28px; height: 28px; }
   .jj-nav-social svg { width: 14px; height: 14px; }
 }
 @media (max-width: 575.98px) {
   .jj-nav-logo { height: 38px; width: 38px; }
-  .jj-nav-social { margin: 0 8px 0 6px; gap: 5px; }
+  .jj-nav-social { margin-left: 8px; gap: 5px; }
   .jj-nav-social a { width: 26px; height: 26px; }
 }
 

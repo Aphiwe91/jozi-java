@@ -7269,13 +7269,20 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background: #151111;
+  background: #121645;
   font-size: 15px;
   line-height: 1.8;
   font-weight: 300;
   color: gray;
-  background: url(../images/jozi/jozi-10.jpeg) no-repeat fixed;
-  background-size: cover; }
+  /* Site-wide backdrop: the client poster, shown whole (contain) on its own navy field.
+     A soft navy scrim keeps white text legible in the few places sections are transparent. */
+  background-color: #121645;
+  background-image: -webkit-linear-gradient(rgba(18, 22, 69, 0.55), rgba(18, 22, 69, 0.55)), url(../images/jozi/jozi-bg.jpeg);
+  background-image: linear-gradient(rgba(18, 22, 69, 0.55), rgba(18, 22, 69, 0.55)), url(../images/jozi/jozi-bg.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%, contain;
+  background-position: center center, center center; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -7948,15 +7955,19 @@ h1, h2, h3, h4, h5,
       width: calc(100% - 80px);
       font-size: 18px; }
       .pricing-entry .text h3 span {
-        background: #151111;
-        background: url(../images/jozi/jozi-10.jpeg) no-repeat fixed;
+        background: #121645;
+        background: linear-gradient(rgba(18, 22, 69, 0.55), rgba(18, 22, 69, 0.55)), url(../images/jozi/jozi-bg.jpeg) no-repeat fixed;
+        background-size: 100% 100%, contain;
+        background-position: center center, center center;
         padding-right: 20px; }
     .pricing-entry .text .price {
       width: 80px;
       color: #c49b63;
       text-align: right;
-      background: #151111;
-      background: url(../images/jozi/jozi-10.jpeg) no-repeat fixed;
+      background: #121645;
+      background: linear-gradient(rgba(18, 22, 69, 0.55), rgba(18, 22, 69, 0.55)), url(../images/jozi/jozi-bg.jpeg) no-repeat fixed;
+      background-size: 100% 100%, contain;
+      background-position: center center, center center;
       font-size: 16px; }
 
 .menu-entry {
@@ -9296,6 +9307,33 @@ textarea.form-control {
   background-repeat: no-repeat !important;
 }
 
+/* --- Client poster as the site-wide page banner (all pages, all slides) ---
+   The poster is portrait (1081x1351), so it is shown WHOLE (contain) on its own navy
+   field rather than being cropped by the old cover behaviour. The slide text sits on a
+   translucent navy plaque so it stays readable over the poster's white panel. */
+.slider-item {
+  background-color: #121645 !important;
+  background-image: -webkit-linear-gradient(rgba(18, 22, 69, 0.10), rgba(18, 22, 69, 0.10)), url(../images/jozi/jozi-bg.jpeg) !important;
+  background-image: linear-gradient(rgba(18, 22, 69, 0.10), rgba(18, 22, 69, 0.10)), url(../images/jozi/jozi-bg.jpeg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100%, contain !important;
+  background-position: center center, center center !important;
+}
+.slider-item .overlay { opacity: 0 !important; }
+.slider-text > [class*="col-"] {
+  background: rgba(18, 22, 69, 0.82);
+  padding: 26px 30px 22px;
+  border-radius: 3px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 767.98px) {
+  /* shorter banner on phones so the whole poster fits without a 750px scroll */
+  .owl-carousel.home-slider,
+  .owl-carousel.home-slider .slider-item,
+  .owl-carousel.home-slider .slider-item .slider-text { height: 520px; }
+  .slider-text > [class*="col-"] { padding: 20px 18px 16px; }
+}
+
 /* keep Bootstrap navbar visible despite injected framework rules */
 .navbar-collapse { visibility: visible !important; }
 
@@ -9520,8 +9558,40 @@ a:hover { color: var(--jj-moss); }
 .ftco-footer.ftco-section.img { background-image: none !important; background-color: var(--jj-ink); }
 
 /* Jozi Java navbar logo */
-.jj-nav-logo { height: 42px; width: auto; display: inline-block; vertical-align: middle; margin-right: 10px; object-fit: contain; }
-@media (max-width: 767.98px) { .jj-nav-logo { height: 34px; } }
+/* nav right cluster: social handles next to the logo, logo at the right end */
+.jj-nav-right { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; margin-left: auto; }
+.jj-nav-right .navbar-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center;
+  margin: 0; padding: 0; }
+.jj-nav-social { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; gap: 7px;
+  margin: 0 16px; padding: 0; list-style: none; }
+.jj-nav-social a { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; align-items: center;
+  justify-content: center; width: 30px; height: 30px; border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 50%; color: rgba(255, 255, 255, .85); background: rgba(255, 255, 255, .04);
+  -webkit-transition: all .2s ease; transition: all .2s ease; }
+.jj-nav-social a:hover, .jj-nav-social a:focus { background: var(--jj-leaf); border-color: var(--jj-leaf); color: #fff; }
+.jj-nav-social svg { width: 15px; height: 15px; display: block; fill: currentColor; }
+/* the source mark is square (1280x1280); an explicit width keeps it from being
+   squeezed to 30px by the flex row + max-width:100% (which shrank the drawn logo) */
+.jj-nav-logo { height: 52px; width: 52px; max-width: none; display: inline-block; vertical-align: middle; object-fit: contain; }
+/* tighter link padding makes room for the social cluster + logo at 1200px+ */
+@media (min-width: 768px) {
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 15px; padding-right: 15px; }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* the 960px container cannot hold menu + socials + logo; keep menu + logo */
+  .jj-nav-social { display: none; }
+}
+@media (max-width: 991.98px) {
+  .jj-nav-logo { height: 42px; width: 42px; }
+  .jj-nav-social { margin: 0 12px 0 10px; gap: 6px; }
+  .jj-nav-social a { width: 28px; height: 28px; }
+  .jj-nav-social svg { width: 14px; height: 14px; }
+}
+@media (max-width: 575.98px) {
+  .jj-nav-logo { height: 38px; width: 38px; }
+  .jj-nav-social { margin: 0 8px 0 6px; gap: 5px; }
+  .jj-nav-social a { width: 26px; height: 26px; }
+}
 
 /* ==========================================================================
    Cart & checkout (js/cart.js)
@@ -9545,38 +9615,40 @@ a:hover { color: var(--jj-moss); }
   letter-spacing: .04em; text-transform: uppercase; }
 .jj-grind:focus { border-color: var(--jj-leaf); box-shadow: none; }
 
-/* cart rows */
-.jj-line-remove { background: none; border: 0; color: #999; cursor: pointer; padding: 6px; }
-.jj-line-remove:hover { color: #c0392b; }
-.jj-qty { display: inline-flex; align-items: center; border: 1px solid #ddd; background: #fff; }
+/* cart rows — the page sits on the dark poster backdrop, so white on a translucency panel */
+.jj-line-remove { background: none; border: 0; color: rgba(255, 255, 255, .55); cursor: pointer; padding: 6px; }
+.jj-line-remove:hover { color: #fff; }
+.jj-qty { display: inline-flex; align-items: center; border: 1px solid rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .06); }
 .jj-qty button { background: none; border: 0; width: 34px; height: 38px; font-size: 18px; line-height: 1;
-  color: var(--jj-ink); cursor: pointer; }
-.jj-qty button:hover { background: #f5f7f2; }
-.jj-qty input.quantity { width: 44px; height: 38px; padding: 0; border: 0; border-left: 1px solid #eee;
-  border-right: 1px solid #eee; text-align: center; background: #fff; }
+  color: #fff; cursor: pointer; }
+.jj-qty button:hover { background: rgba(255, 255, 255, .12); }
+.jj-qty input.quantity { width: 44px; height: 38px; padding: 0; border: 0;
+  border-left: 1px solid rgba(255, 255, 255, .15); border-right: 1px solid rgba(255, 255, 255, .15);
+  text-align: center; background: transparent; color: #fff; }
 .jj-qty input.quantity:focus { outline: none; }
 .ftco-cart table td { vertical-align: middle; }
 
-/* cart table on a light page — the template styled it for a dark background
-   (white text, white hairline borders), which is invisible here */
-.ftco-cart .table .thead-primary { background: var(--jj-ink); }
+/* cart table: translucent ink panel over the poster, leaf header, white text */
+.ftco-cart .cart-list { background: rgba(18, 22, 69, .55); }
+.ftco-cart .table .thead-primary { background: var(--jj-leaf); }
 .ftco-cart .table .thead-primary tr th { color: #fff !important; font-family: 'Barlow Condensed', sans-serif;
   text-transform: uppercase; letter-spacing: .08em; font-size: 15px; }
-.ftco-cart .table tbody tr td { border-bottom: 1px solid #ececec !important; }
-.ftco-cart .table tbody tr td.product-name h3 { color: var(--jj-ink); }
-.ftco-cart .table tbody tr td.product-name p { color: #6b6b6b; margin-bottom: 0; }
+.ftco-cart .table tbody tr td { border-bottom: 1px solid rgba(255, 255, 255, .12) !important; }
+.ftco-cart .table tbody tr td.product-name h3 { color: #fff; }
+.ftco-cart .table tbody tr td.product-name p { color: rgba(255, 255, 255, .6); margin-bottom: 0; }
 .ftco-cart .table tbody tr td.price,
-.ftco-cart .table tbody tr td.total { color: var(--jj-ink); font-family: 'Barlow Condensed', sans-serif;
+.ftco-cart .table tbody tr td.total { color: #fff; font-family: 'Barlow Condensed', sans-serif;
   font-size: 20px; font-weight: 700; }
 .ftco-cart .table tbody tr td.image-prod .img { background-size: cover; background-position: center; }
 
 /* totals, notes and empty / confirmation states */
 .jj-cart-note { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; letter-spacing: .03em;
-  color: #6b6b6b; text-align: center; margin-bottom: 14px; }
+  color: rgba(255, 255, 255, .6); text-align: center; margin-bottom: 14px; }
 .ftco-bg-dark .jj-cart-note { color: rgba(255, 255, 255, .6); }
-.jj-continue { color: var(--jj-moss); font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
+.jj-continue { color: var(--jj-sage); font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
   letter-spacing: .05em; text-transform: uppercase; }
-.jj-continue:hover { color: var(--jj-leaf); text-decoration: none; }
+.jj-continue:hover { color: #fff; text-decoration: none; }
 .jj-empty { padding: 30px 15px 10px; }
 .jj-empty h2 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
 
@@ -9599,7 +9671,7 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
   .ftco-cart .table { min-width: 0 !important; }
   .ftco-cart .table thead { display: none; }
   .ftco-cart .table tbody tr { display: block; position: relative; padding: 16px 0 16px 116px;
-    border-bottom: 1px solid #ececec; }
+    border-bottom: 1px solid rgba(255, 255, 255, .14); }
   .ftco-cart .table tbody tr td { display: block; width: auto !important; padding: 2px 0 !important;
     border: 0 !important; text-align: left !important; }
   .ftco-cart .table tbody tr td.image-prod { position: absolute; left: 0; top: 16px; }
@@ -9607,8 +9679,8 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
   .ftco-cart .table tbody tr td.product-remove { position: absolute; right: 0; top: 8px; width: auto; }
   .ftco-cart .table tbody tr td.product-name { margin-bottom: 8px; }
   .ftco-cart .table tbody tr td.product-name h3 { font-size: 17px; margin-bottom: 2px; }
-  .ftco-cart .table tbody tr td.price::before { content: "Price: "; color: #6b6b6b; }
-  .ftco-cart .table tbody tr td.total::before { content: "Line total: "; color: #6b6b6b; }
+  .ftco-cart .table tbody tr td.price::before { content: "Price: "; color: rgba(255, 255, 255, .55); }
+  .ftco-cart .table tbody tr td.total::before { content: "Line total: "; color: rgba(255, 255, 255, .55); }
   .ftco-cart .table tbody tr td.price,
   .ftco-cart .table tbody tr td.total { font-size: 17px; }
   .jj-qty button { width: 30px; height: 34px; }

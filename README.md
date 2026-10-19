@@ -14,6 +14,13 @@ python3 -m http.server 8002
 
 - `css/style.css` — template CSS + custom brand styles at the end
   (`jj-*` classes, `--jj-ink/milk/leaf/sage/moss` palette, Barlow / Barlow Condensed fonts)
+- Navbar: logo sits at the **right end** with the social handles beside it
+  (`.jj-nav-right` / `.jj-nav-social`); menu links stay left. `.jj-nav-logo` needs an
+  explicit width — the source mark is square and a flex row would otherwise squeeze it.
+- Page banner / backdrop: the client poster (`images/jozi/jozi-bg.jpeg`) replaces the
+  photo strips behind every page title. It is portrait, so it is drawn whole (`contain`)
+  on its own navy field with the slide text on a translucent plaque — a `cover` crop cuts
+  the poster in half.
 - `js/shop.js` — collection sorting (shop page only)
 - `js/cart.js` — localStorage cart: size/grind pickers, nav count badge, cart + checkout
   rendering, WhatsApp order handoff (`wa.me/27689235818`). No payment gateway yet.
@@ -49,6 +56,11 @@ is charged online — Jozi Java confirms stock and sends a payment link.
 ## Notes
 
 - Prices/product claims marked `<!-- PLACEHOLDER -->` in HTML are pending client sign-off.
+- Social handles in the navbar link to `instagram.com/jozijava`, `facebook.com/jozijava`,
+  `tiktok.com/@jozijava`, `linkedin.com/company/jozijava` — **PLACEHOLDER URLs** (LinkedIn
+  slug and the TikTok/IG accounts still need client confirmation). Icons are inline SVGs
+  (Simple Icons glyphs), so no icon font is required. The footer still carries the
+  template's own Twitter/Facebook/Instagram `#` links.
 - `product-single.html` is still the template product page (no real Jozi Java roast yet) —
   Add to Cart from the shop cards works regardless.
 - Client contact: WhatsApp 27689235818 · info@jozijava.co.za

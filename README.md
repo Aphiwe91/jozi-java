@@ -24,7 +24,10 @@ python3 -m http.server 8002
 - `js/shop.js` — collection sorting (shop page only)
 - `js/cart.js` — localStorage cart: size/grind pickers, nav count badge, cart + checkout
   rendering, WhatsApp order handoff (`wa.me/27689235818`). No payment gateway yet.
-- `js/enhancements.js` — sticky nav, scroll reveals, animated counters, WhatsApp/back-to-top FABs
+- `js/enhancements.js` — sticky nav, scroll reveals, animated counters, WhatsApp/back-to-top FABs,
+  plus a safety net that reveals theme `.ftco-animate` blocks the waypoint missed
+- Navbar text: 14px links (4px side padding, zero tracking — the search field still fits at
+  1366px), 16px search field, 17px "Menu" toggler
 - `images/jozi/jozi-01..47.jpeg` — client photos
 
 ## Cart & ordering
@@ -63,6 +66,17 @@ is charged online — Jozi Java confirms stock and sends a payment link.
   template's own Twitter/Facebook/Instagram `#` links.
 - `product-single.html` is still the template product page (no real Jozi Java roast yet) —
   Add to Cart from the shop cards works regardless.
+- Contact tile (`index.html` bottom + `contact.html`): the template's Google Maps **JavaScript
+  API** block was replaced with a **keyless Google Maps embed** (`.jj-map` + info card). The
+  theme shipped a dead API key, so Google drew a grey "something went wrong" box where the map
+  should be — half of the CONTACT US tile looked broken. The map location
+  (`Douglasdale, Sandton, Johannesburg`) is a **PLACEHOLDER**: replace the `q=` value in the
+  iframe `src` and the "Get directions" link on both pages with the roastery's exact address.
+  `js/google-map.js` is no longer referenced (kept for reference).
+- Scroll-in blocks (`.ftco-animate`): the theme hid them (`opacity: 0; visibility: hidden`) and
+  only faded them in on a *downward* scroll, so anything already on screen or reached by
+  scrolling back up could stay invisible. `js/main.js` now reveals in both directions and
+  `js/enhancements.js` re-checks everything above the fold on load/scroll/resize.
 - Client contact: WhatsApp 27689235818 · info@jozijava.co.za
 - Template credit: Colorlib (free-template licence — keep footer credit).
 

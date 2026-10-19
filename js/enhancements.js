@@ -91,6 +91,36 @@
     });
   }
 
+  // ---------- theme animate safety net ----------
+  /* The Colorlib theme hides every `.ftco-animate` block (opacity 0 + visibility hidden)
+     and relied on a jQuery waypoint to fade it in. Any block that was already on screen
+     when the page loaded — or reached by a jump link / scrolling back up — stayed
+     invisible (that is why the bottom CONTACT US form could be missing). Reveal anything
+     the visitor can see; blocks still below the fold keep their entrance animation. */
+  function animateFailsafe() {
+    var pending = document.querySelectorAll('.ftco-animate:not(.ftco-animated)');
+    if (!pending.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = 0; i < pending.length; i++) {
+      var el = pending[i];
+      if (el.getBoundingClientRect().top >= vh) continue; // still below the fold
+      var effect = el.getAttribute('data-animate-effect');
+      if (effect !== 'fadeIn' && effect !== 'fadeInLeft' && effect !== 'fadeInRight') effect = 'fadeInUp';
+      el.classList.add(effect, 'ftco-animated');
+      el.classList.remove('item-animate');
+    }
+  }
+
+  function watchAnimateFailsafe() {
+    var queued = false;
+    function tick() { queued = false; animateFailsafe(); }
+    function onScroll() { if (!queued) { queued = true; setTimeout(tick, 60); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('load', animateFailsafe);
+    animateFailsafe();
+  }
+
   ready(function () {
     navOnScroll();
     setupReveal();
@@ -98,5 +128,6 @@
     equipFilter();
     injectFab();
     smoothAnchors();
+    watchAnimateFailsafe();
   });
 })(window.jQuery || (function ($) { return $; }));

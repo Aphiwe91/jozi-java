@@ -133,7 +133,7 @@
         </div>
       </div>
 
-      <div class="slider-item jj-hero-5" style="background-image: url(images/jozi/jozi-06.jpeg);">
+      <div class="slider-item jj-hero-5 jj-hero-fit" style="background-image: url(images/jozi/jozi-06.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -146,7 +146,7 @@
           </div>
         </div>
       </div>
-      <div class="slider-item jj-hero-6" style="background-image: url(images/jozi/jozi-03.jpeg);">
+      <div class="slider-item jj-hero-6 jj-hero-fit" style="background-image: url(images/jozi/jozi-03.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -159,7 +159,7 @@
           </div>
         </div>
       </div>
-      <div class="slider-item jj-hero-7" style="background-image: url(images/jozi/jozi-05.jpeg);">
+      <div class="slider-item jj-hero-7 jj-hero-fit" style="background-image: url(images/jozi/jozi-05.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -172,7 +172,7 @@
           </div>
         </div>
       </div>
-      <div class="slider-item jj-hero-8" style="background-image: url(images/jozi/jozi-04.jpeg);">
+      <div class="slider-item jj-hero-8 jj-hero-fit" style="background-image: url(images/jozi/jozi-04.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -747,7 +747,14 @@
     	<div class="container-wrap">
     		<div class="row no-gutters d-md-flex align-items-center">
     			<div class="col-md-6 d-flex align-self-stretch">
-    				<div id="map"></div>
+    				<div class="jj-map">
+    					<iframe class="jj-map-frame" title="Map to Jozi Java" src="https://www.google.com/maps?q=Douglasdale,+Sandton,+Johannesburg,+South+Africa&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    					<div class="jj-map-card">
+    						<h4>Visit us</h4>
+    						<p>The Roastery (Douglasdale) &middot; Sandton, Johannesburg</p>
+    						<a href="https://www.google.com/maps/search/?api=1&amp;query=Douglasdale,+Sandton,+Johannesburg,+South+Africa" target="_blank" rel="noopener">Get directions</a>
+    					</div>
+    				</div>
     			</div>
 	    		<div class="col-md-6 appointment ftco-animate">
 	    			<h3 class="mb-3">CONTACT US</h3>
@@ -898,8 +905,6 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
     
   
@@ -923,6 +928,32 @@
     .home-slider.owl-carousel .slider-item.jj-hero-7 { background-image: url(images/jozi/jozi-05.jpeg) !important; }
     .home-slider.owl-carousel .slider-item.jj-hero-8 { background-image: url(images/jozi/jozi-04.jpeg) !important; }
     @media (max-width:767.98px){.home-slider.owl-carousel{height:520px}.home-slider.owl-carousel .slider-item{height:100%}}
+    /* The client's last four photos (slides 5-8) are square/portrait shots of products on
+       a light background. Cropping them into the 1.9:1 hero with cover sliced the product
+       out of frame, so on tablet/desktop they show WHOLE (contain) on the left over a
+       blurred copy of themselves, with the text panel moved to the right of the photo.
+       Phones keep the full-bleed cover + centred panel (no room for a side-by-side). */
+    @media (min-width: 768px) {
+      .home-slider.owl-carousel .slider-item.jj-hero-fit::before {
+        content: ""; position: absolute; left: -5%; top: -5%; width: 110%; height: 110%;
+        background-image: inherit; background-size: cover; background-position: center center; background-repeat: no-repeat;
+        -webkit-filter: blur(34px) brightness(.42) saturate(1.05);
+        filter: blur(34px) brightness(.42) saturate(1.05); }
+      .home-slider.owl-carousel .slider-item.jj-hero-fit::after {
+        content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 1;
+        background-image: inherit; background-repeat: no-repeat;
+        background-position: 3% center; background-size: auto 74%; }
+      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text { position: relative; z-index: 2; }
+      /* Bootstrap's .justify-content-center / .text-center utilities are !important, so these are too */
+      .home-slider.owl-carousel .slider-item.jj-hero-fit .row { -webkit-box-pack: end !important; -ms-flex-pack: end !important; justify-content: flex-end !important; }
+      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text > [class*="col-"] {
+        -webkit-box-flex: 0; -ms-flex: 0 0 42%; flex: 0 0 42%; max-width: 42%; text-align: left !important; }
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .home-slider.owl-carousel .slider-item.jj-hero-fit::after { background-size: auto 58%; }
+      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text > [class*="col-"] {
+        -webkit-box-flex: 0; -ms-flex: 0 0 38%; flex: 0 0 38%; max-width: 38%; }
+    }
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
@@ -936,7 +967,7 @@
       slides[i].classList.remove('is-active');
       i = (i + 1) % slides.length;
       slides[i].classList.add('is-active');
-    }, 5000);   /* 5s between slides */
+    }, 10000);  /* 10s between slides */
   });
   </script>
     <style>

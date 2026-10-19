@@ -9606,15 +9606,17 @@ a:hover { color: var(--jj-moss); }
     padding-top: .9rem; padding-bottom: .9rem; }
 }
 @media (min-width: 1200px) {
-  /* room for the search field: tighter links on every desktop width */
-  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 5px; padding-right: 5px; letter-spacing: .25px; }
+  /* room for the search field: tighter links on every desktop width.
+     The client asked for slightly larger nav text, so the links are 14px and the
+     padding/letter-spacing shrink to 4px / 0 to keep the cluster and menu apart. */
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 4px; padding-right: 4px; letter-spacing: 0; }
 }
 /* collapsed bar: brand + socials at the corner, Menu button right */
 #ftco-navbar .navbar-toggler { margin-left: auto; }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   /* the 960px container cannot hold menu + socials + logo; keep menu + logo */
   .jj-nav-social { display: none; }
-  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 5px; padding-right: 5px; letter-spacing: 1px; }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 4px; padding-right: 4px; letter-spacing: 0; }
 }
 @media (max-width: 991.98px) {
   .jj-nav-logo { height: 46px; width: 46px; }
@@ -9771,3 +9773,48 @@ input, button, select, textarea, .form-control,
 }
 /* Open Iconic glyphs live on the element itself, not on ::before */
 .oi { font-family: Icons !important; }
+
+/* ================= Navbar text: slightly larger (client request) =================
+   The template prints the menu links at 13px; 14px reads better at a glance while
+   the tightened 4px padding + zero tracking above keep the bar on one line. */
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link { font-size: 14px; }
+.ftco-navbar-light .navbar-toggler { font-size: 17px; }
+.jj-nav-search input { font-size: 16px; }
+
+/* ================= Contact map =================
+   The template's Google Maps JavaScript API block never rendered (its API key is the
+   theme author's placeholder, so Google showed a grey "something went wrong" box).
+   A keyless Google Maps embed fills the same slot, with an info card on top so the
+   panel still reads as intentional if the embed cannot load (offline, blocked). */
+.jj-map { position: relative; display: -webkit-box; display: -ms-flexbox; display: flex;
+  -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
+  -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end;
+  width: 100%; min-height: 400px; overflow: hidden; background: var(--jj-ink); }
+.jj-map-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; display: block; }
+.jj-map-card { position: relative; z-index: 2; margin: 0 0 24px 24px; padding: 18px 22px; max-width: 320px;
+  background: rgba(27, 24, 21, .88); color: #fff; border-left: 3px solid var(--jj-leaf); }
+.jj-map-card h4 { font-size: 17px; margin: 0 0 6px; color: #fff; }
+.jj-map-card p { margin: 0 0 10px; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, .75); }
+.jj-map-card a { color: var(--jj-sage); font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.jj-map-card a:hover, .jj-map-card a:focus { color: #fff; text-decoration: none; }
+@media (max-width: 991.98px) {
+  .jj-map { min-height: 300px; }
+  .jj-map-card { margin: 0 0 16px 16px; padding: 14px 16px; max-width: 280px; }
+}
+@media (max-width: 575.98px) {
+  .jj-map-card p { display: none; }
+}
+
+/* Contact form legibility: the template's fields are transparent with a 20%-white
+   underline and 13px labels, which all but disappears on the black section. A faint
+   fill, a stronger underline and 15px text make the controls read as fields. */
+.ftco-appointment .appointment-form .form-control {
+  font-size: 15px; padding-left: 12px; padding-right: 12px;
+  background: rgba(255, 255, 255, .05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .42) !important; }
+.ftco-appointment .appointment-form .form-control:focus,
+.ftco-appointment .appointment-form .form-control:active {
+  background: rgba(255, 255, 255, .08) !important;
+  border-bottom-color: var(--jj-leaf) !important; }
+.ftco-appointment .appointment-form textarea.form-control {
+  padding-top: 16px; padding-bottom: 16px; }

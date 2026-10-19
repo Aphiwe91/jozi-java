@@ -170,7 +170,9 @@
 		
 		$('#section-counter').waypoint( function( direction ) {
 
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+			/* both scroll directions — the original 'down' check left blocks
+			   (e.g. the bottom contact form) invisible when scrolling back up */
+			if( !$(this.element).hasClass('ftco-animated') ) {
 
 				var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
 				$('.number').each(function(){
@@ -196,7 +198,9 @@
 		var i = 0;
 		$('.ftco-animate').waypoint( function( direction ) {
 
-			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+			/* both scroll directions — the original 'down' check left blocks
+			   (e.g. the bottom contact form) invisible when scrolling back up */
+			if( !$(this.element).hasClass('ftco-animated') ) {
 				
 				i++;
 

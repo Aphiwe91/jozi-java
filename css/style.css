@@ -9388,6 +9388,9 @@ a:hover { color: var(--jj-moss); }
 .jj-sort{border:1px solid #ddd; background:#fff; padding:8px 12px; font-family:'Barlow Condensed',sans-serif;
   font-size:15px; letter-spacing:.04em; text-transform:uppercase; color:var(--jj-ink); cursor:pointer;}
 .jj-sort:focus{outline:none; border-color:var(--jj-leaf);}
+.jj-search-clear{font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--jj-leaf);
+  text-decoration:underline;}
+.jj-search-clear:hover{color:var(--jj-moss);}
 .jj-card{background:#fff; border:1px solid #ececec; height:100%; display:flex; flex-direction:column;
   transition:box-shadow .25s ease, transform .25s ease;}
 .jj-card:hover{box-shadow:0 14px 34px rgba(27,24,21,.12); transform:translateY(-4px);}
@@ -9463,15 +9466,16 @@ a:hover { color: var(--jj-moss); }
 }
 
 /* floating WhatsApp + back-to-top */
-.jj-fab { position: fixed; right: 22px; width: 54px; height: 54px; border-radius: 50%;
+.jj-fab { position: fixed; right: 22px; width: 64px; height: 64px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; z-index: 1090;
   box-shadow: 0 10px 26px rgba(0,0,0,.22); transition: transform .25s ease, box-shadow .25s ease;
   text-decoration: none !important; }
 .jj-fab:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.28); }
 .jj-fab--wa { bottom: 22px; background: #25D366; color: #fff; }
-.jj-fab--up { bottom: 88px; background: var(--jj-leaf); color: #fff; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
+.jj-fab--up { bottom: 98px; background: var(--jj-leaf); color: #fff; opacity: 0; pointer-events: none; transition: opacity .3s ease; }
 .jj-fab--up.is-visible { opacity: 1; pointer-events: auto; }
-.jj-fab svg { width: 26px; height: 26px; fill: #fff; }
+.jj-fab svg { width: 34px; height: 34px; fill: #fff; }
+.jj-fab--up svg { width: 26px; height: 26px; }
 
 /* modern dark footer */
 .ftco-footer.ftco-section.img { background-color: var(--jj-ink)!important; background-image: none !important; background-size: 0 !important; }
@@ -9558,42 +9562,75 @@ a:hover { color: var(--jj-moss); }
 .ftco-footer.ftco-section.img { background-image: none !important; background-color: var(--jj-ink); }
 
 /* Jozi Java navbar logo */
-/* nav brand cluster (left): logo with the social handles beside it */
+/* nav brand cluster: logo with the social handles beside it. On desktop it is lifted
+   out of the centred container and pinned to the top-left corner of the bar. */
 .jj-nav-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; }
+@media (min-width: 992px) {
+  .jj-nav-brand { position: absolute; left: 20px; top: 50%; z-index: 5;
+    -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+}
 .jj-nav-brand .navbar-brand { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center;
   margin: 0; padding: 0; }
-.jj-nav-social { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; gap: 7px;
-  margin: 0 0 0 16px; padding: 0; list-style: none; }
+.jj-nav-social { display: -webkit-box; display: -ms-flexbox; display: flex; align-items: center; gap: 5px;
+  margin: 0 0 0 14px; padding: 0; list-style: none; }
 .jj-nav-social a { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; align-items: center;
-  justify-content: center; width: 30px; height: 30px; border: 1px solid rgba(255, 255, 255, .28);
+  justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(255, 255, 255, .28);
   border-radius: 50%; color: rgba(255, 255, 255, .85); background: rgba(255, 255, 255, .04);
   -webkit-transition: all .2s ease; transition: all .2s ease; }
 .jj-nav-social a:hover, .jj-nav-social a:focus { background: var(--jj-leaf); border-color: var(--jj-leaf); color: #fff; }
-.jj-nav-social svg { width: 15px; height: 15px; display: block; fill: currentColor; }
+.jj-nav-social svg { width: 17px; height: 17px; display: block; fill: currentColor; }
 /* the source mark is square (1280x1280); an explicit width keeps it from being
    squeezed to 30px by the flex row + max-width:100% (which shrank the drawn logo) */
-.jj-nav-logo { height: 52px; width: 52px; max-width: none; display: inline-block; vertical-align: middle; object-fit: contain; }
+.jj-nav-logo { height: 58px; width: 58px; max-width: none; display: inline-block; vertical-align: middle; object-fit: contain; }
+
+/* nav search: between the social handles and the menu links.
+   The container cannot hold logo + socials + search + eleven links on a 1440 laptop,
+   so the field appears from 1366px up and lives in the mobile panel below 1200px. */
+.jj-nav-search { display: none; align-items: center; margin: 0 0 0 12px; }
+.jj-nav-search input { width: 210px; height: 44px; padding: 0 18px; font-size: 15px; min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .28); border-right: 0; background: rgba(255, 255, 255, .06);
+  color: #fff; border-radius: 999px 0 0 999px; -webkit-appearance: none; appearance: none; }
+.jj-nav-search input::-webkit-input-placeholder { color: rgba(255, 255, 255, .55); }
+.jj-nav-search input::placeholder { color: rgba(255, 255, 255, .55); }
+.jj-nav-search input:focus { outline: none; border-color: var(--jj-leaf); background: rgba(255, 255, 255, .12); }
+.jj-nav-search button { height: 44px; width: 52px; border: 1px solid rgba(255, 255, 255, .28); border-left: 0;
+  background: var(--jj-leaf); color: #fff; cursor: pointer; border-radius: 0 999px 999px 0; }
+.jj-nav-search button:hover { background: var(--jj-moss); }
+.jj-nav-search button svg { width: 19px; height: 19px; display: block; margin: 0 auto; fill: currentColor; }
+@media (min-width: 1366px) {
+  .jj-nav-search--desk { display: -webkit-box; display: -ms-flexbox; display: flex; }
+}
 /* tighter link padding keeps a gap between the logo cluster and the menu links */
 @media (min-width: 768px) {
-  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 12px; padding-right: 12px; }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 12px; padding-right: 12px;
+    padding-top: .9rem; padding-bottom: .9rem; }
 }
-/* collapsed bar: brand + socials left, Menu button right */
+@media (min-width: 1200px) {
+  /* room for the search field: tighter links on every desktop width */
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 5px; padding-right: 5px; letter-spacing: .25px; }
+}
+/* collapsed bar: brand + socials at the corner, Menu button right */
 #ftco-navbar .navbar-toggler { margin-left: auto; }
 @media (min-width: 992px) and (max-width: 1199.98px) {
   /* the 960px container cannot hold menu + socials + logo; keep menu + logo */
   .jj-nav-social { display: none; }
-  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 10px; padding-right: 10px; }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link { padding-left: 5px; padding-right: 5px; letter-spacing: 1px; }
 }
 @media (max-width: 991.98px) {
-  .jj-nav-logo { height: 42px; width: 42px; }
-  .jj-nav-social { margin-left: 12px; gap: 6px; }
-  .jj-nav-social a { width: 28px; height: 28px; }
-  .jj-nav-social svg { width: 14px; height: 14px; }
+  .jj-nav-logo { height: 46px; width: 46px; }
+  .jj-nav-social { margin-left: 14px; gap: 7px; }
+  .jj-nav-social a { width: 30px; height: 30px; }
+  .jj-nav-social svg { width: 15px; height: 15px; }
+  /* the search field lives in the expanded mobile panel, above the menu links */
+  .jj-nav-search--mob { display: -webkit-box; display: -ms-flexbox; display: flex;
+    margin: 14px 0 16px; width: 100%; max-width: 100%; }
+  .jj-nav-search--mob input { -webkit-box-flex: 1; -ms-flex: 1 1 0px; flex: 1 1 0px; width: 100%; min-width: 0; }
 }
 @media (max-width: 575.98px) {
-  .jj-nav-logo { height: 38px; width: 38px; }
-  .jj-nav-social { margin-left: 8px; gap: 5px; }
-  .jj-nav-social a { width: 26px; height: 26px; }
+  .jj-nav-logo { height: 40px; width: 40px; }
+  .jj-nav-social { margin-left: 10px; gap: 6px; }
+  .jj-nav-social a { width: 28px; height: 28px; }
+  .jj-nav-social svg { width: 14px; height: 14px; }
 }
 
 /* ==========================================================================
@@ -9689,3 +9726,48 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
   .jj-qty button { width: 30px; height: 34px; }
   .jj-qty input.quantity { width: 38px; height: 34px; }
 }
+
+/* ================= Homepage "Our Story" block ================= */
+
+/* The typing paragraph sits on the dark .overlap panel; the template gave it dark ink on dark.
+   Give it a green glowing panel so the typed text always reads. */
+#story-typing {
+  display: inline-block;
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: #F3F7EC;
+  background: linear-gradient(135deg, rgba(107, 155, 71, .55), rgba(59, 90, 51, .62));
+  border: 1px solid rgba(183, 206, 156, .38);
+  text-shadow: 0 0 10px rgba(183, 206, 156, .35);
+  box-shadow: 0 0 16px rgba(107, 155, 71, .35), inset 0 0 18px rgba(183, 206, 156, .12);
+  animation: jj-type-glow 2.6s ease-in-out infinite;
+}
+@keyframes jj-type-glow {
+  0%, 100% { box-shadow: 0 0 14px rgba(107, 155, 71, .35), inset 0 0 16px rgba(183, 206, 156, .10); }
+  50%      { box-shadow: 0 0 34px rgba(107, 155, 71, .85), inset 0 0 26px rgba(183, 206, 156, .30); }
+}
+
+/* The client's square brand badge fills this panel whole (the site-wide rule crops to cover) */
+.ftco-about .one-half.img.jj-story-image {
+  background-size: contain !important;
+  background-color: #000;
+}
+
+/* ================= Typography: Apple SF family, site-wide =================
+   -apple-system / BlinkMacSystemFont resolve to San Francisco (SF Pro) on Apple devices;
+   Inter (Google Fonts) is the closest web equivalent for Windows, Android and Linux.
+   Icon fonts are deliberately untouched: icomoon / flaticon / ionicons set their family on
+   ::before pseudo-elements (icomoon even with !important), and Open Iconic — which draws its
+   glyphs with the element's own font-family — is restored immediately after the override. */
+:root { --jj-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Inter, "Segoe UI", Roboto, Arial, sans-serif; }
+
+html, body, div, span, p, a, li, td, th, label, legend, caption, small, strong, em, b, i, q, time,
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
+input, button, select, textarea, .form-control,
+.navbar-brand, .subheading, .heading, .ftco-heading-2, .ftco-sub-title, .btn, .bread,
+.breadcrumbs, .tooltip, .popover,
+[class^="jj-"], [class*=" jj-"] {
+  font-family: var(--jj-font) !important;
+}
+/* Open Iconic glyphs live on the element itself, not on ::before */
+.oi { font-family: Icons !important; }

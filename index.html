@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -30,21 +28,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        prefix: 'tw-',
-        theme: {
-          extend: {
-            keyframes: {
-              glow: {
-                '0%,100%': { filter: 'drop-shadow(0 0 4px rgba(233,178,64,0.55))' },
-                '50%':     { filter: 'drop-shadow(0 0 16px rgba(233,178,64,0.95))' }
-              }
-            },
-            animation: { glow: 'glow 2.2s ease-in-out infinite' }
-          }
-        }
+        prefix: 'tw-'
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -60,11 +46,19 @@
 	          <li><a href="https://tiktok.com/@jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
 	          <li><a href="https://linkedin.com/company/jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
 	        </ul>
+	        <form class="jj-nav-search jj-nav-search--desk" role="search" action="shop.html" method="get">
+	          <input type="search" name="q" placeholder="Search beans" aria-label="Search the shop">
+	          <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg></button>
+	        </form>
 	      </div>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <form class="jj-nav-search jj-nav-search--mob" role="search" action="shop.html" method="get">
+	          <input type="search" name="q" placeholder="Search the shop" aria-label="Search the shop">
+	          <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg></button>
+	        </form>
 	        <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="equipment.html" class="nav-link">Equipment</a></li>
@@ -82,7 +76,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image: url(images/jozi/jozi-07.jpeg);">
+      <div class="slider-item jj-hero-1" style="background-image: url(images/jozi/jozi-07.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -97,7 +91,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(images/jozi/jozi-33.jpeg);">
+      <div class="slider-item jj-hero-2" style="background-image: url(images/jozi/jozi-33.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -111,7 +105,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(images/jozi/jozi-08.jpeg);">
+      <div class="slider-item jj-hero-3" style="background-image: url(images/jozi/jozi-08.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -125,7 +119,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(images/jozi/jozi-13.jpeg);">
+      <div class="slider-item jj-hero-4" style="background-image: url(images/jozi/jozi-13.jpeg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -134,6 +128,59 @@
               <h1 class="mb-4">Beans by Subscription</h1>
               <p class="mb-4">The Wilds Roast, Pritchard Street and Douglasdale Decaf - one-off or Subscribe &amp; Save, also on Takealot.</p>
               <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Shop Beans</a> <a href="https://www.takealot.com" target="_blank" rel="noopener" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Takealot</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item jj-hero-5" style="background-image: url(images/jozi/jozi-06.jpeg);">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+              <span class="subheading">Wholesale</span>
+              <h1 class="mb-4">Coffee for Offices, Gyms &amp; Caf&eacute;s</h1>
+              <p class="mb-4">Tiered volume pricing, scheduled deliveries and machine support for Johannesburg businesses.</p>
+              <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Wholesale Enquiry</a> <a href="contact.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Talk to Us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-item jj-hero-6" style="background-image: url(images/jozi/jozi-03.jpeg);">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+              <span class="subheading">The Roastery</span>
+              <h1 class="mb-4">Roasted in Douglasdale</h1>
+              <p class="mb-4">Small-batch roasting every week in Joburg &mdash; whole bean or ground to order, nothing sits on a shelf.</p>
+              <p><a href="about.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Our Story</a> <a href="menu.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Cafe &amp; Menu</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-item jj-hero-7" style="background-image: url(images/jozi/jozi-05.jpeg);">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+              <span class="subheading">Visit Us</span>
+              <h1 class="mb-4">Family-Friendly Cafe</h1>
+              <p class="mb-4">Bring the kids, bring your mates, bring the friend who reckons they don&rsquo;t like coffee yet.</p>
+              <p><a href="menu.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Cafe &amp; Menu</a> <a href="contact.html" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Find Us</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-item jj-hero-8" style="background-image: url(images/jozi/jozi-04.jpeg);">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+            <div class="col-md-8 col-sm-12 text-center ftco-animate">
+              <span class="subheading">Freshly Roasted</span>
+              <h1 class="mb-4">Ground to Order</h1>
+              <p class="mb-4">Whole bean or ground for your brewer &mdash; choose the grind when you add it to the cart.</p>
+              <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Shop Beans</a> <a href="https://wa.me/27689235818" target="_blank" rel="noopener" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Chat on WhatsApp</a></p>
             </div>
           </div>
         </div>
@@ -228,7 +275,7 @@
     </section>
 
     <section class="ftco-about d-md-flex">
-    	<div class="one-half img" style="background-image: url(images/jozi/jozi-11.jpeg);"></div>
+    	<div class="one-half img jj-story-image" style="background-image: url(images/jozi/jozi-story.jpeg);"></div>
     	<div class="one-half ftco-animate">
     		<div class="overlap">
 	        <div class="heading-section ftco-animate ">
@@ -237,7 +284,7 @@
             <span class="jj-badge">Gauteng&#39;s Greatest Coffee 2025</span>
 	        </div>
 	        <div>
-	  				<p id="story-typing" class="tw-text-[#2b1d12] tw-leading-relaxed tw-text-[1.1rem] tw-font-bold tw-tracking-wide tw-animate-glow" aria-label="Our story">On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+	  				<p id="story-typing" class="tw-leading-relaxed tw-text-[1.1rem] tw-font-bold tw-tracking-wide" aria-label="Our story">On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
 	  			</div>
   			</div>
     	</div>
@@ -857,12 +904,25 @@
     
   
   <style>
-    .home-slider{position:relative;height:750px;overflow:hidden;display:block}
-    .home-slider .slider-item{display:block;position:absolute;top:0;left:0;width:100%;height:100%;
+    /* .home-slider.owl-carousel matches the specificity of the theme rule
+       (.owl-carousel.home-slider .slider-item) so the slides overlay instead of
+       stacking in normal flow. */
+    .home-slider.owl-carousel{position:relative;height:750px;overflow:hidden;display:block}
+    .home-slider.owl-carousel .slider-item{display:block;position:absolute;top:0;left:0;width:100%;height:100%;
       background-size:cover;background-position:center center;background-repeat:no-repeat;
       opacity:0;visibility:hidden;transition:opacity .9s ease-in-out;z-index:0}
-    .home-slider .slider-item.is-active{opacity:1;visibility:visible;z-index:1}
-    @media (max-width:767px){.home-slider,.home-slider .slider-item{height:560px}}
+    .home-slider.owl-carousel .slider-item.is-active{opacity:1;visibility:visible;z-index:1}
+    /* each hero slide shows its own photo (the poster banner treatment is for the inner pages) */
+    .home-slider.owl-carousel .slider-item { background-size: cover !important; background-position: center center !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-1 { background-image: url(images/jozi/jozi-07.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-2 { background-image: url(images/jozi/jozi-33.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-3 { background-image: url(images/jozi/jozi-08.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-4 { background-image: url(images/jozi/jozi-13.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-5 { background-image: url(images/jozi/jozi-06.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-6 { background-image: url(images/jozi/jozi-03.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-7 { background-image: url(images/jozi/jozi-05.jpeg) !important; }
+    .home-slider.owl-carousel .slider-item.jj-hero-8 { background-image: url(images/jozi/jozi-04.jpeg) !important; }
+    @media (max-width:767.98px){.home-slider.owl-carousel{height:520px}.home-slider.owl-carousel .slider-item{height:100%}}
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
@@ -876,7 +936,7 @@
       slides[i].classList.remove('is-active');
       i = (i + 1) % slides.length;
       slides[i].classList.add('is-active');
-    }, 3000);
+    }, 5000);   /* 5s between slides */
   });
   </script>
     <style>
@@ -888,7 +948,7 @@
       75%  { opacity: 1; transform: translateY(0); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    #story-typing::after { content: '\258C'; color: #A9713C; margin-left: 2px; animation: caret-blink .8s steps(1) infinite; }
+    #story-typing::after { content: '\258C'; color: #DCEBC8; margin-left: 2px; animation: caret-blink .8s steps(1) infinite; }
     @keyframes caret-blink { 0%,100% { opacity: 1 } 50% { opacity: 0 } }
   </style>
   <script>

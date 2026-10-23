@@ -9878,7 +9878,7 @@ input, button, select, textarea, .form-control,
   #ftco-navbar > .container { position: relative; padding-left: 164px; }
   #ftco-navbar .jj-nav-brand { min-height: 76px; }
   #ftco-navbar .jj-nav-brand > .navbar-brand {
-    position: absolute; left: 0; top: 50%; width: 140px; height: 140px;
+    position: absolute; left: -10px; top: calc(50% - 2px); width: 140px; height: 140px;
     transform: translateY(-50%);
   }
   #ftco-navbar .jj-nav-logo {

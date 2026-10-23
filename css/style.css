@@ -9818,3 +9818,14 @@ input, button, select, textarea, .form-control,
   border-bottom-color: var(--jj-leaf) !important; }
 .ftco-appointment .appointment-form textarea.form-control {
   padding-top: 16px; padding-bottom: 16px; }
+
+/* Landing intro without the tan CONTACT US card (client request): the three info
+   columns now fill the strip, with symmetric padding, and the strip sits flush under
+   the hero instead of overlapping it by 130px (the overlap only made sense while the
+   taller booking card gave the band its height). */
+@media (min-width: 992px) {
+  .ftco-intro.jj-intro-solo { margin-top: 0; }
+}
+@media (min-width: 1200px) {
+  .ftco-intro.jj-intro-solo .wrap .info { width: 100%; padding: 2% 6%; }
+}

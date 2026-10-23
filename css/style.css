@@ -9870,3 +9870,14 @@ input, button, select, textarea, .form-control,
   #ftco-navbar .jj-nav-social a { width: 26px; height: 26px; }
   #ftco-navbar .navbar-toggler { padding: 4px 0; font-size: 14px; letter-spacing: 0; }
 }
+
+/* Enlarge and move only the desktop logo towards the left corner.
+   Its original flex footprint stays unchanged, so socials/search/links do not move. */
+@media (min-width: 992px) {
+  #ftco-navbar .jj-nav-brand > .navbar-brand { position: relative; flex: 0 0 64px; height: 64px; }
+  #ftco-navbar .jj-nav-logo {
+    position: absolute; width: 84px; height: 84px; top: 50%;
+    left: min(-20px, calc((1440px - 100vw) / 2 + 8px));
+    transform: translateY(-50%);
+  }
+}

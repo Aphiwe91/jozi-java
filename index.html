@@ -242,7 +242,10 @@
             <img class="jj-beans-slide" src="images/jozi/jozi-04.jpeg" alt="" aria-hidden="true">
             <span><span class="jj-tile__kicker">Shop Online</span><span class="jj-tile__label">Beans &amp; Products</span></span>
           </a>
-          <a class="jj-tile" style="background-image:url(images/jozi/jozi-46.jpeg);" href="equipment.html">
+          <a class="jj-tile jj-equipment-carousel" href="equipment.html" aria-label="Equipment: machines and roasters">
+            <img class="jj-equipment-slide is-active" src="images/jozi/Casadio_Nettuno_2-Group.jpg" alt="" aria-hidden="true">
+            <img class="jj-equipment-slide" src="images/jozi/Hey_Buddy_Grinder_Black.jpg" alt="" aria-hidden="true">
+            <img class="jj-equipment-slide" src="images/jozi/Hey_Buddy_Grinder_White.jpg" alt="" aria-hidden="true">
             <span><span class="jj-tile__kicker">Equipment</span><span class="jj-tile__label">Machines &amp; Roasters</span></span>
           </a>
           <a class="jj-tile" style="background-image:url(images/jozi/jozi-33.jpeg);" href="tuktuk.html">
@@ -779,15 +782,15 @@
     .jj-wholesale-copy {
       text-shadow: 0 0 4px #2563eb, 0 0 12px #0066ff, 0 0 28px rgba(0, 85, 255, .95);
     }
-    .jj-beans-carousel { background: #fff; }
-    .jj-beans-slide {
+    .jj-beans-carousel, .jj-equipment-carousel { background: #fff; }
+    .jj-beans-slide, .jj-equipment-slide {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: contain; object-position: center; opacity: 0;
       transition: opacity .9s ease-in-out;
     }
-    .jj-beans-slide.is-active { opacity: 1; }
+    .jj-beans-slide.is-active, .jj-equipment-slide.is-active { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-      .jj-beans-slide { transition: none; }
+      .jj-beans-slide, .jj-equipment-slide { transition: none; }
     }
     /* Landing-page white, bold headings with a blue glow. */
     :is(h1, h2, h3, h4, h5, h6, .subheading),
@@ -864,7 +867,8 @@
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
-    var beanSlides = document.querySelectorAll('.jj-beans-slide');
+    document.querySelectorAll('.jj-beans-carousel, .jj-equipment-carousel').forEach(function(carousel){
+    var beanSlides = carousel.querySelectorAll('img');
     if (beanSlides.length > 1) {
       var beanIndex = 0;
       setInterval(function(){
@@ -873,6 +877,7 @@
         beanSlides[beanIndex].classList.add('is-active');
       }, 10000);
     }
+    });
     document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subheading').forEach(function(heading){
       heading.classList.add('tw-text-white', 'tw-font-extrabold',
         'tw-[text-shadow:0_0_4px_#2563eb,0_0_12px_#0066ff,0_0_28px_rgba(0,85,255,0.95)]');

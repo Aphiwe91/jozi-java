@@ -839,6 +839,10 @@
       background-size:cover;background-position:center center;background-repeat:no-repeat;
       opacity:0;visibility:hidden;transition:opacity .9s ease-in-out;z-index:0}
     .home-slider.owl-carousel .slider-item.is-active{opacity:1;visibility:visible;z-index:1}
+    .home-slider.owl-carousel .slider-text > [class*="col-"] {
+      background: transparent; box-shadow: none; border-radius: 0;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+    }
     /* each hero slide shows its own photo (the poster banner treatment is for the inner pages) */
     .home-slider.owl-carousel .slider-item { background-size: cover !important; background-position: center center !important; }
     .home-slider.owl-carousel .slider-item.jj-hero-1 { background-image: url(images/jozi/jozi-06.jpeg) !important; }
@@ -851,7 +855,7 @@
        Cropping it into the 1.9:1 hero with cover sliced the product
        out of frame, so on tablet/desktop they show WHOLE (contain) on the left over a
        blurred copy of themselves, with the text panel moved to the right of the photo.
-       Phones keep the full-bleed cover + centred panel (no room for a side-by-side). */
+       Phones stack the whole photo above the text instead of cropping it. */
     @media (min-width: 768px) {
       .home-slider.owl-carousel .slider-item.jj-hero-fit::before {
         content: ""; position: absolute; left: -5%; top: -5%; width: 110%; height: 110%;
@@ -872,6 +876,30 @@
       .home-slider.owl-carousel .slider-item.jj-hero-fit::after { left: 3%; width: 49%; }
       .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text > [class*="col-"] {
         -webkit-box-flex: 0; -ms-flex: 0 0 38%; flex: 0 0 38%; max-width: 38%; }
+    }
+    @media (max-width: 767.98px) {
+      .home-slider.owl-carousel { height: 800px; min-height: 0; }
+      .home-slider.owl-carousel .slider-item::before {
+        content: ""; position: absolute; inset: -24px;
+        background-image: inherit; background-size: cover; background-position: center;
+        filter: blur(24px) brightness(.3);
+      }
+      .home-slider.owl-carousel .slider-item::after {
+        content: ""; position: absolute; left: 16px; right: 16px; top: 16px; height: 300px;
+        background-image: inherit; background-size: contain; background-position: center;
+        background-repeat: no-repeat; z-index: 1;
+      }
+      .home-slider.owl-carousel .slider-item > .container {
+        position: relative; z-index: 2; height: 100%; padding-top: 332px; padding-bottom: 24px;
+      }
+      .home-slider.owl-carousel .slider-item .slider-text {
+        height: 100%; min-height: 0; margin-top: 0;
+      }
+      .home-slider.owl-carousel .slider-item .slider-text h1 { font-size: 30px; }
+      .home-slider.owl-carousel .slider-item .slider-text p { font-size: 14px; }
+      .home-slider.owl-carousel .slider-item .slider-text .btn {
+        padding: 12px 14px !important; margin-bottom: 8px;
+      }
     }
   </style>
   <script>

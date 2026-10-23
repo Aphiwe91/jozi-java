@@ -9829,3 +9829,44 @@ input, button, select, textarea, .form-control,
 @media (min-width: 1200px) {
   .ftco-intro.jj-intro-solo .wrap .info { width: 100%; padding: 2% 6%; }
 }
+
+/* Shared navbar: a balanced brand/search row and a full-width navigation row.
+   Keep everything in normal flow rather than pinning the brand over the links. */
+#ftco-navbar > .container { width: 100%; max-width: 1440px; }
+@media (min-width: 992px) {
+  #ftco-navbar { padding: 12px 28px 0; }
+  #ftco-navbar > .container { flex-wrap: wrap; }
+  #ftco-navbar .jj-nav-brand {
+    position: static; transform: none; width: 100%; gap: 22px;
+    padding: 0 0 12px; min-width: 0;
+  }
+  #ftco-navbar .jj-nav-logo { width: 64px; height: 64px; }
+  #ftco-navbar .jj-nav-social { display: flex; margin: 0; gap: 10px; }
+  #ftco-navbar .jj-nav-social a { width: 38px; height: 38px; }
+  #ftco-navbar .jj-nav-search--desk {
+    display: flex; margin: 0 0 0 auto; width: clamp(280px, 40vw, 560px);
+  }
+  #ftco-navbar .jj-nav-search--desk input { flex: 1; width: 0; }
+  #ftco-navbar .jj-nav-search button { flex-shrink: 0; }
+  #ftco-navbar .navbar-collapse {
+    flex-basis: 100%; width: 100%; border-top: 1px solid rgba(255,255,255,.16);
+  }
+  #ftco-navbar .navbar-nav {
+    width: 100%; margin: 0 !important; justify-content: space-between; align-items: center;
+  }
+  #ftco-navbar .navbar-nav > .nav-item > .nav-link {
+    padding: 15px 10px; font-size: 15px; letter-spacing: 0; white-space: nowrap;
+  }
+}
+@media (max-width: 991.98px) {
+  #ftco-navbar > .container { padding-left: 16px; padding-right: 16px; }
+  #ftco-navbar .jj-nav-brand { position: static; transform: none; }
+  #ftco-navbar .navbar-collapse { padding-top: 8px; }
+  #ftco-navbar .navbar-nav > .nav-item > .nav-link { padding: 10px 0; }
+}
+@media (max-width: 359.98px) {
+  #ftco-navbar .jj-nav-logo { width: 36px; height: 36px; }
+  #ftco-navbar .jj-nav-social { margin-left: 8px; gap: 5px; }
+  #ftco-navbar .jj-nav-social a { width: 26px; height: 26px; }
+  #ftco-navbar .navbar-toggler { padding: 4px 0; font-size: 14px; letter-spacing: 0; }
+}

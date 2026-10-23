@@ -773,6 +773,11 @@
     
   
   <style>
+    /* Landing-page headings only; keep button labels white. */
+    :is(h1, h2, h3, h4, h5, h6, .subheading),
+    :is(h1, h2, h3, h4, h5, h6, .subheading) :not(.btn) {
+      color: var(--jj-leaf) !important;
+    }
     /* Landing-page blue buttons: white labels in every interaction state. */
     .btn.btn-primary,
     .btn.btn-primary:hover,

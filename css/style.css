@@ -9761,9 +9761,9 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
    Icon fonts are deliberately untouched: icomoon / flaticon / ionicons set their family on
    ::before pseudo-elements (icomoon even with !important), and Open Iconic — which draws its
    glyphs with the element's own font-family — is restored immediately after the override. */
-:root { --jj-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Inter, "Segoe UI", Roboto, Arial, sans-serif; }
+:root { --jj-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Inter, "Segoe UI", Roboto, Arial, sans-serif; }
 
-html, body, div, span, p, a, li, td, th, label, legend, caption, small, strong, em, b, i, q, time,
+*, html, body, div, span, p, a, li, td, th, label, legend, caption, small, strong, em, b, i, q, time,
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 input, button, select, textarea, .form-control,
 .navbar-brand, .subheading, .heading, .ftco-heading-2, .ftco-sub-title, .btn, .bread,

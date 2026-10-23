@@ -9735,6 +9735,11 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
    Give it a green glowing panel so the typed text always reads. */
 #story-typing,
 .jj-wholesale-copy {
+  font-family: var(--jj-font) !important;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: normal;
   display: inline-block;
   padding: 14px 18px;
   border-radius: 8px;

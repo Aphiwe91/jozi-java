@@ -248,7 +248,10 @@
             <img class="jj-equipment-slide" src="images/jozi/Hey_Buddy_Grinder_White.jpg" alt="" aria-hidden="true">
             <span><span class="jj-tile__kicker">Equipment</span><span class="jj-tile__label">Machines &amp; Roasters</span></span>
           </a>
-          <a class="jj-tile" style="background-image:url(images/jozi/jozi-33.jpeg);" href="tuktuk.html">
+          <a class="jj-tile jj-tuktuk-carousel" href="tuktuk.html" aria-label="Piaggio Partnership: Tuk Tuk Conversions">
+            <img class="jj-tuktuk-slide is-active" src="images/jozi/coffee-1.jpg" alt="" aria-hidden="true">
+            <img class="jj-tuktuk-slide" src="images/jozi/Coffee-Hero.jpg" alt="" aria-hidden="true">
+            <img class="jj-tuktuk-slide" src="images/jozi/Coffee-mid.jpg" alt="" aria-hidden="true">
             <span><span class="jj-tile__kicker">Piaggio Partnership</span><span class="jj-tile__label">Tuk Tuk Conversions</span></span>
           </a>
         </div>
@@ -782,15 +785,15 @@
     .jj-wholesale-copy {
       text-shadow: 0 0 4px #2563eb, 0 0 12px #0066ff, 0 0 28px rgba(0, 85, 255, .95);
     }
-    .jj-beans-carousel, .jj-equipment-carousel { background: #fff; }
-    .jj-beans-slide, .jj-equipment-slide {
+    .jj-beans-carousel, .jj-equipment-carousel, .jj-tuktuk-carousel { background: #fff; }
+    .jj-beans-slide, .jj-equipment-slide, .jj-tuktuk-slide {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: contain; object-position: center; opacity: 0;
       transition: opacity .9s ease-in-out;
     }
-    .jj-beans-slide.is-active, .jj-equipment-slide.is-active { opacity: 1; }
+    .jj-beans-slide.is-active, .jj-equipment-slide.is-active, .jj-tuktuk-slide.is-active { opacity: 1; }
     @media (prefers-reduced-motion: reduce) {
-      .jj-beans-slide, .jj-equipment-slide { transition: none; }
+      .jj-beans-slide, .jj-equipment-slide, .jj-tuktuk-slide { transition: none; }
     }
     /* Landing-page white, bold headings with a blue glow. */
     :is(h1, h2, h3, h4, h5, h6, .subheading),
@@ -867,7 +870,7 @@
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.jj-beans-carousel, .jj-equipment-carousel').forEach(function(carousel){
+    document.querySelectorAll('.jj-beans-carousel, .jj-equipment-carousel, .jj-tuktuk-carousel').forEach(function(carousel){
     var beanSlides = carousel.querySelectorAll('img');
     if (beanSlides.length > 1) {
       var beanIndex = 0;

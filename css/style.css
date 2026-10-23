@@ -9833,6 +9833,13 @@ input, button, select, textarea, .form-control,
 /* Shared navbar: a balanced brand/search row and a full-width navigation row.
    Keep everything in normal flow rather than pinning the brand over the links. */
 #ftco-navbar > .container { width: 100%; max-width: 1440px; }
+/* Soften the background only; logo, text and controls stay fully opaque. */
+#ftco-navbar,
+#ftco-navbar.scrolled {
+  background: rgba(27, 24, 21, .82) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
 @media (min-width: 992px) {
   #ftco-navbar { padding: 12px 28px 0; }
   #ftco-navbar > .container { flex-wrap: wrap; }

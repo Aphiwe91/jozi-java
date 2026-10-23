@@ -773,10 +773,12 @@
     
   
   <style>
-    /* Landing-page headings only; keep button labels white. */
+    /* Landing-page white, bold headings with a blue glow. */
     :is(h1, h2, h3, h4, h5, h6, .subheading),
     :is(h1, h2, h3, h4, h5, h6, .subheading) :not(.btn) {
-      color: var(--jj-leaf) !important;
+      color: #fff !important;
+      font-weight: 800 !important;
+      text-shadow: 0 0 8px rgba(37, 99, 235, .8), 0 0 22px rgba(37, 99, 235, .55);
     }
     /* Landing-page blue buttons: white labels in every interaction state. */
     .btn.btn-primary,
@@ -846,6 +848,10 @@
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subheading').forEach(function(heading){
+      heading.classList.add('tw-text-white', 'tw-font-extrabold',
+        'tw-[text-shadow:0_0_8px_rgba(37,99,235,0.8),0_0_22px_rgba(37,99,235,0.55)]');
+    });
     var hero = document.querySelector('.home-slider');
     if(!hero) return;
     var slides = hero.querySelectorAll('.slider-item');

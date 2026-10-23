@@ -236,7 +236,10 @@
     <section class="ftco-section ftco-no-pt">
       <div class="container-fluid px-0">
         <div class="jj-tiles">
-          <a class="jj-tile" style="background-image:url(images/jozi/jozi-13.jpeg);" href="shop.html">
+          <a class="jj-tile jj-beans-carousel" href="shop.html" aria-label="Shop online: beans and products">
+            <img class="jj-beans-slide is-active" src="images/jozi/jozi-03.jpeg" alt="" aria-hidden="true">
+            <img class="jj-beans-slide" src="images/jozi/jozi-05.jpeg" alt="" aria-hidden="true">
+            <img class="jj-beans-slide" src="images/jozi/jozi-04.jpeg" alt="" aria-hidden="true">
             <span><span class="jj-tile__kicker">Shop Online</span><span class="jj-tile__label">Beans &amp; Products</span></span>
           </a>
           <a class="jj-tile" style="background-image:url(images/jozi/jozi-46.jpeg);" href="equipment.html">
@@ -773,6 +776,16 @@
     
   
   <style>
+    .jj-beans-carousel { background: #fff; }
+    .jj-beans-slide {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: contain; object-position: center; opacity: 0;
+      transition: opacity .9s ease-in-out;
+    }
+    .jj-beans-slide.is-active { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .jj-beans-slide { transition: none; }
+    }
     /* Landing-page white, bold headings with a blue glow. */
     :is(h1, h2, h3, h4, h5, h6, .subheading),
     :is(h1, h2, h3, h4, h5, h6, .subheading) :not(.btn) {
@@ -848,6 +861,15 @@
   </style>
   <script>
   document.addEventListener('DOMContentLoaded', function(){
+    var beanSlides = document.querySelectorAll('.jj-beans-slide');
+    if (beanSlides.length > 1) {
+      var beanIndex = 0;
+      setInterval(function(){
+        beanSlides[beanIndex].classList.remove('is-active');
+        beanIndex = (beanIndex + 1) % beanSlides.length;
+        beanSlides[beanIndex].classList.add('is-active');
+      }, 10000);
+    }
     document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subheading').forEach(function(heading){
       heading.classList.add('tw-text-white', 'tw-font-extrabold',
         'tw-[text-shadow:0_0_8px_rgba(37,99,235,0.8),0_0_22px_rgba(37,99,235,0.55)]');

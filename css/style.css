@@ -9733,7 +9733,8 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
 
 /* The typing paragraph sits on the dark .overlap panel; the template gave it dark ink on dark.
    Give it a green glowing panel so the typed text always reads. */
-#story-typing {
+#story-typing,
+.jj-wholesale-copy {
   display: inline-block;
   padding: 14px 18px;
   border-radius: 8px;

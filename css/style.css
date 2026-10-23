@@ -9338,13 +9338,13 @@ textarea.form-control {
 .navbar-collapse { visibility: visible !important; }
 
 /* ================= Jozi Java brand system (Website Brief v2) ================= */
-/* Palette: INK #1B1815 · MILK #FFFFFF · LEAF #6B9B47 · SAGE #B7CE9C · MOSS #3F5A33 */
+/* Palette: INK #1B1815 · MILK #FFFFFF · blue accents (legacy token names retained) */
 :root {
   --jj-ink: #1B1815;
   --jj-milk: #FFFFFF;
-  --jj-leaf: #6B9B47;
-  --jj-sage: #B7CE9C;
-  --jj-moss: #3F5A33;
+  --jj-leaf: #2563EB;
+  --jj-sage: #BFDBFE;
+  --jj-moss: #1E40AF;
 }
 body { font-family: 'Barlow', Arial, sans-serif; }
 h1, h2, h3, h4, h5, h6,
@@ -9462,7 +9462,7 @@ a:hover { color: var(--jj-moss); }
 /* premium gradient primary button */
 .btn.btn-primary.jj-gradient {
   background-image: linear-gradient(135deg, var(--jj-leaf) 0%, var(--jj-moss) 100%) !important;
-  box-shadow: 0 8px 20px rgba(59,90,51,.35);
+  box-shadow: 0 8px 20px rgba(30,64,175,.35);
 }
 
 /* floating WhatsApp + back-to-top */
@@ -9538,7 +9538,7 @@ a:hover { color: var(--jj-moss); }
 .jj-quiz { background: linear-gradient(135deg, var(--jj-ink) 0%, var(--jj-moss) 100%);
   color: #fff; padding: 70px 40px; text-align: center; border-radius: 6px; position: relative; overflow: hidden; }
 .jj-quiz::before { content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 20%, rgba(107,155,71,.25), transparent 55%); }
+  background: radial-gradient(circle at 30% 20%, rgba(37,99,235,.25), transparent 55%); }
 .jj-quiz > * { position: relative; z-index: 2; }
 .jj-quiz h2 { color: #fff; font-family: 'Barlow Condensed', Arial, sans-serif; font-size: clamp(2rem,4.6vw,3.6rem);
   font-weight: 800; text-transform: uppercase; margin-bottom: .4rem; line-height: .95; }
@@ -9737,16 +9737,16 @@ input[type="checkbox"].is-invalid { outline: 2px solid #c0392b; outline-offset: 
   display: inline-block;
   padding: 14px 18px;
   border-radius: 8px;
-  color: #F3F7EC;
-  background: linear-gradient(135deg, rgba(107, 155, 71, .55), rgba(59, 90, 51, .62));
-  border: 1px solid rgba(183, 206, 156, .38);
-  text-shadow: 0 0 10px rgba(183, 206, 156, .35);
-  box-shadow: 0 0 16px rgba(107, 155, 71, .35), inset 0 0 18px rgba(183, 206, 156, .12);
+  color: #EFF6FF;
+  background: linear-gradient(135deg, rgba(37, 99, 235, .55), rgba(30, 64, 175, .62));
+  border: 1px solid rgba(191, 219, 254, .38);
+  text-shadow: 0 0 10px rgba(191, 219, 254, .35);
+  box-shadow: 0 0 16px rgba(37, 99, 235, .35), inset 0 0 18px rgba(191, 219, 254, .12);
   animation: jj-type-glow 2.6s ease-in-out infinite;
 }
 @keyframes jj-type-glow {
-  0%, 100% { box-shadow: 0 0 14px rgba(107, 155, 71, .35), inset 0 0 16px rgba(183, 206, 156, .10); }
-  50%      { box-shadow: 0 0 34px rgba(107, 155, 71, .85), inset 0 0 26px rgba(183, 206, 156, .30); }
+  0%, 100% { box-shadow: 0 0 14px rgba(37, 99, 235, .35), inset 0 0 16px rgba(191, 219, 254, .10); }
+  50%      { box-shadow: 0 0 34px rgba(37, 99, 235, .85), inset 0 0 26px rgba(191, 219, 254, .30); }
 }
 
 /* The client's square brand badge fills this panel whole (the site-wide rule crops to cover) */

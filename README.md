@@ -184,6 +184,7 @@ errors, images, interactions, restoration-specific design checks and no-JavaScri
 `/tmp/opencode/jozi-java/`, not the repository. Automated accessibility checks do not
 replace assistive-technology review.
 
-The original free-template attribution to **Colorlib** is retained with its proper
-link in every footer. Real business documents outside this website directory stay
-local and are not part of this project or deployment.
+The site owner confirmed a licence permitting removal of the Colorlib footer
+attribution. The visible credit is omitted on that basis; existing third-party
+licence notices remain unchanged. Real business documents outside this website
+directory stay local and are not part of this project or deployment.

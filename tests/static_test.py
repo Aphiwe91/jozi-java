@@ -104,11 +104,20 @@ class StaticSiteTest(unittest.TestCase):
                 self.assertIsNone(filler.search(text))
                 self.assertNotIn('cdn.tailwindcss', text)
                 self.assertNotIn('ftco-loader', text)
-                self.assertIn('https://colorlib.com', text)
                 for script in self.pages[name].select('script'):
                     if script.get('src'):
                         self.assertFalse(script['src'].startswith('http'))
                         self.assertIn('defer', script)
+
+    def test_footer_credit_removal(self):
+        # The site owner confirmed a licence permitting footer credit removal.
+        for name in self.pages:
+            with self.subTest(page=name):
+                text = (ROOT / name).read_text()
+                self.assertNotIn('Original template by', text)
+                self.assertNotIn('href="https://colorlib.com"', text)
+                self.assertIn('Jozi Java Co (Pty) Ltd.', text)
+                self.assertIn('href="privacy.html"', text)
 
     def test_sitemap_and_price_source(self):
         tree = ElementTree.parse(ROOT / 'sitemap.xml')

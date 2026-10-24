@@ -1,970 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" href="images/jozi/favicon.png" sizes="32x32">
-    <title>Jozi Java - Coffee Equipment, Beans &amp; Tuk Tuk Conversions | Johannesburg</title>
-    <meta name="description" content="Jozi Java Co (Pty) Ltd - commercial coffee equipment, roasters, beans by subscription, and turnkey Piaggio Tuk Tuk coffee-cart conversions. Gauteng's Greatest Coffee 2025.">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        prefix: 'tw-'
-      }
-    </script>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <!-- logo at the left end with the social handles beside it -->
-	      <div class="jj-nav-brand">
-	        <a class="navbar-brand" href="index.html" aria-label="Jozi Java home"><img src="images/jozi/jozi-logo.jpeg" alt="Jozi Java" class="jj-nav-logo"></a>
-	        <ul class="jj-nav-social list-unstyled">
-	          <!-- PLACEHOLDER: profile URLs use the "jozijava" handle shown on the contact page -->
-	          <li><a href="https://instagram.com/jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on Instagram" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a></li>
-	          <li><a href="https://facebook.com/jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on Facebook" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a></li>
-	          <li><a href="https://tiktok.com/@jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on TikTok" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
-	          <li><a href="https://linkedin.com/company/jozijava" target="_blank" rel="noopener" aria-label="Jozi Java on LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
-	        </ul>
-	        <form class="jj-nav-search jj-nav-search--desk" role="search" action="shop.html" method="get">
-	          <input type="search" name="q" placeholder="Search beans" aria-label="Search the shop">
-	          <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg></button>
-	        </form>
-	      </div>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <form class="jj-nav-search jj-nav-search--mob" role="search" action="shop.html" method="get">
-	          <input type="search" name="q" placeholder="Search the shop" aria-label="Search the shop">
-	          <button type="submit" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14Z"/></svg></button>
-	        </form>
-	        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="equipment.html" class="nav-link">Equipment</a></li>
-          <li class="nav-item"><a href="tuktuk.html" class="nav-link">Tuk Tuk</a></li>
-          <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">Our Story</a></li>
-          <li class="nav-item"><a href="menu.html" class="nav-link">Cafe &amp; Menu</a></li>
-          <li class="nav-item"><a href="finance.html" class="nav-link">Finance</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-    <!-- END nav -->
-
-    <section class="home-slider owl-carousel">
-      <div class="slider-item jj-hero-1 jj-hero-fit" style="background-image: url(images/jozi/jozi-06.jpeg);">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-              <span class="subheading" style="font-weight: 800;"><b>Welcome to Jozi Java</b></span>
-              <span class="jj-badge mb-3 d-inline-block">Gauteng&#39;s Greatest Coffee 2025</span>
-              <h1 class="mb-4 jj-wordmark"><small>Equipment &amp; Beans</small><strong style="font-weight: 800;">Delivered</strong></h1>
-              <p class="mb-4">Commercial espresso machines, Roasters, Grinders, Piaggio Tuk Tuk coffee carts and freshly roasted beans, installed, dialled in and financed.</p>
-              <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Shop Beans</a> <a href="equipment.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">View Equipment</a></p>
-            </div>
-          </div>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121645">
+  <title>Jozi Java, Coffee Equipment, Beans &amp; Tuk Tuk Conversions</title>
+  <meta name="description" content="Your Joburg coffee partner. Discover freshly roasted beans, commercial coffee equipment and Piaggio Tuk Tuk coffee conversions from Jozi Java in Douglasdale.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://aphiwe91.github.io/jozi-java/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jozi Java">
+  <meta property="og:locale" content="en_ZA">
+  <meta property="og:title" content="Jozi Java, Coffee Equipment, Beans &amp; Tuk Tuk Conversions">
+  <meta property="og:description" content="Your Joburg coffee partner. Discover freshly roasted beans, commercial coffee equipment and Piaggio Tuk Tuk coffee conversions from Jozi Java in Douglasdale.">
+  <meta property="og:url" content="https://aphiwe91.github.io/jozi-java/index.html">
+  <meta property="og:image" content="https://aphiwe91.github.io/jozi-java/images/optimized/jozi-06-960.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="images/jozi/favicon.png" sizes="32x32">
+  <link rel="stylesheet" href="css/site.min.css">
+  <link rel="preload" as="image" href="images/optimized/jozi-06-960.webp">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Jozi Java Co (Pty) Ltd", "url": "https://aphiwe91.github.io/jozi-java/", "logo": "https://aphiwe91.github.io/jozi-java/images/optimized/jozi-logo-320.webp", "email": "info@jozijava.co.za", "telephone": "+27689235818", "address": {"@type": "PostalAddress", "streetAddress": "2 Honeyguide, Douglasdale", "addressLocality": "Johannesburg", "addressCountry": "ZA"}}</script>
+  <script defer src="js/catalog.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/site.js"></script>
+  <script defer src="js/home.js"></script>
+</head>
+<body class="jj-site jj-home" id="top">
+  <a class="jj-skip" href="#main">Skip to content</a>
+  <header class="jj-header" id="ftco-navbar">
+    <div class="jj-nav-shell">
+      <div class="jj-nav-brand">
+        <a class="navbar-brand" href="index.html" aria-label="Jozi Java home"><img class="jj-nav-logo" src="images/optimized/jozi-logo-320.webp" alt="Jozi Java, The Coffee Experience" width="140" height="140" fetchpriority="high"></a>
+        <ul class="jj-nav-social" aria-label="Social media">
+          <li><a href="https://instagram.com/jozijava" target="_blank" rel="noopener noreferrer" aria-label="Jozi Java on Instagram"><svg viewbox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="jj-fill"/></svg></a></li>
+          <li><a href="https://facebook.com/jozijava" target="_blank" rel="noopener noreferrer" aria-label="Jozi Java on Facebook"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M14 22V13h3l.5-4H14V7c0-1 .5-2 2-2h2V1h-3c-4 0-5 3-5 6v2H7v4h3v9"/></svg></a></li>
+          <li><a href="https://tiktok.com/@jozijava" target="_blank" rel="noopener noreferrer" aria-label="Jozi Java on TikTok"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M14 3v12a5 5 0 1 1-5-5M14 3c0 4 3 6 7 6"/></svg></a></li>
+        </ul>
+        <form class="jj-nav-search" action="shop.html" method="get" role="search">
+          <label class="sr-only" for="nav-search">Search coffee beans</label>
+          <input id="nav-search" type="search" name="q" placeholder="Search beans" maxlength="100">
+          <button type="submit" aria-label="Search coffee beans"><svg viewbox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg></button>
+        </form>
+      </div>
+      <button class="navbar-toggler jj-menu-toggle" type="button" aria-expanded="false" aria-controls="ftco-nav"><span aria-hidden="true">☰</span> Menu</button>
+      <nav class="jj-navigation" id="ftco-nav" aria-label="Main navigation">
+        <ul class="navbar-nav"><li class="nav-item active"><a class="nav-link" href="index.html" aria-current="page">Home</a></li><li class="nav-item"><a class="nav-link" href="equipment.html">Equipment</a></li><li class="nav-item"><a class="nav-link" href="tuktuk.html">Tuk Tuk</a></li><li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li><li class="nav-item"><a class="nav-link" href="about.html">Our Story</a></li><li class="nav-item"><a class="nav-link" href="menu.html">Café &amp; Menu</a></li><li class="nav-item"><a class="nav-link" href="finance.html">Finance</a></li><li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li><li class="nav-item jj-nav-cart"><a class="nav-link" href="cart.html">Cart <span class="jj-cart-badge" hidden></span></a></li></ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <noscript><div class="jj-noscript">Browsing works without JavaScript. For an order or enquiry, call <a href="tel:+27689235818">+27 68 923 5818</a> or <a href="https://wa.me/27689235818">message Jozi Java on WhatsApp</a>.</div></noscript>
+    <section class="jj-home-hero" aria-roledescription="carousel" aria-label="Discover Jozi Java">
+  <div class="jj-hero-slides">
+    <article class="jj-hero-slide is-active jj-hero-fit" aria-roledescription="slide" aria-label="1 of 5">
+      <img class="jj-hero-background" src="images/optimized/jozi-06-960.webp" alt="" width="853" height="1280" fetchpriority="high">
+      <div class="container jj-hero-layout">
+        <div class="jj-hero-photo"><img src="images/optimized/jozi-06-960.webp" alt="The Jozi Java coffee experience" width="853" height="1280" fetchpriority="high"></div>
+        <div class="jj-hero-copy">
+          <span class="subheading">Welcome to Jozi Java</span>
+          <span class="jj-badge">Gauteng’s Greatest Coffee 2025</span>
+          <h1 class="jj-wordmark"><small>Equipment &amp; Beans</small><strong>Delivered</strong></h1>
+          <p>Commercial espresso machines, roasters, grinders, Piaggio Tuk Tuk coffee carts and freshly roasted beans, installed and dialled in by Jozi Java.</p>
+          <div class="jj-actions"><a href="shop.html" class="btn btn-primary">Shop Beans</a><a href="equipment.html" class="btn btn-primary">View Equipment</a></div>
         </div>
       </div>
+    </article>
+    <article class="jj-hero-slide" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true" inert>
+      <img class="jj-hero-background" src="images/optimized/jozi-09-960.webp" alt="" width="1280" height="853" loading="lazy">
+      <div class="container jj-hero-copy"><span class="subheading">Piaggio Partnership</span><h2>Tuk Tuk Coffee Carts</h2><p>A coffee business on three wheels. Vehicle conversions, machines, grinders, training and ongoing coffee supply, with finance available to qualifying businesses through CCS.</p><div class="jj-actions"><a href="tuktuk.html" class="btn btn-primary">Explore Conversions</a><a href="finance.html" class="btn btn-primary">Equipment Finance</a></div></div>
+    </article>
+    <article class="jj-hero-slide" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true" inert>
+      <img class="jj-hero-background" src="images/optimized/jozi-24-960.webp" alt="" width="1280" height="853" loading="lazy">
+      <div class="container jj-hero-copy"><span class="subheading">Our Story</span><h2>Gauteng’s Greatest Coffee 2025</h2><p>A Johannesburg roastery, born in Douglasdale. A family business serving cafés, offices, dealerships and the hospitality sector.</p><div class="jj-actions"><a href="about.html" class="btn btn-primary">Our Story</a><a href="menu.html" class="btn btn-primary">Café &amp; Menu</a></div></div>
+    </article>
+    <article class="jj-hero-slide" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true" inert>
+      <img class="jj-hero-background" src="images/optimized/jozi-24-960.webp" alt="" width="1280" height="853" loading="lazy">
+      <div class="container jj-hero-copy"><span class="subheading">Coffee Beans</span><h2>Beans by Subscription</h2><p>Speak to our team about a weekly, fortnightly or monthly coffee supply. Regular orders are arranged directly; online subscriptions are not active yet.</p><a href="shop.html#regular-orders" class="btn btn-primary">Coffee Subscriptions</a></div>
+    </article>
+    <article class="jj-hero-slide" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true" inert>
+      <img class="jj-hero-background" src="images/optimized/jozi-24-960.webp" alt="" width="1280" height="853" loading="lazy">
+      <div class="container jj-hero-copy"><span class="subheading">Freshly Roasted</span><h2>Ground to Order</h2><p>Choose whole beans or a grind for your espresso machine, plunger, filter, moka pot or AeroPress.</p><a href="shop.html" class="btn btn-primary">Shop Beans</a></div>
+    </article>
+  </div>
+  <div class="container jj-hero-controls"><span class="jj-slide-count" aria-live="off">01 / 05</span><div class="jj-hero-dots" aria-label="Choose a slide"></div><button type="button" class="jj-slide-prev" aria-label="Previous slide">←</button><button type="button" class="jj-slide-next" aria-label="Next slide">→</button><button type="button" class="jj-motion-toggle" aria-pressed="false">Pause motion</button></div>
+</section>
 
-      <div class="slider-item jj-hero-2" style="background-image: url(images/jozi/jozi-09.jpeg);">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-              <span class="subheading" style="font-weight: 800;"><b>Piaggio Partnership</b></span>
-              <h1 class="mb-4">Tuk Tuk Coffee Carts</h1>
-              <p class="mb-4">A real, running coffee business on three wheels. Machine, grinder, training and coffee supply included, financed through CCS.</p>
-              <p><a href="tuktuk.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Explore Conversions</a> <a href="finance.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Estimate Repayment</a></p>
-            </div>
-          </div>
-        </div>
+<section class="jj-info-strip" aria-label="Contact and visiting information">
+  <div class="container">
+    <div><a href="tel:+27689235818"><strong>+27 68 923 5818</strong></a><p>Jozi Java Co (Pty) Ltd</p></div>
+    <div><a href="contact.html#locations"><strong>2 Honeyguide, Douglasdale</strong></a><p>The Roastery · Monte Circle Office Park · Ford Fourways · Ford Sandton · Ford Woodmead</p></div>
+    <div><strong>Open Monday to Friday</strong><p>07:00 to 17:00<br>Confirm hours before visiting.</p></div>
+  </div>
+</section>
+
+<section class="jj-home-story">
+  <div class="jj-story-visual"><img src="images/optimized/jozi-story-960.webp" alt="Jozi Java, The Coffee Experience" width="1280" height="1280" loading="lazy" decoding="async"></div>
+  <div class="jj-story-overlap">
+    <h2>Our Story</h2><span class="jj-badge">Gauteng’s Greatest Coffee 2025</span>
+    <p id="story-typing">Jozi Java started in 2023 as a family business with a simple idea: Johannesburg deserves great coffee, roasted close to home and served with real care. Founded by Chris and Ruth Neumann, we roast our own blends at The Roastery in Douglasdale, from the rich, chocolatey Wilds Roast to the salted caramel notes of our Pritchard Street Roast. From our flagship café at Monte Circle to our coffee bars inside dealerships across Fourways, Sandton and Woodmead, we bring specialty coffee to the places Joburg lives and works. In 2025 we were proud to be named 702’s Gauteng’s Greatest Coffee Shop, but the real reward is still the same as day one: a great cup, a familiar face, and a city we love. This is The Coffee Experience.</p>
+    <a class="jj-text-link" href="about.html">Read Our Story</a>
+  </div>
+</section>
+
+<section class="jj-section">
+  <div class="container jj-two-col jj-align-center">
+    <div class="jj-wholesale-intro"><h2>Café &amp; Wholesale Supply</h2><p class="jj-wholesale-copy">We supply cafés, restaurants, and retailers with quality coffee at competitive wholesale prices. Whether you’re opening a new café or keeping a busy coffee bar stocked, we’re here to support your business. From the first morning espresso to the last cup of the day, our coffee brings rich flavour and inviting aroma to every brew. Let’s help you create memorable coffee moments that keep your customers coming back.</p><div class="jj-actions"><a href="menu.html" class="btn btn-primary">View Café &amp; Menu</a><a href="wholesale.html" class="btn btn-outline-light">Wholesale Enquiries</a></div></div>
+    <div class="jj-photo-mosaic">
+      <a href="menu.html" aria-label="Café and menu"><img src="images/optimized/jozi-46-480.webp" alt="Jozi Java client photograph" width="1280" height="853" loading="lazy"></a>
+      <a href="menu.html" aria-label="Our coffee locations"><img src="images/optimized/jozi-47-480.webp" alt="The Jozi Java coffee experience" width="1280" height="853" loading="lazy"></a>
+      <a href="about.html" aria-label="About Jozi Java"><img src="images/optimized/jozi-01-480.webp" alt="Jozi Java brand photograph" width="1280" height="1280" loading="lazy"></a>
+      <a href="contact.html#locations" aria-label="Visit Jozi Java"><img src="images/optimized/jozi-02-480.webp" alt="Jozi Java client poster" width="1081" height="1351" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Shop, equipment and conversions"><div class="jj-tiles">
+  <a class="jj-tile jj-beans-carousel" href="shop.html"><img class="is-active" src="images/optimized/jozi-03-960.webp" alt="The Jozi Java coffee range" width="1200" height="1200" loading="lazy"><img src="images/optimized/jozi-05-960.webp" alt="" aria-hidden="true" width="1351" height="1497" loading="lazy"><img src="images/optimized/jozi-04-960.webp" alt="" aria-hidden="true" width="1200" height="1200" loading="lazy"><span><span class="jj-tile__kicker">Shop Online</span><span class="jj-tile__label">Beans &amp; Products</span></span></a>
+  <a class="jj-tile jj-equipment-carousel" href="equipment.html"><img class="is-active" src="images/optimized/Casadio_Nettuno_2-Group-960.webp" alt="Casadio espresso machine" width="1188" height="1188" loading="lazy"><img src="images/optimized/Hey_Buddy_Grinder_Black-960.webp" alt="" aria-hidden="true" width="563" height="563" loading="lazy"><img src="images/optimized/Hey_Buddy_Grinder_White-960.webp" alt="" aria-hidden="true" width="563" height="563" loading="lazy"><span><span class="jj-tile__kicker">Equipment</span><span class="jj-tile__label">Machines &amp; Roasters</span></span></a>
+  <a class="jj-tile jj-tuktuk-carousel" href="tuktuk.html"><img class="is-active" src="images/optimized/coffee-1-960.webp" alt="Piaggio coffee cart conversion" width="600" height="400" loading="lazy"><img src="images/optimized/Coffee-Hero-960.webp" alt="" aria-hidden="true" width="1600" height="1023" loading="lazy"><img src="images/optimized/Coffee-mid-960.webp" alt="" aria-hidden="true" width="1024" height="768" loading="lazy"><span><span class="jj-tile__kicker">Piaggio Partnership</span><span class="jj-tile__label">Tuk Tuk Conversions</span></span></a>
+</div></section>
+
+<section class="jj-home-counter" aria-label="About Jozi Java"><div class="container jj-stats"><div><strong>5</strong><span>Jozi Locations</span></div><div><strong>1</strong><span>Coffee Award 2025</span></div><div><strong>2023</strong><span>Year Founded</span></div><div><strong>10</strong><span>Team Members</span></div></div></section>
+
+<section class="jj-section"><div class="container jj-cta"><span class="subheading">Piaggio Partnership</span><h2>A Turnkey Coffee Business on Three Wheels</h2><p>A Piaggio Ape Tuk Tuk, professionally converted into a coffee cart. Plan the machine, grinder, training and ongoing coffee supply with Jozi Java. Asset finance can be discussed through Commercial Credit Solutions for businesses that qualify.</p><div class="jj-actions jj-justify-center"><a href="tuktuk.html" class="btn btn-primary">Explore Tuk Tuk Conversions</a><a href="finance.html" class="btn btn-outline-light">Finance &amp; Eligibility</a></div></div></section>
+
+<section class="jj-section jj-section-no-top"><div class="container">
+  <div class="jj-section-heading"><span class="subheading">Discover</span><h2>Featured Equipment</h2><p>Commercial machines for a staffed coffee bar, or bean to cup equipment for self service. We help you choose the machine, grinder and installation for your business.</p></div>
+  <div class="jj-featured-equipment"><article><a href="equipment.html#casadio-2"><img src="images/optimized/Casadio_Nettuno_2-Group-480.webp" srcset="images/optimized/Casadio_Nettuno_2-Group-480.webp 480w, images/optimized/Casadio_Nettuno_2-Group-960.webp 960w" sizes="(max-width: 767px) 100vw, 50vw" width="1188" height="1188" alt="Casadio Nettuno 2GR" class="" decoding="async" loading="lazy"></a><h3><a href="equipment.html#casadio-2">Casadio Nettuno 2GR</a></h3><p class="price">R73,600.00</p><a class="btn btn-primary" href="equipment.html#casadio-2">View Equipment</a></article>
+<article><a href="equipment.html#buddy"><img src="images/optimized/Hey_Buddy_Grinder_Black-480.webp" srcset="images/optimized/Hey_Buddy_Grinder_Black-480.webp 480w, images/optimized/Hey_Buddy_Grinder_Black-960.webp 563w" sizes="(max-width: 767px) 100vw, 50vw" width="563" height="563" alt="Hey Buddy Grinder" class="" decoding="async" loading="lazy"></a><h3><a href="equipment.html#buddy">Hey Buddy Grinder</a></h3><p class="price">R16,588.19</p><a class="btn btn-primary" href="equipment.html#buddy">View Equipment</a></article></div>
+  <p class="text-center jj-small">Guide prices include VAT. Confirm current pricing, stock, installation and delivery with our team.</p>
+  <p class="text-center"><a href="equipment.html" class="btn btn-primary">View All Equipment</a></p>
+</div></section>
+
+<section class="jj-home-gallery" aria-label="Jozi Java photographs">
+  <a href="contact.html#locations" aria-label="Find Jozi Java locations"><img src="images/optimized/jozi-33-480.webp" alt="Jozi Java client photograph" width="1280" height="853" loading="lazy"></a>
+  <a href="menu.html" aria-label="Café and menu"><img src="images/optimized/jozi-35-480.webp" alt="Coffee at Jozi Java" width="1280" height="853" loading="lazy"></a>
+  <a href="about.html" aria-label="Our story"><img src="images/optimized/jozi-36-480.webp" alt="The Jozi Java coffee experience" width="1280" height="853" loading="lazy"></a>
+  <a href="wholesale.html" aria-label="Wholesale coffee"><img src="images/optimized/jozi-37-480.webp" alt="Jozi Java client photograph" width="1280" height="853" loading="lazy"></a>
+</section>
+
+<section class="jj-section"><div class="container">
+  <div class="jj-section-heading"><span class="subheading">Discover</span><h2>Coffee Beans &amp; Subscriptions</h2><p>The Wilds Roast, Pritchard Street Roast and Douglasdale Decaf. Available whole bean or ground to order. Regular supplies can be arranged with the team.</p></div>
+  <p class="jj-notice jj-small">Preview pricing: bean prices and courier rates are awaiting client confirmation. Jozi Java confirms the final price and availability before payment.</p>
+  <div class="jj-home-coffee"><article><a href="the-wilds-roast.html"><img src="images/optimized/jozi-03-480.webp" srcset="images/optimized/jozi-03-480.webp 480w, images/optimized/jozi-03-960.webp 960w" sizes="(max-width: 767px) 100vw, 50vw" width="1200" height="1200" alt="The Wilds Roast packaging" class="" decoding="async" loading="lazy"></a><h3><a href="the-wilds-roast.html">The Wilds Roast</a></h3><p>Whole bean or ground<br>1kg guide price: R129.00</p><a class="btn btn-primary" href="the-wilds-roast.html">Shop</a></article>
+<article><a href="pritchard-street-roast.html"><img src="images/optimized/jozi-05-480.webp" srcset="images/optimized/jozi-05-480.webp 480w, images/optimized/jozi-05-960.webp 960w" sizes="(max-width: 767px) 100vw, 50vw" width="1351" height="1497" alt="Pritchard Street Roast packaging" class="" decoding="async" loading="lazy"></a><h3><a href="pritchard-street-roast.html">Pritchard Street Roast</a></h3><p>Whole bean or ground<br>1kg guide price: R139.00</p><a class="btn btn-primary" href="pritchard-street-roast.html">Shop</a></article>
+<article><a href="douglasdale-decaf.html"><img src="images/optimized/jozi-04-480.webp" srcset="images/optimized/jozi-04-480.webp 480w, images/optimized/jozi-04-960.webp 960w" sizes="(max-width: 767px) 100vw, 50vw" width="1200" height="1200" alt="Douglasdale Decaf packaging" class="" decoding="async" loading="lazy"></a><h3><a href="douglasdale-decaf.html">Douglasdale Decaf</a></h3><p>Whole bean or ground<br>1kg guide price: R149.00</p><a class="btn btn-primary" href="douglasdale-decaf.html">Shop</a></article>
+<article><a href="shop.html#regular-orders"><img src="images/optimized/jozi-20-480.webp" srcset="images/optimized/jozi-20-480.webp 480w, images/optimized/jozi-20-960.webp 960w" sizes="(max-width: 767px) 100vw, 50vw" width="1280" height="853" alt="Coffee at Jozi Java" class="" decoding="async" loading="lazy"></a><h3>Coffee Subscriptions</h3><p>Weekly, fortnightly or monthly supplies arranged directly with our team.</p><a class="btn btn-primary" href="shop.html#regular-orders">Enquire</a></article></div>
+</div></section>
+
+<section class="jj-section jj-section-no-top"><div class="container">
+  <div class="jj-section-heading"><h2>Recent from the Blog</h2></div>
+  <div class="jj-three-col">
+    <article class="jj-editorial-card"><a href="blog-single.html"><img src="images/optimized/jozi-13-480.webp" alt="Coffee at Jozi Java" width="1280" height="853" loading="lazy"></a><div><span class="jj-small">Brewing</span><h3><a href="blog-single.html">Choosing Your Coffee Grind</a></h3><p>Whole bean, espresso, plunger or filter: match the grind to the way you brew.</p></div></article>
+    <article class="jj-editorial-card"><a href="choosing-coffee-equipment.html"><img src="images/optimized/jozi-14-480.webp" alt="A supplied Jozi Java photograph" width="1280" height="853" loading="lazy"></a><div><span class="jj-small">Equipment</span><h3><a href="choosing-coffee-equipment.html">Barista or Bean to Cup?</a></h3><p>What to consider when choosing a commercial coffee setup.</p></div></article>
+    <article class="jj-editorial-card"><a href="starting-a-coffee-cart.html"><img src="images/optimized/jozi-39-480.webp" alt="A supplied Jozi Java photograph" width="1280" height="853" loading="lazy"></a><div><span class="jj-small">Coffee Business</span><h3><a href="starting-a-coffee-cart.html">Planning a Coffee Cart</a></h3><p>Site access, power, water and the costs to plan before a conversion.</p></div></article>
+  </div>
+</div></section>
+
+<section class="jj-home-contact" aria-label="Contact Jozi Java">
+  <div class="jj-map-consent"><div><h2>Visit Us</h2><p>The Roastery<br>2 Honeyguide, Douglasdale</p><button class="btn btn-primary" type="button" data-load-map>Load Google Map</button><p class="jj-small">Loading the map connects to Google Maps.</p><a class="jj-text-link" href="contact.html#locations">All Locations</a></div></div>
+  <div class="jj-home-contact-form"><h2>Contact Us</h2>
+    <form data-whatsapp-form data-title="Website enquiry" id="jj-home-contact-form">
+      <div class="jj-form-grid"><div class="form-group"><label for="home-name">Your name *</label><input class="form-control" id="home-name" name="Name" autocomplete="name" maxlength="100" required></div><div class="form-group"><label for="home-phone">Phone *</label><input class="form-control" id="home-phone" name="Phone" type="tel" autocomplete="tel" maxlength="30" required></div></div>
+      <div class="form-group"><label for="home-email">Email *</label><input class="form-control" id="home-email" name="Email" type="email" autocomplete="email" maxlength="150" required></div>
+      <div class="form-group"><label for="home-message">Message *</label><textarea class="form-control" id="home-message" name="Message" rows="3" maxlength="1800" required></textarea></div>
+      <label class="jj-check-label"><input type="checkbox" name="consent" required><span>I agree to share this enquiry with Jozi Java through WhatsApp. <a href="privacy.html">Privacy information</a>.</span></label>
+      <button class="btn btn-primary" type="submit">Prepare WhatsApp Message</button><p class="jj-small">Review your message and press Send in WhatsApp.</p><div class="jj-form-result" role="status" aria-live="polite" hidden></div>
+    </form>
+  </div>
+</section>
+
+  </main>
+  <footer class="jj-footer">
+    <div class="container">
+      <div class="jj-footer-grid">
+        <div><h3>About Jozi Java</h3><p>A family owned coffee roastery in Douglasdale, Johannesburg. Coffee beans, commercial equipment and Piaggio Tuk Tuk coffee cart conversions.</p><p><a href="about.html">Our Story</a></p><ul class="jj-footer-social"><li><a href="https://instagram.com/jozijava" target="_blank" rel="noopener noreferrer">Instagram</a></li><li><a href="https://facebook.com/jozijava" target="_blank" rel="noopener noreferrer">Facebook</a></li><li><a href="https://tiktok.com/@jozijava" target="_blank" rel="noopener noreferrer">TikTok</a></li></ul></div>
+        <div><h3>From the Blog</h3><a class="jj-footer-article" href="blog-single.html"><img src="images/optimized/jozi-13-480.webp" width="1280" height="853" alt="" loading="lazy"><span>Choosing Your Coffee Grind</span></a><a class="jj-footer-article" href="choosing-coffee-equipment.html"><img src="images/optimized/Casadio_Nettuno_2-Group-480.webp" width="1188" height="1188" alt="" loading="lazy"><span>Barista or Bean to Cup?</span></a><a href="blog.html">All Articles</a></div>
+        <div><h3>Services</h3><ul><li><a href="shop.html">Coffee Beans</a></li><li><a href="equipment.html">Coffee Equipment</a></li><li><a href="tuktuk.html">Tuk Tuk Conversions</a></li><li><a href="wholesale.html">Wholesale Supply</a></li><li><a href="finance.html">Equipment Finance</a></li><li><a href="menu.html">Café &amp; Menu</a></li><li><a href="services.html">Business Support</a></li></ul></div>
+        <div><h3>Contact Us</h3><p>The Roastery<br>2 Honeyguide, Douglasdale<br>Johannesburg, South Africa</p><ul><li><a href="tel:+27689235818">+27 68 923 5818</a></li><li><a href="mailto:info@jozijava.co.za">info@jozijava.co.za</a></li><li><a href="https://wa.me/27689235818" target="_blank" rel="noopener noreferrer">WhatsApp</a></li><li><a href="contact.html#locations">All Locations</a></li><li><a href="shipping.html">Orders, Delivery &amp; Returns</a></li></ul></div>
       </div>
-
-      <div class="slider-item jj-hero-3" style="background-image: url(images/jozi/jozi-24.jpeg);">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-              <span class="subheading" style="font-weight: 800;"><b>Our Story</b></span>
-              <h1 class="mb-4">Gauteng&#39;s Greatest Coffee 2025</h1>
-              <p class="mb-4">A Joburg roastery you can trust. Born in Douglasdale, proudly family-friendly, serving gyms, offices, dealerships and the hospitality sector.</p>
-              <p><a href="about.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Our Story</a> <a href="menu.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Cafe &amp; Menu</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slider-item jj-hero-4" style="background-image: url(images/jozi/jozi-24.jpeg);">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-              <span class="subheading" style="font-weight: 800;"><b>Coffee Beans</b></span>
-              <h1 class="mb-4">Beans by Subscription</h1>
-              <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Shop Beans</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="slider-item jj-hero-5" style="background-image: url(images/jozi/jozi-24.jpeg);">
-        <div class="overlay"></div>
-        <div class="container">
-          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-            <div class="col-md-8 col-sm-12 text-center ftco-animate">
-              <span class="subheading" style="font-weight: 800;"><b>Freshly Roasted</b></span>
-              <h1 class="mb-4">Ground to Order</h1>
-              <p><a href="shop.html" class="btn btn-primary p-3 px-xl-4 py-xl-3">Shop Beans</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-intro jj-intro-solo">
-    	<div class="container-wrap">
-    		<div class="wrap d-md-flex align-items-xl-end">
-	    		<div class="info">
-	    			<div class="row no-gutters">
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-phone"></span></div>
-	    					<div class="text">
-                            <h3><a href="tel:+27689235818">+27 68 923 5818</a></h3>
-                            <p>Jozi Java (Pty) Ltd</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-my_location"></span></div>
-	    					<div class="text">
-	    						<h3>2 Honeyguide, Douglasdale</h3>
-	    						<p>	The Roastery (Douglasdale) &middot; Monte Circle Office Park &middot; Ford Fourways &middot; Ford Sandton &middot; Ford Woodmead</p>
-	    					</div>
-	    				</div>
-	    				<div class="col-md-4 d-flex ftco-animate">
-	    					<div class="icon"><span class="icon-clock-o"></span></div>
-	    					<div class="text">
-	    						<h3>Open Monday-Friday</h3>
-	    						<p>7:00am - 17:00pm</p>
-	    					</div>
-	    				</div>
-	    			</div>
-	    		</div>
-    		</div>
-    	</div>
-    </section>
-
-    <section class="ftco-about d-md-flex">
-    	<div class="one-half img jj-story-image" style="background-image: url(images/jozi/jozi-story.jpeg);"></div>
-    	<div class="one-half ftco-animate">
-    		<div class="overlap">
-	        <div class="heading-section ftco-animate ">
-	          <h2 class="mb-4">Our Story</h2>
-            <span class="jj-badge" style="font-weight: 800;">Gauteng&#39;s Greatest Coffee 2025</span>
-	        </div>
-	        <div>
-	  				<p id="story-typing" class="tw-leading-relaxed tw-text-[1.1rem] tw-font-bold tw-tracking-wide" aria-label="Our story">Jozi Java started in 2023 as a family business with a simple idea: Johannesburg deserves great coffee, roasted close to home and served with real care. Founded by Chris and Ruth Neumann, we roast our own blends at The Roastery in Douglasdale, from the rich, chocolatey Wilds Roast to the salted-caramel notes of our Pritchard Street Roast. From our flagship café at Monte Circle to our coffee bars inside dealerships across Fourways, Sandton and Woodmead, we bring specialty coffee to the places Joburg lives and works. In 2025 we were proud to be named 702’s Gauteng’s Greatest Coffee Shop, but the real reward is still the same as day one: a great cup, a familiar face, and a city we love. This is The Coffee Experience.</p>
-	  			</div>
-  			</div>
-    	</div>
-    </section>
-
-    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row align-items-center">
-    			<div class="col-md-6 pr-md-5">
-    				<div class="heading-section text-md-right ftco-animate">
-	            <h2 class="mb-4">Caf&eacute; &amp; Wholesale Supply</h2>
-                <p class="mb-4 jj-wholesale-copy" style="color: #fff;">We supply cafés, restaurants, and retailers with quality coffee at competitive wholesale prices. Whether you’re opening a new café or keeping a busy coffee bar stocked, we’re here to support your business. From the first morning espresso to the last cup of the day, our coffee brings rich flavour and inviting aroma to every brew. Let’s help you create memorable coffee moments that keep your customers coming back.</p>
-	            <p><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">View Full Menu</a></p>
-	          </div>
-    			</div>
-    			<div class="col-md-6">
-    				<div class="row">
-    					<div class="col-md-6">
-    						<div class="menu-entry">
-		    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-46.jpeg);"></a>
-		    				</div>
-    					</div>
-    					<div class="col-md-6">
-    						<div class="menu-entry mt-lg-4">
-		    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-47.jpeg);"></a>
-		    				</div>
-    					</div>
-    					<div class="col-md-6">
-    						<div class="menu-entry">
-		    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-01.jpeg);"></a>
-		    				</div>
-    					</div>
-    					<div class="col-md-6">
-    						<div class="menu-entry mt-lg-4">
-		    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-02.jpeg);"></a>
-		    				</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-
-    <section class="ftco-section ftco-no-pt">
-      <div class="container-fluid px-0">
-        <div class="jj-tiles">
-          <a class="jj-tile jj-beans-carousel" href="shop.html" aria-label="Shop online: beans and products">
-            <img class="jj-beans-slide is-active" src="images/jozi/jozi-03.jpeg" alt="" aria-hidden="true">
-            <img class="jj-beans-slide" src="images/jozi/jozi-05.jpeg" alt="" aria-hidden="true">
-            <img class="jj-beans-slide" src="images/jozi/jozi-04.jpeg" alt="" aria-hidden="true">
-            <span><span class="jj-tile__kicker">Shop Online</span><span class="jj-tile__label">Beans &amp; Products</span></span>
-          </a>
-          <a class="jj-tile jj-equipment-carousel" href="equipment.html" aria-label="Equipment: machines and roasters">
-            <img class="jj-equipment-slide is-active" src="images/jozi/Casadio_Nettuno_2-Group.jpg" alt="" aria-hidden="true">
-            <img class="jj-equipment-slide" src="images/jozi/Hey_Buddy_Grinder_Black.jpg" alt="" aria-hidden="true">
-            <img class="jj-equipment-slide" src="images/jozi/Hey_Buddy_Grinder_White.jpg" alt="" aria-hidden="true">
-            <span><span class="jj-tile__kicker">Equipment</span><span class="jj-tile__label">Machines &amp; Roasters</span></span>
-          </a>
-          <a class="jj-tile jj-tuktuk-carousel" href="tuktuk.html" aria-label="Piaggio Partnership: Tuk Tuk Conversions">
-            <img class="jj-tuktuk-slide is-active" src="images/jozi/coffee-1.jpg" alt="" aria-hidden="true">
-            <img class="jj-tuktuk-slide" src="images/jozi/Coffee-Hero.jpg" alt="" aria-hidden="true">
-            <img class="jj-tuktuk-slide" src="images/jozi/Coffee-mid.jpg" alt="" aria-hidden="true">
-            <span><span class="jj-tile__kicker">Piaggio Partnership</span><span class="jj-tile__label">Tuk Tuk Conversions</span></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(images/jozi/jozi-08.jpeg);">
-			<div class="overlay"></div>
-      <div class="container">
-        <div class="row justify-content-center">
-        	<div class="col-md-10">
-        		<div class="row">
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
-		              	<strong class="number" data-number="5">0</strong>
-		              	<span>Jozi Locations</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
-		              	<strong class="number" data-number="1">0</strong>
-		              	<span>Coffee Award 2025</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
-		              	<strong class="number" data-number="5000">0</strong>
-		              	<span>Cups Served</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		              	<div class="icon"><span class="flaticon-coffee-cup"></span></div>
-                        <strong class="number" data-number="10">0</strong>
-		              	<span>Team Members</span>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-        </div>
-      </div>
-    </section>
-
-        <section class="ftco-section">
-      <div class="container">
-        <div class="jj-cta">
-          <span class="subheading">Piaggio Partnership</span>
-          <h2 class="mb-3">A Turnkey Coffee Business on Three Wheels</h2>
-          <p class="mb-4">A Piaggio Ape Tuk Tuk, professionally converted into a coffee cart &mdash; machine, grinder,
-          training and ongoing coffee supply included, financed as a single package through Commercial Credit Solutions.
-          Real conversions already running: Ayanda Coffee and Mugg &amp; Bean (Montecasino, Kyalami, Paulshof).</p>
-          <p class="mb-0">
-            <a href="tuktuk.html" class="btn btn-primary px-4 py-3">Explore Tuk Tuk Conversions</a>
-            <a href="finance.html" class="btn btn-outline-light px-4 py-3">Estimate Your Repayment</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-<section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <span class="subheading" style="font-weight: 800;">Discover</span>
-            <h2 class="mb-4">Featured Equipment</h2>
-            <p>Want the personal, elevated experience of a real barista? Our commercial machines make that possible. Prefer self-service? The unattended Jura range covers that too. Every machine is installed and dialled in &mdash; and available on asset finance for businesses that qualify.</p>
-          </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-46.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="equipment.html">Casadio Nettuno 2GR</a></h3>
-    						<p>Auto, raised (black) espresso machine</p>
-    						<p class="price"><span>R73,600.00</span></p>
-    						<p><a href="equipment.html" class="btn btn-primary btn-outline-primary">View</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-47.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="equipment.html">Hey Buddy Grinder</a></h3>
-    						<p>Black or white &mdash; matching entry grinder</p>
-    						<p class="price"><span>R16,588.19</span></p>
-    						<p><a href="equipment.html" class="btn btn-primary btn-outline-primary">View</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-01.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="equipment.html">Wega Rover 2GR EVD</a></h3>
-    						<p>Auto, raised (white) two-group workhorse</p>
-    						<p class="price"><span>R82,800.00</span></p>
-    						<p><a href="equipment.html" class="btn btn-primary btn-outline-primary">View</a></p>
-    					</div>
-    				</div>
-        	</div>
-        	<div class="col-md-3">
-        		<div class="menu-entry">
-    					<a href="#" class="img" style="background-image: url(images/jozi/jozi-02.jpeg);"></a>
-    					<div class="text text-center pt-4">
-    						<h3><a href="equipment.html">Yoshan SD-3kg Roaster</a></h3>
-    						<p>3kg roaster for small-batch roasteries</p>
-    						<p class="price"><span>R166,792.04</span></p>
-    						<p><a href="equipment.html" class="btn btn-primary btn-outline-primary">View</a></p>
-    					</div>
-    				</div>
-        	</div>
-        </div>
-    	</div>
-    </section>
-
-    <section class="ftco-gallery">
-    	<div class="container-wrap">
-    		<div class="row no-gutters">
-					<div class="col-md-3 ftco-animate">
-						<a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(images/jozi/jozi-33.jpeg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-search"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(images/jozi/jozi-35.jpeg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-search"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(images/jozi/jozi-36.jpeg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-search"></span>
-    					</div>
-						</a>
-					</div>
-					<div class="col-md-3 ftco-animate">
-						<a href="gallery.html" class="gallery img d-flex align-items-center" style="background-image: url(images/jozi/jozi-37.jpeg);">
-							<div class="icon mb-4 d-flex align-items-center justify-content-center">
-    						<span class="icon-search"></span>
-    					</div>
-						</a>
-					</div>
-        </div>
-    	</div>
-    </section>
-
-		    <section class="ftco-section">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <span class="subheading" style="font-weight: 800;">Discover</span>
-            <h2 class="mb-4">Coffee Beans &amp; Subscriptions</h2>
-            <p>One-off bags or Subscribe &amp; Save &mdash; weekly, fortnightly or monthly, pause or cancel any time.
-            Also available on <a href="https://www.takealot.com" target="_blank" rel="noopener">Takealot</a>.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="menu-entry">
-              <a href="shop.html" class="img" style="background-image: url(images/jozi/jozi-16.jpeg);"></a>
-              <div class="text text-center pt-4">
-                <h3><a href="shop.html">The Wilds Roast</a></h3>
-                <p>Whole bean or ground &mdash; our flagship roast</p>
-                <p class="price"><span>R129.00</span></p>
-                <p><a href="shop.html" class="btn btn-primary btn-outline-primary">Shop</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="menu-entry">
-              <a href="shop.html" class="img" style="background-image: url(images/jozi/jozi-17.jpeg);"></a>
-              <div class="text text-center pt-4">
-                <h3><a href="shop.html">Pritchard Street Roast</a></h3>
-                <p>Whole bean or ground &mdash; bold city blend</p>
-                <p class="price"><span>R139.00</span></p>
-                <p><a href="shop.html" class="btn btn-primary btn-outline-primary">Shop</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="menu-entry">
-              <a href="shop.html" class="img" style="background-image: url(images/jozi/jozi-19.jpeg);"></a>
-              <div class="text text-center pt-4">
-                <h3><a href="shop.html">Douglasdale Decaf</a></h3>
-                <p>Whole bean or ground &mdash; smooth decaf</p>
-                <p class="price"><span>R149.00</span></p>
-                <p><a href="shop.html" class="btn btn-primary btn-outline-primary">Shop</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="menu-entry">
-              <a href="shop.html" class="img" style="background-image: url(images/jozi/jozi-20.jpeg);"></a>
-              <div class="text text-center pt-4">
-                <h3><a href="shop.html">Subscribe &amp; Save</a></h3>
-                <p>Weekly / fortnightly / monthly &mdash; skip or cancel any time</p>
-                <p class="price"><span>Save 10%</span></p>
-                <p><a href="shop.html" class="btn btn-primary btn-outline-primary">Subscribe</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-    	</div>
-    </section>
-
-    <section class="ftco-section img" id="ftco-testimony" style="background-image: url(images/jozi/jozi-07.jpeg);">
-    	<div class="overlay"></div>
-	    <div class="container">
-	      <div class="row justify-content-start mb-5">
-	        <div class="col-md-7 heading-section text-left ftco-animate">
-	        	<span class="subheading">Testimony</span>
-	          <h2 class="mb-4">Customers Says</h2>
-	          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	        </div>
-	      </div>
-	    </div>
-	    <div class="container-wrap">
-	      <div class="row d-flex no-gutters justify-content-start text-left">
-	        <div class="col-lg align-self-sm-end ftco-animate">
-	          <div class="testimony tile-move" style="animation-delay:0.0s;transition-delay:0.0s">
-	             <blockquote>
-	                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small.&rdquo;</p>
-	              </blockquote>
-	              <div class="author d-flex mt-4">
-	                <div class="image mr-3 align-self-center">
-	                  <img src="images/jozi/jozi-01.jpeg" alt="">
-	                </div>
-	                <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
-	              </div>
-	          </div>
-	        </div>
-	        <div class="col-lg align-self-sm-end">
-	          <div class="testimony tile-move overlay" style="animation-delay:0.25s;transition-delay:0.25s">
-	             <blockquote>
-	                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
-	              </blockquote>
-	              <div class="author d-flex mt-4">
-	                <div class="image mr-3 align-self-center">
-	                  <img src="images/jozi/jozi-02.jpeg" alt="">
-	                </div>
-	                <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
-	              </div>
-	          </div>
-	        </div>
-	        <div class="col-lg align-self-sm-end ftco-animate">
-	          <div class="testimony tile-move" style="animation-delay:0.5s;transition-delay:0.5s">
-	             <blockquote>
-	                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
-	              </blockquote>
-	              <div class="author d-flex mt-4">
-	                <div class="image mr-3 align-self-center">
-	                  <img src="images/jozi/jozi-03.jpeg" alt="">
-	                </div>
-	                <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
-	              </div>
-	          </div>
-	        </div>
-	        <div class="col-lg align-self-sm-end">
-	          <div class="testimony tile-move overlay" style="animation-delay:0.75s;transition-delay:0.75s">
-	             <blockquote>
-	                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however.&rdquo;</p>
-	              </blockquote>
-	              <div class="author d-flex mt-4">
-	                <div class="image mr-3 align-self-center">
-	                  <img src="images/jozi/jozi-02.jpeg" alt="">
-	                </div>
-	                <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
-	              </div>
-	          </div>
-	        </div>
-	        <div class="col-lg align-self-sm-end ftco-animate">
-	          <div class="testimony tile-move" style="animation-delay:1.0s;transition-delay:1.0s">
-	            <blockquote>
-	              <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small  line of blind text by the name. &rdquo;</p>
-	            </blockquote>
-	            <div class="author d-flex mt-4">
-	              <div class="image mr-3 align-self-center">
-	                <img src="images/jozi/jozi-03.jpeg" alt="">
-	              </div>
-	              <div class="name align-self-center">Louise Kelly <span class="position">Illustrator Designer</span></div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </section>
-
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h2 class="mb-4">Recent from blog</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/jozi/jozi-13.jpeg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/jozi/jozi-14.jpeg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/jozi/jozi-39.jpeg');">
-              </a>
-              <div class="text py-4 d-block">
-              	<div class="meta">
-                  <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-		
-		<section class="ftco-appointment">
-			<div class="overlay"></div>
-    	<div class="container-wrap">
-    		<div class="row no-gutters d-md-flex align-items-center">
-    			<div class="col-md-6 d-flex align-self-stretch">
-    				<div class="jj-map">
-    					<iframe class="jj-map-frame" title="Map to Jozi Java" src="https://www.google.com/maps?q=Douglasdale,+Sandton,+Johannesburg,+South+Africa&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    					<div class="jj-map-card">
-    						<h4>Visit us</h4>
-    						<p>The Roastery (Douglasdale) &middot; Sandton, Johannesburg</p>
-    						<a href="https://www.google.com/maps/search/?api=1&amp;query=Douglasdale,+Sandton,+Johannesburg,+South+Africa" target="_blank" rel="noopener">Get directions</a>
-    					</div>
-    				</div>
-    			</div>
-	    		<div class="col-md-6 appointment ftco-animate">
-	    			<h3 class="mb-3">CONTACT US</h3>
-	    			<form action="#" class="appointment-form">
-	    				<div class="d-md-flex">
-		    				<div class="form-group">
-		    					<input type="text" class="form-control" placeholder="First Name">
-		    				</div>
-		    				<div class="form-group ml-md-4">
-		    					<input type="text" class="form-control" placeholder="Last Name">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-		    				<div class="form-group">
-		    					<div class="input-wrap">
-		            		<div class="icon"><span class="ion-md-calendar"></span></div>
-		            		<input type="text" class="form-control appointment_date" placeholder="Date">
-	            		</div>
-		    				</div>
-		    				<div class="form-group ml-md-4">
-		    					<div class="input-wrap">
-		            		<div class="icon"><span class="ion-ios-clock"></span></div>
-		            		<input type="text" class="form-control appointment_time" placeholder="Time">
-	            		</div>
-		    				</div>
-		    				<div class="form-group ml-md-4">
-		    					<input type="text" class="form-control" placeholder="Phone">
-		    				</div>
-	    				</div>
-	    				<div class="d-md-flex">
-	    					<div class="form-group">
-		              <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-		            </div>
-		            <div class="form-group ml-md-4">
-		              <input type="submit" value="Appointment" class="btn btn-primary py-3 px-4">
-		            </div>
-	    				</div>
-	    			</form>
-	    		</div>    			
-    		</div>
-    	</div>
-    </section>
-
-
-    <section class="ftco-section">
-      <div class="container">
-        <div class="jj-quiz">
-          <span class="jj-eyebrow" style="color:var(--jj-sage);">Not Sure Where to Start?</span>
-          <h2>Find your perfect brew</h2>
-          <p>Barista bar or self-service? Home roaster or commercial? Tell us what you need and we will match you to the right machine, bean or conversion.</p>
-          <p class="mb-0"><a href="equipment.html" class="btn btn-primary px-4 py-3">Take the quiz</a> <a href="finance.html" class="btn btn-white btn-outline-white px-4 py-3">Check finance eligibility</a></p>
-        </div>
-      </div>
-    </section>
-
-    <footer class="ftco-footer ftco-section img">
-    	<div class="overlay"></div>
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
-            <div class="ftco-footer-widget mb-4">
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Recent Blog</h2>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/jozi/jozi-13.jpeg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/jozi/jozi-14.jpeg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 mb-5 mb-md-5">
-             <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Services</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Cooked</a></li>
-                <li><a href="#" class="py-2 d-block">Deliver</a></li>
-                <li><a href="#" class="py-2 d-block">Quality Foods</a></li>
-                <li><a href="#" class="py-2 d-block">Mixed</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-5 mb-md-5">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">The Roastery (Douglasdale) &middot; Monte Circle Office Park &middot; Ford Fourways &middot; Ford Sandton &middot; Ford Woodmead</span></li>
-	                <li><a href="tel:+27689235818"><span class="icon icon-phone"></span><span class="text">+27 68 923 5818</span></a></li>
-	                <li><a href="mailto:info@jozijava.co.za"><span class="icon icon-envelope"></span><span class="text">info@jozijava.co.za</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is customised with <i class="icon-heart" aria-hidden="true"></i> by Jozi Java | Template: <a href="https://jozijava.co.za">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-    
-  
-  <style>
-    .jj-wholesale-copy {
-      text-shadow: 0 0 4px #2563eb, 0 0 12px #0066ff, 0 0 28px rgba(0, 85, 255, .95);
-    }
-    .jj-beans-carousel, .jj-equipment-carousel, .jj-tuktuk-carousel { background: #fff; }
-    .jj-beans-slide, .jj-equipment-slide, .jj-tuktuk-slide {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: contain; object-position: center; opacity: 0;
-      transition: opacity .9s ease-in-out;
-    }
-    .jj-beans-slide.is-active, .jj-equipment-slide.is-active, .jj-tuktuk-slide.is-active { opacity: 1; }
-    @media (prefers-reduced-motion: reduce) {
-      .jj-beans-slide, .jj-equipment-slide, .jj-tuktuk-slide { transition: none; }
-    }
-    /* Landing-page white, bold headings with a blue glow. */
-    :is(h1, h2, h3, h4, h5, h6, .subheading),
-    :is(h1, h2, h3, h4, h5, h6, .subheading) :not(.btn) {
-      color: #fff !important;
-      font-weight: 800 !important;
-      text-shadow: 0 0 4px #2563eb, 0 0 12px #0066ff, 0 0 28px rgba(0, 85, 255, .95);
-    }
-    /* Landing-page blue buttons: white labels in every interaction state. */
-    .btn.btn-primary,
-    .btn.btn-primary:hover,
-    .btn.btn-primary:focus,
-    .btn.btn-primary:active { color: #fff !important; }
-    /* .home-slider.owl-carousel matches the specificity of the theme rule
-       (.owl-carousel.home-slider .slider-item) so the slides overlay instead of
-       stacking in normal flow. */
-    .home-slider.owl-carousel{position:relative;height:750px;overflow:hidden;display:block}
-    .home-slider.owl-carousel .slider-item{display:block;position:absolute;top:0;left:0;width:100%;height:100%;
-      background-size:cover;background-position:center center;background-repeat:no-repeat;
-      opacity:0;visibility:hidden;transition:opacity .9s ease-in-out;z-index:0}
-    .home-slider.owl-carousel .slider-item.is-active{opacity:1;visibility:visible;z-index:1}
-    .home-slider.owl-carousel .slider-text > [class*="col-"] {
-      background: transparent; box-shadow: none; border-radius: 0;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    }
-    /* each hero slide shows its own photo (the poster banner treatment is for the inner pages) */
-    .home-slider.owl-carousel .slider-item { background-size: cover !important; background-position: center center !important; }
-    .home-slider.owl-carousel .slider-item.jj-hero-1 { background-image: url(images/jozi/jozi-06.jpeg) !important; }
-    .home-slider.owl-carousel .slider-item.jj-hero-2 { background-image: url(images/jozi/jozi-09.jpeg) !important; }
-    .home-slider.owl-carousel .slider-item.jj-hero-3 { background-image: url(images/jozi/jozi-24.jpeg) !important; }
-    .home-slider.owl-carousel .slider-item.jj-hero-4,
-    .home-slider.owl-carousel .slider-item.jj-hero-5 { background-image: url(images/jozi/jozi-24.jpeg) !important; }
-    @media (max-width:767.98px){.home-slider.owl-carousel{height:520px}.home-slider.owl-carousel .slider-item{height:100%}}
-    /* The client's portrait photo needs a whole-image treatment.
-       Cropping it into the 1.9:1 hero with cover sliced the product
-       out of frame, so on tablet/desktop they show WHOLE (contain) on the left over a
-       blurred copy of themselves, with the text panel moved to the right of the photo.
-       Phones use full-bleed photos behind the text, without a coloured panel. */
-    @media (min-width: 768px) {
-      .home-slider.owl-carousel .slider-item.jj-hero-fit::before {
-        content: ""; position: absolute; left: -5%; top: -5%; width: 110%; height: 110%;
-        background-image: inherit; background-size: cover; background-position: center center; background-repeat: no-repeat;
-        -webkit-filter: blur(34px) brightness(.42) saturate(1.05);
-        filter: blur(34px) brightness(.42) saturate(1.05); }
-      .home-slider.owl-carousel .slider-item.jj-hero-fit::after {
-        content: ""; position: absolute; left: 4%; top: 10%; width: 50%; height: 80%; z-index: 1;
-        background-image: inherit; background-repeat: no-repeat;
-        background-position: center center; background-size: contain; }
-      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text { position: relative; z-index: 2; }
-      /* Bootstrap's .justify-content-center / .text-center utilities are !important, so these are too */
-      .home-slider.owl-carousel .slider-item.jj-hero-fit .row { -webkit-box-pack: end !important; -ms-flex-pack: end !important; justify-content: flex-end !important; }
-      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text > [class*="col-"] {
-        -webkit-box-flex: 0; -ms-flex: 0 0 42%; flex: 0 0 42%; max-width: 42%; text-align: left !important; }
-    }
-    @media (min-width: 768px) and (max-width: 991.98px) {
-      .home-slider.owl-carousel .slider-item.jj-hero-fit::after { left: 3%; width: 49%; }
-      .home-slider.owl-carousel .slider-item.jj-hero-fit .slider-text > [class*="col-"] {
-        -webkit-box-flex: 0; -ms-flex: 0 0 38%; flex: 0 0 38%; max-width: 38%; }
-    }
-    @media (max-width: 767.98px) {
-      .home-slider.owl-carousel { height: 520px; min-height: 0; }
-      .home-slider.owl-carousel .slider-item > .container {
-        position: relative; z-index: 2; height: 100%; padding-top: 0; padding-bottom: 0;
-      }
-      .home-slider.owl-carousel .slider-item .slider-text {
-        height: 100%; min-height: 0; margin-top: 0;
-      }
-      .home-slider.owl-carousel .slider-item .slider-text h1 { font-size: 30px; }
-      .home-slider.owl-carousel .slider-item .slider-text p { font-size: 14px; }
-      .home-slider.owl-carousel .slider-item .slider-text .btn {
-        padding: 12px 14px !important; margin-bottom: 8px;
-      }
-    }
-  </style>
-  <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('.jj-beans-carousel, .jj-equipment-carousel, .jj-tuktuk-carousel').forEach(function(carousel){
-    var beanSlides = carousel.querySelectorAll('img');
-    if (beanSlides.length > 1) {
-      var beanIndex = 0;
-      setInterval(function(){
-        beanSlides[beanIndex].classList.remove('is-active');
-        beanIndex = (beanIndex + 1) % beanSlides.length;
-        beanSlides[beanIndex].classList.add('is-active');
-      }, 10000);
-    }
-    });
-    document.querySelectorAll('h1, h2, h3, h4, h5, h6, .subheading').forEach(function(heading){
-      heading.classList.add('tw-text-white', 'tw-font-extrabold',
-        'tw-[text-shadow:0_0_4px_#2563eb,0_0_12px_#0066ff,0_0_28px_rgba(0,85,255,0.95)]');
-    });
-    var hero = document.querySelector('.home-slider');
-    if(!hero) return;
-    var slides = hero.querySelectorAll('.slider-item');
-    if(!slides.length) return;
-    var i = 0;
-    slides[0].classList.add('is-active');
-    setInterval(function(){
-      slides[i].classList.remove('is-active');
-      i = (i + 1) % slides.length;
-      slides[i].classList.add('is-active');
-    }, 10000);  /* 10s between slides */
-  });
-  </script>
-    <style>
-    .home-slider .slider-item .subheading { animation: subhead-loop 10s ease-in-out infinite; }
-    @keyframes subhead-loop {
-      0%   { opacity: 1; transform: translateY(0); }
-      35%  { opacity: 0; transform: translateY(-10px); }
-      55%  { opacity: 0; transform: translateY(10px); }
-      75%  { opacity: 1; transform: translateY(0); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    #story-typing::after { content: '\258C'; color: #BFDBFE; margin-left: 2px; animation: caret-blink .8s steps(1) infinite; }
-    @keyframes caret-blink { 0%,100% { opacity: 1 } 50% { opacity: 0 } }
-  </style>
-  <script>
-  (function(){
-    var el = document.getElementById('story-typing');
-    if (!el) return;
-    var full = el.textContent.trim();
-    var started = false;
-    function run() {
-      if (started) return; started = true;
-      el.textContent = '';
-      var i = 0;
-      function step() {
-        if (i < full.length) {
-          el.textContent += full.charAt(i++);
-          setTimeout(step, 22);
-        } else {
-          setTimeout(function() {
-            el.textContent = '';      /* disappears */
-            setTimeout(function() {   /* then comes back */
-              i = 0;
-              setTimeout(step, 22);
-            }, 800);
-          }, 3000);
-        }
-      }
-      setTimeout(step, 22);
-    }
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (e.isIntersecting) { run(); io.disconnect(); } });
-      }, { threshold: 0.35 });
-      io.observe(el);
-    } else { run(); }
-  })();
-  </script>
-  <style>
-    .tile-move { opacity: 0; transform: translateX(-80px); transition: opacity .7s ease, transform .7s ease; }
-    .tile-move.in { opacity: 1; transform: translateX(0); animation: tile-float 3.5s ease-in-out 1s infinite; }
-    @keyframes tile-float { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-22px) rotate(1deg); } }
-    @media (prefers-reduced-motion: reduce) { .tile-move { opacity:1; transform:none; transition:none; } }
-  </style>
-  <script>
-  (function(){
-    var tiles = document.querySelectorAll('#ftco-testimony .tile-move');
-    if (!tiles.length) return;
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function(es){
-        es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.25 });
-      tiles.forEach(function(t){ io.observe(t); });
-    } else {
-      tiles.forEach(function(t){ t.classList.add('in'); });
-    }
-  })();
-  </script>
-    <script src="js/cart.js"></script>
-    <script src="js/enhancements.js"></script>
-  </body>
+      <div class="jj-footer-bottom"><span>© <span data-year>2026</span> Jozi Java Co (Pty) Ltd.</span><a href="privacy.html">Privacy &amp; POPIA</a><!-- Colorlib credit retained under the original template licence. --><span>Original template by <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>.</span></div>
+    </div>
+  </footer>
+  <a class="jj-chat" href="https://wa.me/27689235818" target="_blank" rel="noopener noreferrer" aria-label="Chat with Jozi Java on WhatsApp"><svg viewbox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-13.5 7.8L3 21l1.6-4.5A9 9 0 1 1 21 11.5Z"/><path d="M8 7c-2 4 3 9 7 7l1-2-3-1-1 1-2-2 1-1-1-2Z"/></svg></a>
+  <button class="jj-back-top" type="button" aria-label="Back to top" hidden>↑</button>
+  <div id="jj-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
 </html>

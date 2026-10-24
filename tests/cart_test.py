@@ -230,21 +230,64 @@ def main():
         wa = d.execute_script("return window.__wa || '';")
         check("whatsapp handoff url built", wa.startswith("https://wa.me/" + WHATSAPP + "?text="), wa[:80])
         body = d.execute_script("return decodeURIComponent(window.__wa.split('?text=')[1] || '');")
-        check("message has product line", "The Wilds Roast — 500g, Plunger × 2 — R170.00" in body, body[:400])
+        check("message has product line", "The Wilds Roast: 500g, Plunger × 2: R170.00" in body, body[:400])
         check("message has totals", "Total: R297.00" in body, body[:400])
         check("message has customer", "Thabo Mokoena" in body and "0821234567" in body, body[:400])
         check("message has address", "12 Beyers Naude" in body and "2195" in body, body[:400])
         check("confirmation panel visible", d.execute_script(
             "var c=document.getElementById('jj-order-confirm'); return c && !c.hidden && c.offsetHeight > 0;"))
-        check("reference shown", (text_of(d, "#jj-confirm-ref") or "").startswith("JJ-"), text_of(d, "#jj-confirm-ref"))
-        check("cart cleared after handoff", badge(d)[0] == "hidden", badge(d))
+        check("reference shown", (text_of(d, "#jj-confirm-ref") or "").startswith("JJ"), text_of(d, "#jj-confirm-ref"))
+        check("order reference has no dash", "-" not in text_of(d, "#jj-confirm-ref"))
+        # Opening a window is not proof of sending: keep the bag so orders are not lost.
+        check("cart preserved after preparing WhatsApp message", badge(d)[0] == "3", badge(d))
+        check("personal details not saved without opt-in", d.execute_script("return localStorage.getItem('jj_customer_v1') === null;"))
+        check("confirmation is honest about submission", "not yet submitted" in (text_of(d, "#jj-order-confirm") or "").lower())
+
+        # A blocked popup still gets a retry link and retains the bag.
+        d.get(BASE + "checkout.html")
+        prep(d)
+        d.execute_script("window.open = function(u){ window.__wa = u; return null; };")
+        for fid in ["jj-first", "jj-last", "jj-email", "jj-phone"]:
+            d.find_element("css selector", "#" + fid).send_keys(fields[fid])
+        d.find_element("css selector", "input[name='jj-delivery'][value='collect']").click()
+        d.find_element("css selector", "#jj-popia").click()
+        d.find_element("css selector", "#jj-remember").click()
+        d.find_element("css selector", "#jj-place-order").click()
+        check("popup blocker warning visible", d.find_element("css selector", "#jj-confirm-warn").is_displayed())
+        check("popup retry link has prepared message", "?text=" in d.find_element("css selector", "#jj-confirm-link").get_attribute("href"))
+        check("blocked popup retains bag", cart_state(d)["count"] == 3)
+        check("remember details requires explicit opt-in", d.execute_script("return JSON.parse(localStorage.getItem('jj_customer_v1')).remember === true;"))
+        d.get(BASE + "checkout.html")
+        prep(d)
+        check("opted-in details prefilled", d.find_element("css selector", "#jj-first").get_attribute("value") == "Thabo")
+        d.find_element("css selector", "#jj-forget-details").click()
+        check("forget details removes personal storage", d.execute_script("return localStorage.getItem('jj_customer_v1') === null;"))
+
+        # Clear only after the customer explicitly chooses to empty the bag.
+        d.find_element("css selector", "input[name='jj-delivery'][value='collect']").click()
+        d.find_element("css selector", "#jj-popia").click()
+        d.execute_script("window.open = function(){return null;};")
+        d.find_element("css selector", "#jj-place-order").click()
+        d.execute_script("document.getElementById('jj-clear-after-order').click();")
+        check("explicit empty-bag action clears cart", cart_state(d)["count"] == 0)
 
         # ---------- nav badge on a page without cart widgets ----------
         d.get(BASE + "about.html")
         prep(d)
         time.sleep(0.3)
-        check("badge renders on other pages", badge(d)[0] == "hidden")  # cart is empty now — link still present
+        check("badge renders on other pages", badge(d)[0] == "hidden")
         check("nav cart link on about.html", len(d.find_elements("css selector", ".jj-nav-cart")) == 1)
+
+        # Browser storage is untrusted: discard malformed items and reprice valid items.
+        d.execute_script("localStorage.setItem('jj_cart_v1', JSON.stringify([null, {}, {sku:'fake',qty:9}, {sku:'wilds',name:'Injected',size:'1kg',grind:'Whole bean',price:0.01,qty:999,img:'javascript:bad'}]));")
+        d.refresh()
+        state = cart_state(d)
+        check("malformed stored items discarded", len(state["items"]) == 1, state)
+        check("stored price and quantity normalized", state["items"][0]["price"] == 129 and state["count"] == 99, state)
+        check("stored product name trusted from catalogue", state["items"][0]["name"] == "The Wilds Roast")
+        d.execute_script("localStorage.setItem('jj_cart_v1', '{broken');")
+        d.refresh()
+        check("corrupt storage does not break cart", cart_state(d)["count"] == 0)
 
     finally:
         d.quit()

@@ -9,7 +9,8 @@
      - cart.html   : line table, qty steppers, remove, totals
      - checkout.html: order summary, delivery method, validation, WhatsApp handoff
 
-   Marked PLACEHOLDER below: delivery fee + free-delivery threshold (client to confirm). */
+   Prices and delivery rates are preview values awaiting client approval. The website
+   prepares an order request, not a paid order, and keeps the bag after handoff. */
 (function () {
   'use strict';
 
@@ -17,8 +18,10 @@
   var CART_KEY = 'jj_cart_v1';
   var CUSTOMER_KEY = 'jj_customer_v1';
 
-  var FREE_DELIVERY = 500; // PLACEHOLDER: free courier delivery over R500
-  var DELIVERY_FEE = 75;   // PLACEHOLDER: flat SA courier fee under the threshold
+  var catalog = window.JoziCatalog;
+  var FREE_DELIVERY = catalog.delivery.freeFrom;
+  var DELIVERY_FEE = catalog.delivery.fee;
+  var storageAvailable = true;
 
   /* Grind list — the e-commerce strategy doc flags "grind defaults to Filter Ground" as its
      critical defect, so nothing is pre-selected: the customer must choose (whole bean is the
@@ -36,15 +39,43 @@
   }
 
   /* ---------- cart state ---------- */
+  function normalize(data) {
+    if (!data || typeof data !== 'object') return null;
+    var product = catalog.products.find(function (p) { return p.sku === data.sku; });
+    if (!product || !Object.prototype.hasOwnProperty.call(product.prices, data.size) || GRINDS.indexOf(data.grind) < 0) return null;
+    var qty = Number(data.qty);
+    if (!Number.isFinite(qty) || qty < 1) return null;
+    return {
+      sku: product.sku, name: product.name, size: data.size, grind: data.grind,
+      price: product.prices[data.size], qty: Math.min(99, Math.floor(qty)),
+      img: 'images/optimized/' + product.image.replace(/\.[^.]+$/, '') + '-480.webp'
+    };
+  }
+
   function load() {
-    try { var v = JSON.parse(localStorage.getItem(CART_KEY)); return Array.isArray(v) ? v : []; }
+    var raw;
+    try { raw = localStorage.getItem(CART_KEY); }
+    catch (e) { storageAvailable = false; return []; }
+    try {
+      var v = JSON.parse(raw);
+      if (!Array.isArray(v)) return [];
+      var result = [];
+      v.slice(0, 54).forEach(function (data) {
+        var item = normalize(data); if (!item) return;
+        var existing = result.find(function (other) { return itemKey(item) === itemKey(other); });
+        if (existing) existing.qty = Math.min(99, existing.qty + item.qty); else result.push(item);
+      });
+      return result;
+    }
     catch (e) { return []; }
   }
   var cart = load();
 
   function save() {
-    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {}
-    syncBadges();
+    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) { storageAvailable = false; }
+    renderPage();
+    var note = $('#jj-storage-note');
+    if (!storageAvailable && note) note.textContent = 'Browser storage is unavailable. Your bag only lasts on this page; enable storage or contact us directly to order.';
   }
 
   function itemKey(it) { return it.sku + '|' + it.size + '|' + it.grind; }
@@ -62,7 +93,11 @@
   }
 
   function addItem(data) {
-    var qty = Math.max(1, parseInt(data.qty, 10) || 1);
+    if (!data) return null;
+    var clean = normalize(Object.assign({}, data, { qty: data.qty == null ? 1 : data.qty }));
+    if (!clean) return null;
+    data = clean;
+    var qty = data.qty;
     var key = data.sku + '|' + data.size + '|' + data.grind;
     for (var i = 0; i < cart.length; i++) {
       if (itemKey(cart[i]) === key) { cart[i].qty = Math.min(99, cart[i].qty + qty); save(); return cart[i]; }
@@ -91,7 +126,12 @@
   /* ---------- toast ---------- */
   var toastEl, toastTimer;
   function toast(msg) {
-    if (!toastEl) { toastEl = document.createElement('div'); toastEl.id = 'jj-toast'; document.body.appendChild(toastEl); }
+    if (!toastEl) {
+      toastEl = $('#jj-toast') || document.createElement('div');
+      toastEl.id = 'jj-toast'; toastEl.setAttribute('role', 'status'); toastEl.setAttribute('aria-live', 'polite');
+      if (!toastEl.parentNode) document.body.appendChild(toastEl);
+    }
+    if (!storageAvailable) msg += '. Browser storage is unavailable; this bag is temporary.';
     toastEl.textContent = msg;
     toastEl.classList.add('show');
     clearTimeout(toastTimer);
@@ -111,6 +151,7 @@
     var n = count();
     $$('.jj-cart-badge').forEach(function (b) {
       b.textContent = n;
+      b.setAttribute('aria-label', n + (n === 1 ? ' item in cart' : ' items in cart'));
       if (n > 0) b.removeAttribute('hidden'); else b.setAttribute('hidden', '');
     });
   }
@@ -138,13 +179,13 @@
     var group = $('.jj-sizes', card);
     var size = activeSize(card);
     var prices = {};
-    try { prices = JSON.parse(group.getAttribute('data-prices') || '{}'); } catch (e) {}
+    try { prices = JSON.parse(group ? group.getAttribute('data-prices') || '{}' : '{}'); } catch (e) {}
     var price = prices[size];
     if (!size || price == null) { toast('Pick a bag size first'); return; }
     var grindSel = $('select.jj-grind', card);
     var grind = grindSel ? grindSel.value : '';
     if (grindSel && !grind) {
-      toast('Choose a grind first — whole bean or ground');
+      toast('Choose a grind first: whole bean or ground');
       grindSel.focus();
       return;
     }
@@ -154,6 +195,7 @@
       sku: card.dataset.sku || name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
       name: name, size: size, grind: grind, price: price, img: card.dataset.img || '', qty: 1
     });
+    if (!it) { toast('Please choose a valid product, size and grind'); return; }
     toast('Added: ' + it.name + ' · ' + it.size + ' · ' + it.grind);
     renderPage();
   }
@@ -167,12 +209,13 @@
     var prices = {};
     try { prices = JSON.parse(group.getAttribute('data-prices') || '{}'); } catch (e) {}
     var wasActive = btn.classList.contains('active');
-    $$('.jj-size', group).forEach(function (b) { b.classList.remove('active'); });
+    $$('.jj-size', group).forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
     if (wasActive) {
       var min = Math.min.apply(null, Object.keys(prices).map(function (k) { return prices[k]; }));
       if (priceEl) priceEl.textContent = 'from ' + money(min);
     } else {
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       if (priceEl) priceEl.textContent = money(prices[btn.textContent.trim()]);
     }
   }
@@ -186,7 +229,7 @@
       if (add) {
         e.preventDefault();
         var card = add.closest('.jj-card') || add.closest('.menu-entry');
-        if (card) addFromCard(card); else toast('Sorry — could not read that product');
+        if (card) addFromCard(card); else toast('Sorry, could not read that product');
         return;
       }
       var q = t.closest && t.closest('.jj-qty button');
@@ -195,8 +238,10 @@
         if (!row) return;
         var input = $('.jj-qty input', row);
         var step = parseInt(q.dataset.step, 10) || 0;
-        setQty(row.dataset.key, (parseInt(input.value, 10) || 0) + step);
-        renderPage();
+        var rowKey = row.dataset.key;
+        setQty(rowKey, (parseInt(input.value, 10) || 0) + step);
+        var replacement = $('#jj-cart-body [data-key="' + CSS.escape(rowKey) + '"] .jj-qty button[data-step="' + step + '"]');
+        if (replacement) replacement.focus({ preventScroll: true });
         return;
       }
       var rm = t.closest && t.closest('.jj-line-remove');
@@ -232,7 +277,7 @@
 
     body.innerHTML = cart.map(function (it) {
       return '<tr class="text-center" data-key="' + esc(itemKey(it)) + '">' +
-        '<td class="product-remove"><button type="button" class="jj-line-remove" aria-label="Remove ' + esc(it.name) + '"><span class="icon-close"></span></button></td>' +
+        '<td class="product-remove"><button type="button" class="jj-line-remove" aria-label="Remove ' + esc(it.name) + '"><span aria-hidden="true">×</span></button></td>' +
         '<td class="image-prod"><div class="img" style="background-image:url(' + esc(it.img) + ')"></div></td>' +
         '<td class="product-name"><h3>' + esc(it.name) + '</h3><p>' + esc(it.size) + ' &middot; ' + esc(it.grind) + '</p></td>' +
         '<td class="price">' + money(it.price) + '</td>' +
@@ -251,19 +296,21 @@
     var totEl = $('#jj-sum-total'); if (totEl) totEl.textContent = money(sub + fee);
     var note = $('#jj-delivery-note');
     if (note) {
-      if (sub >= FREE_DELIVERY) note.innerHTML = 'Free nationwide courier delivery unlocked.';
-      else note.innerHTML = 'Add ' + money(FREE_DELIVERY - sub) + ' more for free courier delivery (over ' + money(FREE_DELIVERY).replace('.00', '') + '). Prefer to collect? The Roastery, Douglasdale — free.';
+      if (sub >= FREE_DELIVERY) note.textContent = 'Free courier in the preview estimate. Final delivery terms must be confirmed by Jozi Java.';
+      else note.textContent = 'Preview: add ' + money(FREE_DELIVERY - sub) + ' to reach the ' + money(FREE_DELIVERY).replace('.00', '') + ' free courier threshold. Rates await confirmation. Collection in Douglasdale is free.';
     }
   }
 
   /* ---------- checkout page ---------- */
   function customer() {
-    try { return JSON.parse(localStorage.getItem(CUSTOMER_KEY)) || {}; } catch (e) { return {}; }
+    try { var c = JSON.parse(localStorage.getItem(CUSTOMER_KEY)); return c && c.remember === true ? c : {}; } catch (e) { return {}; }
   }
 
   function renderCheckoutPage() {
     var lines = $('#jj-order-lines');
     if (!lines) return;
+    var confirmation = $('#jj-order-confirm');
+    if (confirmation && !confirmation.hidden) return;
     var empty = $('#jj-checkout-empty');
     var grid = $('#jj-checkout-grid');
     if (!cart.length) {
@@ -288,13 +335,13 @@
     var note = $('#jj-delivery-note');
     if (note) {
       note.textContent = sub >= FREE_DELIVERY
-        ? 'Free courier delivery — your order is over ' + money(FREE_DELIVERY).replace('.00', '') + '.'
-        : 'Courier ' + money(DELIVERY_FEE) + ' — free over ' + money(FREE_DELIVERY).replace('.00', '') + '. Collect at The Roastery is always free.';
+        ? 'Preview estimate: free courier from ' + money(FREE_DELIVERY).replace('.00', '') + '. Final delivery terms await confirmation.'
+        : 'Preview: courier ' + money(DELIVERY_FEE) + ', free from ' + money(FREE_DELIVERY).replace('.00', '') + '. Rates await confirmation. Collection is free.';
     }
   }
 
   function orderRef() {
-    return 'JJ-' + Date.now().toString(36).toUpperCase().slice(-5);
+    return 'JJ' + Date.now().toString(36).toUpperCase().slice(-5);
   }
 
   function buildOrderMessage(ref) {
@@ -313,12 +360,12 @@
     var sub = subtotal();
     var fee = deliveryFee(method, sub);
     var lines = cart.map(function (c, i) {
-      return (i + 1) + '. ' + c.name + ' — ' + c.size + ', ' + c.grind + ' × ' + c.qty + ' — ' + money(lineTotal(c));
+      return (i + 1) + '. ' + c.name + ': ' + c.size + ', ' + c.grind + ' × ' + c.qty + ': ' + money(lineTotal(c));
     }).join('\n');
 
     var msg = 'Hi Jozi Java! I would like to place an order (' + ref + '):\n\n' + lines + '\n\n' +
-      'Subtotal: ' + money(sub) + '\n' +
-      'Delivery: ' + (fee === 0 ? (method === 'collect' ? 'Collect — The Roastery, Douglasdale' : 'Free courier') : money(fee)) + '\n' +
+      'Preview subtotal: ' + money(sub) + '\n' +
+      'Delivery: ' + (fee === 0 ? (method === 'collect' ? 'Collect at The Roastery, Douglasdale' : 'Free courier') : money(fee)) + '\n' +
       'Total: ' + money(sub + fee) + '\n\n' +
       'Name: ' + it.first + ' ' + it.last + '\n' +
       'Phone: ' + it.phone + '\n' +
@@ -329,7 +376,7 @@
       msg += 'Deliver to: ' + [it.street, it.suburb, it.city, it.postal].filter(Boolean).join(', ') + '\n';
     }
     if (it.notes) msg += 'Notes: ' + it.notes + '\n';
-    msg += '\n(PLEASE PAYMENT LINK: confirm stock and send a secure payment link.)';
+    msg += '\nThese are preview prices and delivery estimates. Please confirm stock, final pricing, delivery and payment instructions. No payment has been made on the website.';
     return msg;
   }
 
@@ -344,7 +391,11 @@
       if (!el) return;
       var ok = (el.value || '').trim().length > 0;
       if (el.type === 'email') ok = ok && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim());
+      if (el.type === 'tel') ok = ok && /^[+()\d\s-]{7,30}$/.test(el.value.trim()) && el.value.replace(/\D/g, '').length >= 7;
+      if (id === 'jj-postal') ok = /^\d{4}$/.test(el.value.trim());
+      if (el.maxLength > 0) ok = ok && el.value.length <= el.maxLength;
       el.classList.toggle('is-invalid', !ok);
+      el.setAttribute('aria-invalid', String(!ok));
       if (!ok && !firstBad) firstBad = el;
     });
     var popia = $('#jj-popia');
@@ -369,16 +420,19 @@
     var ref = orderRef();
     var msg = buildOrderMessage(ref);
     var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
-    var win = window.open(url, '_blank');
+    var win = null;
+    try { win = window.open(url, '_blank'); if (win) win.opener = null; } catch (e) { /* retry link is always available below */ }
 
-    /* remember details for the next order (convenience only, same device) */
+    /* Personal details persist only after the customer explicitly opts in. */
     try {
-      localStorage.setItem(CUSTOMER_KEY, JSON.stringify({
+      if ($('#jj-remember') && $('#jj-remember').checked) localStorage.setItem(CUSTOMER_KEY, JSON.stringify({
+        remember: true,
         first: $('#jj-first').value, last: $('#jj-last').value, email: $('#jj-email').value,
         phone: $('#jj-phone').value, street: $('#jj-street') ? $('#jj-street').value : '',
         suburb: $('#jj-suburb') ? $('#jj-suburb').value : '', city: $('#jj-city') ? $('#jj-city').value : '',
         postal: $('#jj-postal') ? $('#jj-postal').value : ''
       }));
+      else localStorage.removeItem(CUSTOMER_KEY);
     } catch (e) {}
 
     var grid = $('#jj-checkout-grid');
@@ -388,18 +442,20 @@
       done.hidden = false;
       var refEl = $('#jj-confirm-ref'); if (refEl) refEl.textContent = ref;
       var link = $('#jj-confirm-link'); if (link) link.href = url;
-      if (!win) { var warn = $('#jj-confirm-warn'); if (warn) warn.hidden = false; }
+      var warn = $('#jj-confirm-warn'); if (warn) warn.hidden = !!win;
+      if (done.focus) done.focus({ preventScroll: true });
     }
-    clearCart();
-    window.scrollTo({ top: (done || document.body).offsetTop - 80, behavior: 'smooth' });
+    /* A window opening is not proof the order was sent. Keep the bag and retry URL. */
+    if (done) done.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
 
   function prefillCustomer() {
     var c = customer();
+    if (c.remember && $('#jj-remember')) $('#jj-remember').checked = true;
     Object.keys(c).forEach(function (k) {
       var id = { first: 'jj-first', last: 'jj-last', email: 'jj-email', phone: 'jj-phone', street: 'jj-street', suburb: 'jj-suburb', city: 'jj-city', postal: 'jj-postal' }[k];
       var el = id && document.getElementById(id);
-      if (el && !el.value) el.value = c[k];
+      if (el && !el.value && typeof c[k] === 'string') el.value = c[k].slice(0, el.maxLength > 0 ? el.maxLength : 160);
     });
   }
 
@@ -431,6 +487,17 @@
     });
     var place = $('#jj-place-order');
     if (place) place.addEventListener('click', function (e) { e.preventDefault(); placeOrder(); });
+    var checkout = $('#jj-checkout-form');
+    if (checkout) checkout.addEventListener('submit', function (e) { e.preventDefault(); placeOrder(); });
+    var forget = $('#jj-forget-details');
+    if (forget) forget.addEventListener('click', function () {
+      try { localStorage.removeItem(CUSTOMER_KEY); } catch (e) {}
+      if ($('#jj-remember')) $('#jj-remember').checked = false;
+      toast('Saved contact and delivery details removed from this browser');
+    });
+    var clearAfter = $('#jj-clear-after-order');
+    if (clearAfter) clearAfter.addEventListener('click', function () { $('#jj-order-confirm').hidden = true; clearCart(); toast('Your bag is now empty'); });
+    window.addEventListener('storage', function (e) { if (e.key === CART_KEY || e.key === null) { cart = load(); renderPage(); } });
     var qtyBtns = $$('.jj-qty button');
     if (qtyBtns.length) qtyBtns.forEach(function (b) { b.addEventListener('change', renderPage); });
     prefillCustomer();

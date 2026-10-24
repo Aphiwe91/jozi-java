@@ -1,0 +1,471 @@
+/* The original Jozi Java homepage is the visual reference: client poster,
+   photographic sections, blue-glow headings, square buttons and open layouts.
+   Lightweight CSS only; the cart and enquiry functionality is unchanged. */
+:root { --jj-night:#121645; --jj-surface:rgba(0,0,0,.7); --jj-line:rgba(255,255,255,.22); --jj-muted:#d0d3df; }
+html { scroll-behavior:smooth; scroll-padding-top:180px; }
+body.jj-site { background:#121645 url(../images/optimized/jozi-bg-960.webp) no-repeat center center / contain; background-attachment:fixed; color:#eee; font-size:15px; font-weight:400; line-height:1.8; overflow-wrap:break-word; }
+body.jj-site::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; background:rgba(18,22,69,.72); }
+.jj-site img { max-width:100%; height:auto; }
+.jj-site h1,.jj-site h2,.jj-site h3,.jj-site h4 { color:#fff; font-weight:800; letter-spacing:normal; line-height:1.4; }
+.jj-site h1,.jj-site h2,.jj-site .subheading { text-shadow:0 0 4px #2563eb,0 0 12px #0066ff,0 0 28px rgba(0,85,255,.95); }
+.jj-site h1 { font-size:40px; text-transform:uppercase; margin:0 0 24px; }
+.jj-site h2 { font-size:30px; text-transform:uppercase; margin:0 0 24px; }
+.jj-site h3 { font-size:20px; margin:0 0 16px; }
+.jj-site h1 em,.jj-site h2 em { color:inherit; font-style:normal; }
+.jj-site p { margin:0 0 20px; }
+.jj-site a { color:#bfdbfe; }
+.jj-site a:hover { color:#fff; }
+.jj-site p a:not(.btn),.jj-site .jj-check-label a,.jj-site .jj-footer-bottom a { text-decoration:underline; text-underline-offset:3px; }
+.jj-site a:focus-visible,.jj-site button:focus-visible,.jj-site input:focus-visible,.jj-site select:focus-visible,.jj-site textarea:focus-visible,.jj-site summary:focus-visible { outline:3px solid #bfdbfe; outline-offset:4px; }
+.jj-site .container { max-width:1140px; padding:0 24px; }
+.jj-site .subheading { display:block; font-size:26px; font-weight:800; color:#fff; margin:0 0 14px; }
+.jj-site .jj-eyebrow { display:block; margin:0 0 12px; font-size:13px; color:#d1e2ff; letter-spacing:.06em; text-transform:uppercase; }
+.jj-site .jj-small { font-size:13px; line-height:1.8; color:#d0d3df; }
+.jj-site .jj-label { font-size:13px; color:#e5e5eb; text-transform:uppercase; letter-spacing:.04em; }
+.jj-site .btn { min-height:48px; display:inline-flex; align-items:center; justify-content:center; padding:14px 24px; border-radius:0; border:1px solid transparent; font-size:13px; font-weight:500; line-height:1.5; text-transform:uppercase; letter-spacing:.04em; white-space:normal; cursor:pointer; }
+.jj-site .btn-primary { background:#2563eb; border-color:#2563eb; color:#fff; }
+.jj-site .btn-primary:hover { background:#1e40af; border-color:#1e40af; color:#fff; }
+.jj-site .btn-outline-light { border-color:rgba(255,255,255,.7); background:transparent; color:#fff; }
+.jj-site .btn-outline-light:hover { background:#fff; color:#121645; }
+.jj-site .btn-block { display:flex; width:100%; margin:24px 0 16px; }
+.jj-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+.jj-justify-center { justify-content:center; }
+.jj-site .jj-text-link { display:inline-flex; align-items:center; min-height:44px; color:#bfdbfe; text-decoration:underline; text-underline-offset:4px; font-size:14px; }
+.jj-site .jj-reset { background:none; border:0; padding:0; cursor:pointer; }
+.jj-skip { position:fixed; top:8px; left:16px; z-index:5000; padding:12px 20px; background:white; color:#121645 !important; transform:translateY(-160%); }
+.jj-skip:focus { transform:none; }
+
+/* Previous logo/search/nav arrangement, without the added tagline. */
+.jj-header { position:sticky; top:0; z-index:1050; border-bottom:1px solid rgba(255,255,255,.16); }
+.jj-site #ftco-navbar { background:rgba(27,24,21,.90); padding:12px 28px 8px; backdrop-filter:blur(8px); }
+.jj-nav-shell { position:relative; max-width:1440px; margin:auto; padding-left:164px; }
+.jj-site #ftco-navbar .jj-nav-brand { min-height:76px; padding-bottom:12px; gap:22px; }
+.jj-site #ftco-navbar .navbar-brand { position:absolute; left:-10px; top:calc(50% - 2px); width:140px; height:140px; transform:translateY(-50%); }
+.jj-site #ftco-navbar .jj-nav-logo { width:140px; height:140px; display:block; object-fit:contain; }
+.jj-site .jj-nav-social { display:flex; gap:10px; margin:0; padding:0; list-style:none; }
+.jj-site .jj-nav-social a { width:38px; height:38px; color:#eee; border:1px solid rgba(255,255,255,.28); border-radius:50%; background:rgba(255,255,255,.04); }
+.jj-site .jj-nav-social a:hover { background:#2563eb; }
+.jj-site .jj-nav-social svg,.jj-nav-search svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.6; }
+.jj-nav-social .jj-fill { fill:currentColor; stroke:none; }
+.jj-site .jj-nav-search { display:flex; width:clamp(280px,40vw,560px); margin:0 0 0 auto; }
+.jj-site .jj-nav-search input { flex:1; width:0; height:44px; min-width:0; padding:0 18px; border:1px solid rgba(255,255,255,.28); border-right:0; border-radius:999px 0 0 999px; background:rgba(255,255,255,.06); color:#fff; font-size:16px; }
+.jj-site .jj-nav-search input::placeholder { color:#d0d0d0; }
+.jj-site .jj-nav-search button { flex-shrink:0; width:52px; height:44px; border:1px solid #2563eb; border-radius:0 999px 999px 0; background:#2563eb; color:#fff; }
+.jj-nav-search button svg { display:block; margin:auto; }
+.jj-navigation { border-top:1px solid rgba(255,255,255,.16); }
+.jj-site .navbar-nav { display:flex; justify-content:space-between; align-items:center; list-style:none; padding:0; margin:0; }
+.jj-site #ftco-navbar .nav-link { display:flex; align-items:center; gap:6px; padding:15px 6px; font-size:15px; color:#fff; text-transform:uppercase; white-space:nowrap; }
+.jj-site #ftco-navbar .nav-link[aria-current] { color:#bfdbfe; }
+.jj-site .jj-menu-toggle { display:none; }
+.jj-cart-badge { min-width:20px; height:20px; line-height:20px; }
+
+/* Poster title banners match the previous inner pages, not a new landing page. */
+.jj-page-hero { min-height:520px; display:flex; align-items:center; padding:48px 0; text-align:center; background:#121645 url(../images/optimized/jozi-bg-960.webp) no-repeat center / contain; }
+.jj-page-hero .jj-banner-text { max-width:680px; margin:auto; padding:26px 30px 22px; background:rgba(18,22,69,.88); }
+.jj-page-hero h1 { margin-bottom:16px; }
+.jj-page-hero .jj-breadcrumb { justify-content:center; }
+.jj-breadcrumb { display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:13px; color:#f1f1f4; }
+.jj-breadcrumb.container { padding-top:28px; }
+.jj-breadcrumb a { color:#fff; }
+.jj-article-banner { min-height:380px; }
+.jj-article-banner .jj-banner-text { max-width:820px; }
+.jj-article-banner h1 { font-size:32px; text-transform:none; }
+.jj-section { padding:96px 0; }
+.jj-section-compact { padding:64px 0; }
+.jj-section-no-top { padding-top:0; }
+.jj-section-alt { background:rgba(0,0,0,.64); }
+.jj-section-heading { max-width:780px; margin:0 auto 48px; text-align:center; }
+.jj-section-heading > div > .jj-eyebrow { margin-bottom:8px; }
+.jj-section-heading h2 { margin-bottom:20px; }
+.jj-section-heading > p { margin-bottom:0; }
+.jj-two-col,.jj-split-story { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
+.jj-align-center,.jj-split-story { align-items:center; }
+.jj-three-col,.jj-product-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; }
+.jj-site .jj-panel { padding:20px 0; background:none; border:0; border-radius:0; }
+.jj-site .jj-panel:has(>form),.jj-site form.jj-panel { padding:30px; background:rgba(0,0,0,.82); border:1px solid rgba(255,255,255,.18); }
+.jj-site .jj-notice { margin:0 0 24px; padding:14px 18px; border-left:2px solid #8eb6ff; background:rgba(0,0,0,.75); color:#eee; border-radius:0; font-size:13px; line-height:1.8; }
+.jj-site .jj-step-number { display:none; }
+.jj-inline-callout { margin-top:30px; padding-top:24px; border-top:1px solid var(--jj-line); }
+.jj-inline-callout .btn { margin-top:8px; }
+.jj-product-extra { margin-top:48px; margin-bottom:48px; }
+.jj-site .jj-cta { padding:56px 30px; text-align:center; background:#1e40af; border-radius:4px; }
+.jj-cta p { max-width:880px; margin:0 auto 24px; }
+.jj-cta .btn-primary { background:#2563eb; }
+
+/* Original homepage: tall photo slides, black information strip, overlapping story. */
+.jj-home-hero { position:relative; background:#121645; }
+.jj-hero-slides { position:relative; height:750px; overflow:hidden; }
+.jj-hero-slide { position:absolute; inset:0; display:flex; align-items:center; opacity:0; visibility:hidden; transition:opacity .9s,visibility .9s; }
+.jj-hero-slide.is-active { opacity:1; visibility:visible; z-index:1; }
+.jj-hero-background { position:absolute; inset:0; width:100%; height:100% !important; object-fit:cover; z-index:-2; }
+.jj-hero-slide::after { content:""; position:absolute; inset:0; z-index:-1; background:rgba(0,0,0,.45); }
+.jj-hero-fit .jj-hero-background { filter:blur(34px) brightness(.42); transform:scale(1.08); }
+.jj-hero-layout { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:56px; height:100%; }
+.jj-hero-photo { height:80%; }
+.jj-hero-photo img { width:100%; height:100%; object-fit:contain; }
+.jj-hero-copy h1,.jj-hero-copy h2 { color:#fff; font-size:40px; text-transform:uppercase; }
+.jj-hero-copy p { font-size:18px; line-height:1.6; color:#fff; }
+.jj-hero-copy .subheading { font-size:30px; }
+.jj-hero-slide > .jj-hero-copy { text-align:center; max-width:850px; }
+.jj-hero-slide > .jj-hero-copy .jj-actions { justify-content:center; }
+.jj-wordmark small { display:block; font-size:.62em; line-height:1.4; margin-bottom:8px; }
+.jj-wordmark strong { display:block; font-size:1.5em; line-height:1.1; }
+.jj-site .jj-badge { display:inline-block; padding:7px 16px; margin-bottom:20px; border-radius:30px; background:#2563eb; color:white; font-size:12px; line-height:1.5; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.jj-hero-controls { position:absolute; z-index:4; left:50%; bottom:10px; transform:translateX(-50%); display:flex; justify-content:center; align-items:center; gap:6px; width:max-content !important; }
+.jj-site .jj-hero-controls { max-width:calc(100% - 16px); padding-left:4px; padding-right:4px; }
+.jj-hero-controls button { min-width:38px; height:38px; padding:0 10px; background:rgba(0,0,0,.76); border:1px solid rgba(255,255,255,.45); border-radius:0; color:#fff; font-size:12px; }
+.jj-slide-count { display:none; }
+.jj-hero-dots { display:flex; gap:6px; }
+.jj-hero-dots button { min-width:28px; width:28px; padding:0; border:0; background:none; position:relative; }
+.jj-hero-dots button::after { content:""; position:absolute; top:15px; left:10px; width:8px; height:8px; border-radius:50%; background:#b8bbc5; }
+.jj-hero-dots button[aria-pressed=true]::after { background:#fff; box-shadow:0 0 6px #2563eb; }
+.jj-info-strip { background:#000; }
+.jj-info-strip .container { display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:36px; padding-top:28px; padding-bottom:28px; }
+.jj-info-strip strong { display:block; font-size:16px; color:#fff; }
+.jj-info-strip p { font-size:14px; line-height:1.8; margin:8px 0 0; color:#d0d0d0; }
+.jj-home-story { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center; }
+.jj-home-story .jj-story-visual { height:100%; min-height:630px; }
+.jj-story-visual { background:#000; overflow:hidden; }
+.jj-story-visual img { width:100%; height:100%; object-fit:contain; display:block; }
+.jj-story-overlap { position:relative; margin:40px 7vw 40px -100px; padding:40px; background:rgba(0,0,0,.76); }
+.jj-site #story-typing,.jj-wholesale-copy { position:relative; display:block; padding:14px 18px; color:#eff6ff; background:linear-gradient(135deg,rgba(37,99,235,.55),rgba(30,64,175,.62)); border:1px solid rgba(191,219,254,.38); border-radius:8px; box-shadow:0 0 16px rgba(37,99,235,.35); font-size:15px; line-height:1.8; }
+.jj-story-full { opacity:0; }
+.jj-story-typed { position:absolute; top:14px; left:18px; right:18px; }
+.jj-story-typed::after { content:"▍"; color:#bfdbfe; }
+.jj-story-typed.is-complete::after { content:none; }
+.jj-wholesale-intro { text-align:right; }
+.jj-wholesale-intro .jj-actions { justify-content:flex-end; }
+.jj-photo-mosaic { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.jj-photo-mosaic img { display:block; width:100%; height:200px; object-fit:cover; }
+.jj-photo-mosaic > :nth-child(even) { transform:translateY(24px); }
+.jj-tiles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.jj-tile { min-height:360px; padding:32px; background:#fff; }
+.jj-tile > img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .9s; }
+.jj-tile > img.is-active { opacity:1; }
+.jj-tile::after { background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.85)); }
+.jj-tile__kicker { font-size:12px; letter-spacing:.15em; text-transform:uppercase; color:#bfdbfe; }
+.jj-tile__label { color:#fff; font-weight:800; font-size:28px; letter-spacing:.03em; text-transform:uppercase; border-bottom:4px solid #2563eb; padding-bottom:6px; }
+.jj-home-counter { padding:80px 0; background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../images/optimized/jozi-08-960.webp) center/cover; }
+.jj-stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:30px; text-align:center; }
+.jj-stats strong,.jj-stat { display:block; color:#bfdbfe; font-size:36px; font-weight:700; line-height:1.5; }
+.jj-stats span { color:#eee; font-size:14px; }
+.jj-featured-equipment { display:grid; grid-template-columns:1fr 1fr; gap:48px; text-align:center; margin-bottom:40px; }
+.jj-featured-equipment img { width:100%; height:300px; object-fit:contain; background:#fff; margin-bottom:24px; }
+.jj-featured-equipment h3 { text-transform:uppercase; }
+.jj-featured-equipment .price { font-size:18px; color:#fff; }
+.jj-home-gallery { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.jj-home-gallery img { width:100%; height:280px; display:block; object-fit:cover; }
+.jj-home-coffee { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:30px; text-align:center; }
+.jj-home-coffee img { width:100%; height:230px; object-fit:contain; background:#fff; margin-bottom:24px; }
+.jj-home-coffee h3 { font-size:18px; text-transform:uppercase; }
+.jj-home-coffee p { font-size:14px; }
+.jj-home-contact { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); background:#000; }
+.jj-home-contact-form { padding:48px; }
+.jj-home-contact .jj-map-consent { min-height:500px; }
+
+/* Straightforward product listings, not promotional feature cards. */
+.jj-site .jj-card { background:#fff; border:1px solid #ddd; border-radius:0; overflow:hidden; color:#444; height:100%; }
+.jj-site .jj-card:hover { transform:none; box-shadow:none; }
+.jj-product-image { display:block; height:280px; background:#fff; }
+.jj-product-image img { width:100%; height:100%; object-fit:contain; }
+.jj-site .jj-card-body { padding:26px 22px; text-align:center; min-width:0; }
+.jj-site .jj-card h3,.jj-site .jj-card h3 a { color:#1b1815; font-size:21px; text-transform:uppercase; text-shadow:none; }
+.jj-site .jj-card .jj-eyebrow { color:#365a91; font-size:12px; }
+.jj-site .jj-card .jj-small,.jj-site .jj-card-notes { color:#555; font-size:14px; }
+.jj-site .jj-sizes { justify-content:center; flex-wrap:wrap; margin:12px 0 18px; }
+.jj-site .jj-size { min-width:60px; min-height:44px; padding:8px 12px; border:1px solid #aaa; border-radius:0; background:#fff; color:#222; font-size:14px; }
+.jj-site .jj-size.active { background:#1b1815; border-color:#1b1815; color:#fff; }
+.jj-site .jj-card-price { font-size:24px; color:#1b1815; margin:0 0 18px; }
+.jj-site .jj-card-body .btn { align-self:center; margin-top:auto; }
+.jj-site .jj-grind { max-width:240px; margin:0 auto 16px; }
+.jj-site .jj-card-body .form-control { background:#fff; color:#222; border-color:#888; }
+.jj-site .jj-card-body .form-control option { background:#fff; color:#222; }
+.jj-collection-bar { gap:20px; border-color:var(--jj-line); padding:18px 0; margin-bottom:40px; }
+.jj-collection-bar > div { flex:1; min-width:200px; }
+.jj-site .jj-collection-count { font-size:14px; }
+.jj-sort { min-height:48px; padding:10px 12px; border:1px solid #aaa; background:#fff; color:#222; border-radius:0; font-size:14px; }
+.jj-product-layout.jj-card { display:grid; grid-template-columns:1fr 1fr; gap:48px; height:auto; border:0; overflow:visible; background:none; color:inherit; }
+.jj-product-photo { align-self:start; background:#fff; padding:20px; }
+.jj-product-photo img { width:100%; height:480px; object-fit:contain; }
+.jj-product-info h1 { font-size:32px; }
+.jj-site .jj-product-info .jj-eyebrow,.jj-site .jj-product-info .jj-small { color:#ddd; }
+.jj-site .jj-product-info .jj-notice { color:#eee; }
+.jj-site .jj-product-info .jj-text-link { color:#bfdbfe; }
+.jj-product-tasting { font-size:18px; }
+.jj-product-options { margin-top:24px; padding-top:24px; border-top:1px solid var(--jj-line); }
+.jj-product-info .jj-sizes { justify-content:flex-start; }
+.jj-product-info .jj-grind { max-width:none; }
+.jj-product-buy { display:flex; align-items:center; gap:24px; margin:24px 0; }
+.jj-product-buy .jj-card-price { color:#fff; margin:0; }
+.jj-product-facts { font-size:13px; display:flex; flex-wrap:wrap; gap:20px; }
+
+/* Equipment remains filterable, but is now a compact price/specification table. */
+.jj-filter-bar { display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr auto; gap:16px; align-items:end; margin:32px 0 18px; }
+.jj-filter-bar label { display:block; font-size:13px; margin-bottom:8px; }
+.jj-equipment-grid { overflow-x:auto; }
+.jj-equipment-table { width:100%; background:rgba(0,0,0,.78); border-collapse:collapse; }
+.jj-equipment-table thead { background:#1e40af; }
+.jj-equipment-table th,.jj-equipment-table td { padding:20px 18px; border-bottom:1px solid rgba(255,255,255,.2); text-align:left; vertical-align:top; }
+.jj-equipment-table thead th { font-size:13px; text-transform:uppercase; }
+.jj-equipment-table tbody th { width:26%; font-size:16px; font-weight:600; }
+.jj-equipment-table .jj-equipment-description { width:37%; font-size:14px; }
+.jj-equipment-table .jj-equipment-price { white-space:nowrap; font-size:17px; color:#fff; }
+.jj-equipment-table .jj-equipment-type { display:block; font-size:12px; font-weight:400; color:#d1e2ff; margin-bottom:6px; }
+.jj-equipment-table .jj-actions { display:flex; flex-direction:column; align-items:stretch; gap:4px; min-width:120px; }
+.jj-equipment-table .btn { padding:10px 12px; min-height:44px; font-size:12px; }
+.jj-equipment-table .jj-text-link { font-size:12px; }
+.jj-equipment-thumb { width:80px; height:80px !important; object-fit:contain; display:block; background:#fff; margin-top:14px; }
+.jj-check-list { padding-left:20px; }
+.jj-check-list li { padding:8px 0; }
+
+/* Forms and factual information: plain, legible, no badges or fake avatars. */
+.jj-site .form-control { display:block; width:100%; min-height:48px; height:auto; padding:12px; border:1px solid rgba(255,255,255,.55); border-radius:0; background:rgba(0,0,0,.6); color:#fff; font-size:15px; line-height:1.5; }
+.jj-site .form-control::placeholder { color:#d0d0d0; }
+.jj-site select.form-control { appearance:auto; }
+.jj-site .form-control option { background:#121645; color:#fff; }
+.jj-site .form-control.is-invalid { border-color:#ff9595; }
+.jj-site label,.jj-site legend { color:#f0f0f0; font-size:14px; }
+.jj-site label { display:inline-block; margin-bottom:8px; }
+.jj-site legend { margin-bottom:16px; }
+.jj-site .form-group { margin-bottom:22px; }
+.jj-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 20px; }
+.jj-check-label { display:flex !important; align-items:flex-start; gap:12px; margin:0 0 22px !important; line-height:1.7; }
+.jj-check-label input { flex-shrink:0; width:20px; height:20px; margin-top:3px; accent-color:#2563eb; }
+.jj-check-label small { display:block; color:#ddd; font-size:13px; }
+.jj-site textarea.form-control { resize:vertical; }
+.jj-site .jj-form-result { padding:22px; margin-top:24px; border:1px solid #8eb6ff; background:#101d3b; font-size:14px; }
+.jj-form-result pre { white-space:pre-wrap; word-break:break-word; font-size:13px; color:#eee; max-height:260px; overflow-y:auto; }
+.jj-form-result a { display:inline-flex; margin-bottom:12px; }
+.jj-contact-details { margin:30px 0; }
+.jj-contact-details a { display:block; padding:12px 0; }
+.jj-contact-details span { display:block; font-size:13px; color:#ddd; }
+.jj-contact-details strong { font-size:16px; font-weight:500; }
+.jj-location-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 48px; }
+.jj-location-grid .jj-panel { border-bottom:1px solid var(--jj-line); }
+.jj-map-consent { min-height:350px; position:relative; display:flex; background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../images/optimized/jozi-09-960.webp) center/cover; }
+.jj-map-consent > div { margin:auto; padding:30px; text-align:center; }
+.jj-map-consent iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.jj-team-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:30px; }
+.jj-team-grid .jj-panel { border-top:1px solid var(--jj-line); }
+.jj-team-grid a { display:block; font-size:14px; }
+.jj-team-grid .jj-eyebrow { font-size:12px; }
+.jj-initials { display:none; }
+.jj-finance-result > p > strong { display:block; font-size:30px; color:#fff; }
+.jj-finance-result > p { padding-bottom:16px; border-bottom:1px solid var(--jj-line); }
+.jj-error { color:#ffb2b2; }
+.jj-timeline > div { border-left:2px solid #85aaff; padding:0 0 24px 24px; }
+.jj-timeline strong { color:#fff; font-size:24px; }
+.jj-rounded-photo,.jj-tuktuk-hero img { width:100%; border-radius:0; object-fit:contain; }
+.jj-image-caption { display:block; font-size:13px; padding:14px; }
+.jj-readable { max-width:840px !important; }
+.jj-prose h2 { font-size:26px; margin-top:48px; text-transform:none; }
+.jj-prose h2:first-child { margin-top:0; }
+.jj-prose h3 { font-size:20px; margin-top:30px; }
+.jj-prose p,.jj-prose li { font-size:15px; line-height:1.9; }
+.jj-prose a:not(.btn) { text-decoration:underline; text-underline-offset:4px; }
+.jj-article-layout { display:grid; grid-template-columns:200px minmax(0,730px); gap:48px; justify-content:space-between; }
+.jj-article-nav { position:sticky; align-self:start; top:180px; border-left:1px solid var(--jj-line); padding-left:20px; }
+.jj-article-nav a { display:block; font-size:13px; padding:8px 0; }
+.jj-filter-chips { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px; }
+.jj-filter-chips button { min-height:44px; padding:8px 18px; border:1px solid rgba(255,255,255,.65); background:rgba(0,0,0,.65); border-radius:0; color:#fff; font-size:14px; }
+.jj-filter-chips .is-active { background:#2563eb; border-color:#2563eb; }
+.jj-editorial-card { display:block; background:none; border:0; border-radius:0; color:inherit; }
+.jj-editorial-card > a { display:block; }
+.jj-editorial-card img { display:block; width:100%; height:230px; object-fit:cover; }
+.jj-editorial-card > div { padding:24px 0; }
+.jj-editorial-card h2,.jj-editorial-card h3 { font-size:20px; text-transform:none; text-shadow:none; }
+.jj-editorial-card h2 a,.jj-editorial-card h3 a { color:#fff; }
+.jj-faq details { border-bottom:1px solid var(--jj-line); padding:22px 0; }
+.jj-faq summary { cursor:pointer; font-size:16px; color:#fff; font-weight:600; }
+.jj-faq p { margin:18px 0 0; }
+
+/* Existing cart/checkout hooks and mobile row layout are retained. */
+.jj-checkout-steps { display:flex; flex-wrap:wrap; gap:20px; padding:0; list-style:none; font-size:13px; }
+.jj-checkout-steps [aria-current] { color:#fff; font-weight:700; }
+.jj-cart-summary-grid { display:grid; grid-template-columns:1fr 400px; gap:48px; margin-top:40px; }
+.jj-cart-summary-grid > .jj-panel { background:rgba(0,0,0,.8); padding:28px; }
+.jj-site .jj-summary-title { font-size:21px; }
+.jj-totals p { display:flex; justify-content:space-between; gap:24px; }
+.jj-totals .jj-total { border-top:1px solid var(--jj-line); padding-top:20px; font-size:18px; }
+.jj-totals strong { white-space:nowrap; }
+.jj-site .ftco-cart .cart-list { overflow-x:auto; background:rgba(0,0,0,.8); }
+.jj-site .ftco-cart .table { width:100%; margin:0; }
+.jj-site .ftco-cart .table th { padding:20px 16px; background:#1e40af; font-size:14px; color:#fff; white-space:nowrap; }
+.jj-site .ftco-cart .table td { padding:22px 16px; border-bottom:1px solid var(--jj-line); vertical-align:middle; }
+.jj-site .ftco-cart .product-name h3 { font-size:16px; margin:0 0 8px; }
+.jj-site .ftco-cart .product-name p { font-size:13px; margin:0; }
+.jj-site .ftco-cart .image-prod .img { width:74px; height:82px; background-color:white; background-size:contain; background-repeat:no-repeat; background-position:center; }
+.jj-site .ftco-cart td.price,.jj-site .ftco-cart td.total { white-space:nowrap; font-size:16px; }
+.jj-line-remove { min-width:40px; min-height:44px; font-size:24px; color:#fff; }
+.jj-qty { border:1px solid rgba(255,255,255,.5); }
+.jj-qty button { width:34px; height:44px; color:#fff; }
+.jj-qty input.quantity { width:36px; height:44px; min-height:44px; padding:0; border:0; color:#fff; background:transparent; font-size:14px; }
+.jj-empty { padding:48px 24px !important; text-align:center; }
+.jj-checkout-grid { display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:start; }
+.jj-checkout-grid aside > .jj-panel { background:rgba(0,0,0,.8); padding:28px; }
+.jj-delivery-opts { margin:0 0 24px; padding:16px 0 0; border-top:1px solid var(--jj-line); border-bottom:1px solid var(--jj-line); }
+.jj-order-line { display:flex; justify-content:space-between; gap:20px; font-size:14px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--jj-line); }
+.jj-order-line > span:last-child { white-space:nowrap; }
+.jj-order-line em { color:#ddd; font-style:normal; }
+.jj-order-confirm { max-width:820px; margin:auto; background:rgba(0,0,0,.8) !important; }
+.jj-order-confirm .jj-actions { justify-content:center; }
+
+/* Original four-column footer, with real destinations instead of template links. */
+.jj-footer { background:#120f0f; padding:80px 0 28px; }
+.jj-footer-grid { display:grid; grid-template-columns:1.1fr 1.3fr .9fr 1.1fr; gap:40px; }
+.jj-footer-grid h3 { text-transform:uppercase; font-size:16px; margin-bottom:30px; }
+.jj-footer-grid p,.jj-footer-grid a { font-size:14px; line-height:1.9; }
+.jj-footer-grid ul { padding:0; margin:0 0 20px; list-style:none; }
+.jj-footer-grid li { margin-bottom:10px; }
+.jj-footer-social { display:flex; flex-wrap:wrap; gap:14px; }
+.jj-footer-social a { text-decoration:underline; }
+.jj-footer-article { display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; }
+.jj-footer-article img { flex-shrink:0; width:70px; height:65px; object-fit:cover; background:white; }
+.jj-footer-bottom { display:flex; flex-wrap:wrap; justify-content:center; gap:16px 30px; padding-top:40px; margin-top:30px; font-size:13px; color:#ddd; text-align:center; }
+.jj-chat { position:fixed; right:22px; bottom:22px; width:64px; height:64px; border-radius:50%; background:#16844a; color:#fff !important; display:flex; align-items:center; justify-content:center; z-index:1100; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+.jj-chat svg { width:34px; height:34px; fill:none; stroke:currentColor; stroke-width:1.5; }
+.jj-back-top { position:fixed; right:32px; bottom:100px; width:44px; height:44px; border:0; border-radius:50%; background:#2563eb; color:#fff; z-index:1090; }
+.jj-site #jj-toast { max-width:90vw; width:max-content; padding:14px 22px; border:1px solid #8eb6ff; background:#111; color:white; font-size:14px; }
+.jj-noscript { padding:20px; text-align:center; background:#000; color:#fff; }
+.jj-site [hidden] { display:none !important; }
+
+@media (max-width:1199px) {
+  .jj-site #ftco-navbar .nav-link { font-size:14px; padding-left:4px; padding-right:4px; }
+  .jj-filter-bar { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-filter-bar .jj-reset { justify-self:start; }
+  .jj-team-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-footer-grid { gap:26px; }
+  .jj-story-overlap { margin-right:24px; padding:30px; }
+}
+@media (max-width:991px) {
+  html { scroll-padding-top:100px; }
+  .jj-site #ftco-navbar { padding:0; }
+  .jj-nav-shell { display:flex; flex-wrap:wrap; align-items:center; padding:0 20px; }
+  .jj-site #ftco-navbar .jj-nav-brand { flex:1; min-height:76px; padding:10px 0; gap:16px; flex-wrap:wrap; }
+  .jj-site #ftco-navbar .navbar-brand { position:static; transform:none; width:46px; height:46px; }
+  .jj-site #ftco-navbar .jj-nav-logo { width:46px; height:46px; }
+  .jj-site .jj-nav-social { gap:8px; }
+  .jj-site .jj-nav-social a { width:30px; height:30px; }
+  .jj-site .jj-nav-search { display:none; }
+  .jj-site.jj-menu-ready .jj-menu-toggle { display:block; min-height:44px; padding:8px 10px; background:none; border:0; color:white; font-size:17px; }
+  .jj-navigation { width:100%; }
+  .jj-site.jj-menu-ready .jj-navigation { display:none; }
+  .jj-site #ftco-navbar.is-open .jj-navigation { display:block; max-height:calc(100dvh - 140px); overflow:auto; padding:10px 0; }
+  .jj-site #ftco-navbar.is-open .jj-nav-search { display:flex; flex-basis:100%; width:100%; margin:10px 0; }
+  .jj-site #ftco-navbar.is-open .jj-nav-brand { flex-basis:100%; padding-right:82px; }
+  .jj-site #ftco-navbar.is-open .jj-menu-toggle { position:absolute; top:16px; right:20px; }
+  .jj-site .navbar-nav { display:grid; grid-template-columns:1fr 1fr; gap:0 20px; }
+  .jj-site #ftco-navbar .nav-link { padding:12px 0; font-size:14px; }
+  .jj-hero-layout { gap:28px; }
+  .jj-hero-copy h1,.jj-hero-copy h2 { font-size:34px; }
+  .jj-hero-copy p { font-size:16px; }
+  .jj-hero-copy .btn { padding:12px 16px; }
+  .jj-home-story .jj-story-visual { min-height:700px; }
+  .jj-story-overlap { margin-left:-60px; padding:24px; }
+  .jj-home-coffee { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-tile { min-height:300px; padding:24px; }
+  .jj-tile__label { font-size:23px; }
+  .jj-team-grid,.jj-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-checkout-grid { grid-template-columns:1fr; }
+  .jj-cart-summary-grid { grid-template-columns:1fr 360px; gap:28px; }
+  .jj-article-layout { grid-template-columns:160px minmax(0,1fr); gap:30px; }
+  .jj-article-nav { top:110px; }
+  .jj-home-contact-form { padding:32px; }
+}
+@media (max-width:767px) {
+  body.jj-site { background-attachment:scroll; background-size:contain; }
+  .jj-site .container { padding-left:20px; padding-right:20px; }
+  .jj-site h1 { font-size:30px; }
+  .jj-site h2 { font-size:26px; }
+  .jj-section { padding:64px 0; }
+  .jj-section-compact { padding:40px 0; }
+  .jj-section-no-top { padding-top:0; }
+  .jj-page-hero { min-height:360px; padding:40px 0; }
+  .jj-page-hero .jj-banner-text { padding:24px 18px; }
+  .jj-article-banner h1 { font-size:26px; }
+  .jj-two-col,.jj-split-story,.jj-product-layout.jj-card,.jj-three-col,.jj-product-grid { grid-template-columns:1fr; gap:32px; }
+  .jj-section-heading { margin-bottom:36px; }
+  .jj-hero-slides { height:520px; }
+  .jj-hero-layout { display:block; height:auto; padding-top:30px; padding-bottom:65px; }
+  .jj-hero-photo { display:none; }
+  .jj-hero-fit .jj-hero-background { transform:none; filter:brightness(.6); }
+  .jj-hero-slide::after { background:rgba(0,0,0,.5); }
+  .jj-hero-copy { text-align:center; }
+  .jj-hero-copy h1,.jj-hero-copy h2 { font-size:30px; }
+  .jj-hero-copy .subheading { font-size:23px; }
+  .jj-hero-copy p { font-size:14px; line-height:1.7; }
+  .jj-hero-copy .jj-actions { justify-content:center; }
+  .jj-wordmark strong { font-size:1.4em; }
+  .jj-wordmark small { font-size:.7em; }
+  .jj-hero-slide > .jj-hero-copy { padding-bottom:50px; }
+  .jj-hero-controls { bottom:8px; gap:4px; }
+  .jj-hero-controls button { min-width:30px; height:36px; padding:0 6px; font-size:11px; }
+  .jj-hero-dots { gap:2px; }
+  .jj-hero-dots button { width:20px; min-width:20px; padding:0; }
+  .jj-hero-dots button::after { left:6px; top:14px; }
+  .jj-info-strip .container { grid-template-columns:1fr; gap:24px; }
+  .jj-home-story { grid-template-columns:1fr; }
+  .jj-home-story .jj-story-visual { height:360px; min-height:0; }
+  .jj-story-overlap { margin:0; padding:32px 20px; }
+  .jj-wholesale-intro { text-align:left; }
+  .jj-wholesale-intro .jj-actions { justify-content:flex-start; }
+  .jj-photo-mosaic { gap:16px; padding-bottom:24px; }
+  .jj-photo-mosaic img { height:170px; }
+  .jj-tiles { grid-template-columns:1fr; }
+  .jj-tile { min-height:320px; }
+  .jj-tile__label { font-size:27px; }
+  .jj-home-counter { padding:56px 0; }
+  .jj-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-featured-equipment { grid-template-columns:1fr; gap:36px; }
+  .jj-home-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .jj-home-gallery img { height:200px; }
+  .jj-home-coffee { grid-template-columns:1fr; gap:36px; }
+  .jj-home-coffee img { height:280px; }
+  .jj-home-contact { grid-template-columns:1fr; }
+  .jj-home-contact .jj-map-consent { min-height:320px; }
+  .jj-home-contact-form { padding:36px 20px; }
+  .jj-product-image { height:320px; }
+  .jj-filter-bar { gap:14px; }
+  .jj-filter-bar > div:first-child { grid-column:1/-1; }
+  .jj-filter-bar select { font-size:13px; }
+  .jj-equipment-table thead { display:none; }
+  .jj-equipment-table tr { display:block; padding:24px; border-bottom:1px solid var(--jj-line); }
+  .jj-equipment-table tbody th,.jj-equipment-table td,.jj-equipment-table .jj-equipment-description { display:block; width:100%; padding:8px 0; border:0; }
+  .jj-equipment-table tbody th { font-size:18px; }
+  .jj-equipment-table .jj-equipment-price::before { content:"Guide incl. VAT: "; font-size:13px; }
+  .jj-equipment-table .jj-actions { flex-direction:row; align-items:center; gap:20px; }
+  .jj-equipment-thumb { float:right; margin:-15px 0 12px 16px; }
+  .jj-collection-bar { justify-content:space-between; align-items:stretch; gap:14px; }
+  .jj-collection-bar > div { flex-basis:100%; }
+  .jj-collection-count { align-self:center; }
+  .jj-product-extra { margin-top:32px; margin-bottom:32px; }
+  .jj-site .jj-cta { padding:36px 22px; }
+  .jj-team-grid,.jj-location-grid { grid-template-columns:1fr; gap:10px; }
+  .jj-product-photo img { height:350px; }
+  .jj-product-info h1 { font-size:28px; }
+  .jj-product-buy { flex-wrap:wrap; }
+  .jj-article-layout { display:block; }
+  .jj-article-nav { position:static; margin-bottom:32px; }
+  .jj-article-nav a { display:inline-block; margin-right:18px; }
+  .jj-article-nav strong { display:block; }
+  .jj-cart-summary-grid { grid-template-columns:1fr; }
+  .jj-site .ftco-cart .table thead { display:none; }
+  .jj-site .ftco-cart .table tbody tr { display:block; position:relative; padding:24px 42px 24px 106px; border-bottom:1px solid var(--jj-line); }
+  .jj-site .ftco-cart .table tbody td { display:block; padding:3px 0; border:0; text-align:left; }
+  .jj-site .ftco-cart .image-prod { position:absolute; top:24px; left:16px; }
+  .jj-site .ftco-cart .product-remove { position:absolute; right:4px; top:10px; }
+  .jj-site .ftco-cart td.price,.jj-site .ftco-cart td.total { font-size:14px; }
+  .jj-site .ftco-cart td.price::before { content:"Price: "; }
+  .jj-site .ftco-cart td.total::before { content:"Line total: "; }
+  .jj-qty { margin:8px 0; }
+  .jj-footer-grid { grid-template-columns:1fr; gap:32px; }
+  .jj-footer-grid h3 { margin-bottom:18px; }
+  .jj-footer-bottom { padding-bottom:65px; }
+  .jj-chat { width:54px; height:54px; right:16px; bottom:16px; }
+  .jj-chat svg { width:29px; height:29px; }
+  .jj-back-top { right:21px; bottom:84px; }
+  .jj-site #jj-toast { bottom:82px; }
+}
+@media (max-width:380px) { .jj-site .container { padding-left:16px; padding-right:16px; } .jj-nav-shell { padding:0 16px; } .jj-site .jj-nav-social { gap:6px; } .jj-site .jj-nav-social a { width:28px; height:28px; } .jj-site #ftco-navbar .jj-nav-brand { gap:12px; } .jj-form-grid { grid-template-columns:1fr; } .jj-site .jj-panel:has(>form),.jj-site form.jj-panel { padding:22px; } .jj-hero-copy p { font-size:13px; } .jj-hero-copy .btn { padding:11px 13px; font-size:12px; } .jj-hero-controls { gap:3px; } .jj-hero-controls button { padding:0 6px; } .jj-hero-dots { gap:2px; } }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .jj-site *, .jj-site *::before,.jj-site *::after { animation:none !important; transition:none !important; } }
+@media print { .jj-header,.jj-footer,.jj-chat,.jj-back-top,.jj-hero-controls { display:none !important; } body.jj-site { background:#fff; color:#111; } body.jj-site::before { display:none; } .jj-site h1,.jj-site h2,.jj-site h3 { color:#111; text-shadow:none; } .jj-section { padding:24px 0; } }

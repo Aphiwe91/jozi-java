@@ -1,0 +1,24 @@
+{{PAGE_BANNER}}
+<section class="jj-section" id="equipment-catalogue">
+  <div class="container">
+    <div class="jj-section-heading"><span class="subheading">Coffee Equipment</span><h2>A Barista Bar, or Something That Runs Itself.</h2><p>Commercial espresso machines for a staffed coffee bar, bean-to-cup machines for self-service, grinders and Yoshan roasters. Jozi Java helps with equipment selection, installation, dial-in and ongoing coffee supply.</p></div>
+    <p class="text-center"><a href="#equipment-catalogue" class="jj-text-link" data-equipment-shortcut="barista">Barista Machines</a> &nbsp; / &nbsp; <a href="#equipment-catalogue" class="jj-text-link" data-equipment-shortcut="automatic">Bean-to-Cup</a> &nbsp; / &nbsp; <a href="choosing-coffee-equipment.html" class="jj-text-link">Buying Guide</a></p>
+    <div class="jj-notice">Guide prices include 15% VAT. Confirm current pricing, stock, specifications, installation and delivery with Jozi Java before ordering.</div>
+    <form class="jj-filter-bar" id="equipment-filters" role="search">
+      <div><label for="equipSearch">Search equipment</label><input id="equipSearch" class="form-control" type="search" placeholder="Model or brand" maxlength="100"></div>
+      <div><label for="equipKind">Equipment type</label><select id="equipKind" class="form-control"><option value="">All equipment</option><option value="barista">Barista-staffed</option><option value="automatic">Bean-to-cup / self-service</option><option value="grinder">Grinders</option><option value="roaster">Roasters</option></select></div>
+      <div><label for="equipBrand">Brand</label><select id="equipBrand" class="form-control"><option value="">All brands</option><option>Anfim</option><option>Casadio</option><option>HeyCafe</option><option>Jura</option><option>La Cimbali</option><option>La Marzocco</option><option>Mahlkönig</option><option>Wega</option><option>Yoshan</option></select></div>
+      <div><label for="equipBudget">Maximum budget</label><select id="equipBudget" class="form-control"><option value="">Any budget</option><option value="30000">Up to R30,000</option><option value="80000">Up to R80,000</option><option value="150000">Up to R150,000</option><option value="300000">Up to R300,000</option></select></div>
+      <button class="jj-text-link jj-reset" type="reset">Reset Filters</button>
+    </form>
+    <p id="equip-count" class="jj-small" role="status" aria-live="polite">17 equipment options</p>
+    <div class="jj-equipment-grid">{{EQUIPMENT_CARDS}}</div>
+    <div id="equip-empty" class="jj-empty" hidden><h3>No Equipment Matches Those Filters</h3><p>Try another brand, equipment type or budget.</p><button class="btn btn-primary" type="button" data-equipment-reset>Reset Filters</button></div>
+  </div>
+</section>
+<section class="jj-section jj-section-alt">
+  <div class="container jj-two-col">
+    <div><h2>Installation &amp; Accessories</h2><p>We can include BWT filtration, Ecosoft reverse-osmosis and milk cooling in an installation quote. Power, water, drainage, counter space and service volume need to be assessed for your site.</p><p>For roasters, ventilation, fuel, power and production space require a separate assessment. Ask for the manufacturer’s current specification sheet for the exact model.</p></div>
+    <div><h2>Quotes &amp; Finance</h2><p>Send us your location, expected peak demand, service style and budget. We will discuss a suitable setup and confirm what is included in your quote.</p><p>Asset finance is available through CCS for qualifying businesses, subject to their assessment.</p><div class="jj-actions"><a href="contact.html?topic=Equipment#enquiry" class="btn btn-primary">Request a Quote</a><a href="finance.html" class="btn btn-outline-light">Finance &amp; Eligibility</a></div></div>
+  </div>
+</section>

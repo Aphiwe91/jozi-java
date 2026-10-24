@@ -1,0 +1,51 @@
+{{PAGE_BANNER}}
+<section class="jj-section" id="qualify"><div class="container">
+  <div class="jj-section-heading"><span class="subheading">Commercial Credit Solutions</span><h2>Do You Qualify?</h2><p>CCS arranges asset-funded rental for equipment and conversions. It is an NCR-registered credit provider (NCRCP13995). These are its three published starting criteria.</p></div>
+  <div class="jj-three-col">
+    <div><strong class="jj-stat">1+ Year</strong><h3>Registered &amp; Trading</h3><p>Your registered business has been trading for at least one year.</p></div>
+    <div><strong class="jj-stat">R1M+</strong><h3>Annual Turnover</h3><p>Your business has annual turnover of at least R1 million.</p></div>
+    <div><strong class="jj-stat">VAT</strong><h3>VAT Registered</h3><p>Your business is registered for VAT. All three criteria apply.</p></div>
+  </div>
+  <p class="jj-notice jj-product-extra">Meeting the starting criteria does not guarantee approval. CCS assesses the application and confirms rates, fees and agreement terms. Jozi Java does not provide credit.</p>
+</div></section>
+<section class="jj-section jj-section-alt" id="calculator"><div class="container">
+  <div class="jj-section-heading"><h2>Deposit Planner</h2><p>Calculate a deposit and the remaining asset value, then use the official CCS rental calculator for an indicative rental estimate.</p></div>
+  <div class="jj-two-col">
+    <form class="jj-panel" id="jj-finance-planner">
+      <div class="form-group"><label for="jj-finance-asset">Equipment / package</label><input class="form-control" id="jj-finance-asset" maxlength="150" value="Coffee equipment"></div>
+      <div class="form-group"><label for="jj-value">Asset value, including VAT (R)</label><input class="form-control" type="number" id="jj-value" value="73600" min="1000" max="10000000" step="0.01" required><span class="jj-small">Use a confirmed written quote for an actual application.</span></div>
+      <div class="jj-form-grid">
+        <div class="form-group"><label for="jj-deposit">Deposit</label><select class="form-control" id="jj-deposit"><option value="0.10">10%</option><option value="0.15">15%</option><option value="0.20">20%</option></select></div>
+        <div class="form-group"><label for="jj-term">Preferred term</label><select class="form-control" id="jj-term"><option value="13">13 months</option><option value="25">25 months</option><option value="37" selected>37 months</option><option value="49">49 months</option><option value="61">61 months</option></select></div>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Budget</button><p id="jj-planner-error" class="jj-error" role="status" hidden>Enter an asset value between R1,000 and R10,000,000.</p>
+    </form>
+    <div class="jj-panel jj-finance-result" aria-live="polite">
+      <h3>Budget Summary</h3><p>Deposit at <span id="jj-deposit-percent">10%</span><strong id="jj-dep">R7,360.00</strong></p><p>Asset value remaining after deposit<strong id="jj-financed">R66,240.00</strong></p>
+      <p class="jj-small">This balance is not a repayment quote. Rental charges, fees and any items outside your equipment quote are not included. The term is recorded in your enquiry, not used to imply a rental rate.</p>
+      <a class="btn btn-primary" href="https://ccs.equipment/#calculator" target="_blank" rel="noopener noreferrer">Open CCS Rental Calculator</a><p class="jj-small">Enter the asset value, deposit and term on CCS’s site. Their calculator shows demo rates; actual terms are confirmed on application.</p>
+    </div>
+  </div>
+</div></section>
+<section class="jj-section" id="lead-form"><div class="container jj-two-col">
+  <div><span class="subheading">Next Step</span><h2>Finance Enquiry</h2><p>Complete the details to prepare a WhatsApp enquiry for Jozi Java. Review the message and press Send in WhatsApp. This is not a formal credit application.</p><p>We do not collect identity documents, bank statements or VAT numbers through this form. Supporting documents and the final application go directly to CCS through its own process.</p><p>Asset-funded rental is not a loan. CCS owns the equipment during the agreement; any ownership arrangement at expiry must be agreed with CCS.</p><a class="jj-text-link" href="https://ccs.equipment/rental-application-form/" target="_blank" rel="noopener noreferrer">Official CCS Application</a></div>
+  <div class="jj-panel"><form id="jj-lead-form" data-whatsapp-form data-title="Equipment finance enquiry">
+    <div class="form-group"><label for="jj-biz">Registered business name *</label><input class="form-control" id="jj-biz" name="Business" maxlength="120" autocomplete="organization" required></div>
+    <div class="form-group"><label for="jj-person">Contact person *</label><input class="form-control" id="jj-person" name="Contact" maxlength="100" autocomplete="name" required></div>
+    <div class="jj-form-grid"><div class="form-group"><label for="finance-email">Email *</label><input class="form-control" id="finance-email" name="Email" type="email" maxlength="150" autocomplete="email" required></div><div class="form-group"><label for="finance-phone">Phone *</label><input class="form-control" id="finance-phone" name="Phone" type="tel" maxlength="30" autocomplete="tel" required></div></div>
+    <div class="form-group"><label for="jj-trading">Has the registered business traded for 1+ year? *</label><select class="form-control" id="jj-trading" name="Trading for 1+ year" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+    <div class="form-group"><label for="jj-turnover">Is annual turnover R1 million or more? *</label><select class="form-control" id="jj-turnover" name="Annual turnover R1M+" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+    <div class="form-group"><label for="jj-vat">Is the business VAT registered? *</label><select class="form-control" id="jj-vat" name="VAT registered" required><option value="">Select</option><option>Yes</option><option>No</option></select></div>
+    <p id="jj-eligibility" class="jj-notice" role="status" aria-live="polite">Answer all three questions for a preliminary eligibility indication.</p>
+    <div class="form-group"><label for="jj-site">Equipment location / city *</label><input class="form-control" id="jj-site" name="Installation location" maxlength="120" required></div>
+    <div class="form-group"><label for="jj-deposit-notes">Deposit availability / notes</label><textarea class="form-control" id="jj-deposit-notes" name="Deposit availability / notes" rows="3" maxlength="1200"></textarea></div>
+    <label class="jj-check-label"><input type="checkbox" name="consent" required><span>I agree to share these details with Jozi Java through WhatsApp to discuss this enquiry. This does not submit a credit application. <a href="privacy.html">Privacy information</a>.</span></label>
+    <button type="submit" class="btn btn-primary">Prepare Finance Enquiry</button><div class="jj-form-result" role="status" aria-live="polite" hidden></div>
+  </form></div>
+</div></section>
+<section class="jj-section jj-section-alt"><div class="container jj-readable"><h2>Finance Questions</h2><div class="jj-faq">
+  <details><summary>Is the deposit planner a rental quote?</summary><p>No. It calculates a deposit and the remaining asset value only. Use CCS’s calculator for its indicative rental estimate. Only CCS can confirm the final rates, fees and agreement.</p></details>
+  <details><summary>Does an enquiry mean I qualify?</summary><p>No. The indication reflects your answers to the published starting criteria. CCS makes the final assessment and may request documents directly.</p></details>
+  <details><summary>Can a new business buy equipment?</summary><p>Talk to us about an outright purchase or a smaller starting setup. CCS’s criteria are for registered businesses trading for at least one year, with R1M+ annual turnover and VAT registration.</p></details>
+  <details><summary>Who can I speak to?</summary><p>Sales: <a href="tel:+27656945345">Mike Kaiser, 065 694 5345</a>. Office: <a href="tel:+27689235818">068 923 5818</a>. Finance partner: <a href="tel:+27722030883">Willie Mouton, CCS, 072 203 0883</a>.</p></details>
+</div></div></section>

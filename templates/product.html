@@ -1,0 +1,20 @@
+<div class="container jj-breadcrumb"><a href="index.html">Home</a><span>/</span><a href="shop.html">Coffee beans</a><span>/</span><span>{{NAME}}</span></div>
+<section class="jj-section jj-product-detail">
+  <div class="container">
+    <div class="jj-product-layout jj-card" data-sku="{{SKU}}" data-name="{{NAME}}" data-img="{{IMAGE_URL}}">
+      <div class="jj-product-photo">{{IMAGE}}</div>
+      <div class="jj-product-info">
+        <span class="jj-eyebrow">Roasted in Douglasdale · {{LABEL}}</span>
+        <h1>{{NAME}}</h1><p class="jj-product-tasting">{{NOTES}}</p><p>{{DESCRIPTION}}</p>
+        <div class="jj-product-options"><p class="jj-label">01 / Pick your bag</p><div class="jj-sizes" data-prices="{{PRICES}}" role="group" aria-label="Bag size">{{SIZES}}</div>
+        <label class="jj-label" for="product-grind">02 / Choose your grind</label><select id="product-grind" class="jj-grind form-control"><option value="">Choose grind…</option></select><a class="jj-small jj-text-link" href="blog-single.html">Not sure? Read our grind guide →</a>
+        <div class="jj-product-buy"><p class="jj-card-price jj-price"><span>from {{MIN_PRICE}}</span></p><button type="button" class="btn btn-primary jj-add">Add to cart +</button></div></div>
+        <p class="jj-notice jj-small">{{PRICE_NOTICE}}</p>
+        <div class="jj-product-facts"><span>3 bag sizes</span><span>6 grind choices</span><span>WhatsApp ordering</span></div>
+      </div>
+    </div>
+    <div class="jj-two-col jj-product-extra"><div class="jj-panel"><span class="jj-eyebrow">Make it yours</span><h2>Match the grind to the brewer.</h2><p>{{BREW}}</p><p>Choose whole beans if you grind at home. Otherwise select your brew method before adding to your cart. We do not silently choose a grind for you.</p></div>
+    <div class="jj-panel"><span class="jj-eyebrow">Coffee on repeat</span><h2>Your regular bag, on your schedule.</h2><p>Interested in a weekly, fortnightly or monthly supply? Tell us what you drink and we will discuss a regular-order plan.</p><p class="jj-small">Recurring online billing and self-service subscriptions are not active yet. Discounts and delivery terms need confirmation.</p><a class="jj-text-link" href="{{SUBSCRIPTION_LINK}}">Discuss a regular order →</a></div></div>
+    <div class="jj-section-heading"><div><span class="jj-eyebrow">Keep exploring</span><h2>More from our roastery.</h2></div><a class="jj-text-link" href="shop.html">All coffee →</a></div><div class="jj-product-grid">{{PRODUCT_CARDS}}</div>
+  </div>
+</section>

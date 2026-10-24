@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aphiwe91.github.io/jozi-java/sitemap.xml

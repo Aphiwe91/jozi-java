@@ -139,10 +139,7 @@ body.jj-site::before { content:""; position:fixed; inset:0; z-index:-1; pointer-
 .jj-hero-slide.is-active { opacity:1; visibility:visible; z-index:1; }
 .jj-hero-background { position:absolute; inset:0; width:100%; height:100% !important; object-fit:cover; z-index:-2; }
 .jj-hero-slide::after { content:""; position:absolute; inset:0; z-index:-1; background:rgba(0,0,0,.45); }
-.jj-hero-fit .jj-hero-background { filter:blur(34px) brightness(.42); transform:scale(1.08); }
-.jj-hero-layout { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:56px; height:100%; }
-.jj-hero-photo { height:80%; }
-.jj-hero-photo img { width:100%; height:100%; object-fit:contain; }
+.jj-hero-welcome .jj-hero-background { opacity:.6; }
 .jj-hero-copy h1,.jj-hero-copy h2 { color:#fff; font-size:40px; text-transform:uppercase; }
 .jj-hero-copy p { font-size:18px; line-height:1.6; color:#fff; }
 .jj-hero-copy .subheading { font-size:30px; }
@@ -385,7 +382,6 @@ html { scroll-padding-top:100px; }
 .jj-site #ftco-navbar.is-open .jj-menu-toggle { position:absolute; top:16px; right:20px; }
 .jj-site .navbar-nav { display:grid; grid-template-columns:1fr 1fr; gap:0 20px; }
 .jj-site #ftco-navbar .nav-link { padding:12px 0; font-size:14px; }
-.jj-hero-layout { gap:28px; }
 .jj-hero-copy h1,.jj-hero-copy h2 { font-size:34px; }
 .jj-hero-copy p { font-size:16px; }
 .jj-hero-copy .btn { padding:12px 16px; }
@@ -415,9 +411,6 @@ body.jj-site { background-attachment:scroll; background-size:contain; }
 .jj-two-col,.jj-split-story,.jj-product-layout.jj-card,.jj-three-col,.jj-product-grid { grid-template-columns:1fr; gap:32px; }
 .jj-section-heading { margin-bottom:36px; }
 .jj-hero-slides { height:520px; }
-.jj-hero-layout { display:block; height:auto; padding-top:30px; padding-bottom:65px; }
-.jj-hero-photo { display:none; }
-.jj-hero-fit .jj-hero-background { transform:none; filter:brightness(.6); }
 .jj-hero-slide::after { background:rgba(0,0,0,.5); }
 .jj-hero-copy { text-align:center; }
 .jj-hero-copy h1,.jj-hero-copy h2 { font-size:30px; }

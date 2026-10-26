@@ -98,6 +98,31 @@ def main():
                     }).map(function (element) { return element.tagName + ': ' + element.textContent.slice(0, 100); });
                 """)
                 check(f'{page} at {width}px: no dash punctuation in website copy', not dashes, dashes)
+                if page == 'index.html':
+                    welcome = driver.execute_script("""
+                        var slide = document.querySelector('.jj-hero-welcome');
+                        var image = slide.querySelector('.jj-hero-background');
+                        var copy = slide.querySelector('.jj-hero-copy');
+                        var frame = slide.getBoundingClientRect();
+                        var photo = image.getBoundingClientRect();
+                        var controls = document.querySelector('.jj-hero-controls').getBoundingClientRect();
+                        var style = getComputedStyle(image);
+                        return {images:slide.querySelectorAll('img').length,
+                          fillsSlide:Math.abs(photo.width-frame.width)<1 && Math.abs(photo.height-frame.height)<1,
+                          fit:style.objectFit,opacity:style.opacity,filter:style.filter,transform:style.transform,
+                          copyOpacity:getComputedStyle(copy).opacity,
+                          copyFits:[...copy.children].every(function (element) {
+                            var rect = element.getBoundingClientRect();
+                            return rect.top>=frame.top && rect.bottom<=controls.top-16 && rect.left>=frame.left && rect.right<=frame.right;
+                          }),
+                          buttons:[...copy.querySelectorAll('.jj-actions a')].map(function (link) { return link.getAttribute('href'); }),
+                          otherImagesOpaque:[...document.querySelectorAll('.jj-hero-slide:not(.jj-hero-welcome) .jj-hero-background')].every(function (other) {
+                            return getComputedStyle(other).opacity === '1';
+                          })};
+                    """)
+                    check(f'welcome slide at {width}px: single image fills the screen width', welcome['images'] == 1 and welcome['fillsSlide'] and welcome['fit'] == 'cover' and welcome['filter'] == 'none' and welcome['transform'] == 'none', welcome)
+                    check(f'welcome slide at {width}px: only its photo is dimmed', welcome['opacity'] == '0.6' and welcome['copyOpacity'] == '1' and welcome['otherImagesOpaque'], welcome)
+                    check(f'welcome slide at {width}px: copy and buttons fit above controls', welcome['copyFits'] and welcome['buttons'] == ['shop.html', 'equipment.html'], welcome)
 
         # Keep the approved pre-redesign appearance as a regression requirement.
         driver.set_window_size(1440, 1100)

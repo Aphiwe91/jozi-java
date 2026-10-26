@@ -2,13 +2,13 @@
    The original Colorlib styles/assets remain intact in css/style.css for reference.
    No Bootstrap JS, icon fonts or CSS frameworks are needed by the new interface. */
 :root {
-  --jj-ink:#1b1815; --jj-milk:#fff; --jj-leaf:#2563eb; --jj-sage:#bfdbfe; --jj-moss:#1e40af;
-  /* Native San Francisco on Apple platforms; locally installed SF Pro elsewhere.
+  --jj-ink:#242b20; --jj-milk:#fff; --jj-leaf:#4d6b33; --jj-sage:#dfe8d3; --jj-moss:#344c22;
+  /* Prefer installed Apple SF faces, then native San Francisco on Apple platforms.
      Do not redistribute Apple's proprietary font files as website assets. */
-  --jj-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","SF Pro","San Francisco",system-ui,"Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
+  --jj-font:"SF Pro Text","SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont,"San Francisco",system-ui,"Helvetica Neue","Segoe UI",Roboto,Arial,sans-serif;
 }
 *,*::before,*::after { box-sizing:border-box; }
-html { -webkit-text-size-adjust:100%; font-family:var(--jj-font); }
+html { -webkit-text-size-adjust:100%; font-family:var(--jj-font); font-optical-sizing:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 body { margin:0; }
 /* All text, including browser-default monospace elements, native controls,
    generated labels and dynamically inserted WhatsApp previews, uses one stack.
@@ -41,7 +41,7 @@ th { text-align:left; }
 .jj-collection-bar { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; border-top:1px solid; border-bottom:1px solid; }
 .jj-sizes { display:flex; gap:8px; }
 .jj-badge { display:inline-block; color:#fff; font-weight:700; text-transform:uppercase; }
-.jj-cart-badge { display:inline-block; background:#2563eb; color:#fff; border-radius:20px; padding:0 6px; font-size:11px; font-weight:700; text-align:center; }
+.jj-cart-badge { display:inline-block; background:var(--jj-leaf); color:#fff; border-radius:20px; padding:0 6px; font-size:11px; font-weight:700; text-align:center; }
 .jj-tile { position:relative; display:flex; align-items:flex-end; overflow:hidden; text-decoration:none; }
 .jj-tile::after { content:""; position:absolute; inset:0; }
 .jj-tile > span { position:relative; z-index:2; }

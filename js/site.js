@@ -22,7 +22,7 @@
       if (event.key === 'Escape' && header.classList.contains('is-open')) { close(); toggle.focus(); }
     });
     $$('a', $('#ftco-nav')).forEach(function (link) { link.addEventListener('click', close); });
-    window.matchMedia('(min-width: 992px)').addEventListener('change', close);
+    window.matchMedia('(min-width: 1200px)').addEventListener('change', close);
     document.addEventListener('click', function (event) { if (!header.contains(event.target)) close(); });
     var top = $('.jj-back-top');
     if (top) {

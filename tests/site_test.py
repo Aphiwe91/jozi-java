@@ -24,10 +24,11 @@ def check(name, condition, extra=None):
     print(('PASS ' if condition else 'FAIL ') + name + (f' → {extra}' if not condition and extra else ''))
 
 
-def make_driver():
+def make_driver(headless=True):
     options = Options()
     options.binary_location = '/usr/bin/chromium'
-    options.add_argument('--headless=new')
+    if headless:
+        options.add_argument('--headless=new')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-gpu')
     options.add_argument('--window-size=1440,1100')
@@ -75,12 +76,13 @@ def main():
                 navbar = driver.execute_script("""
                     var header = document.getElementById('ftco-navbar');
                     var style = getComputedStyle(header);
-                    return {background:style.backgroundColor,opacity:style.opacity,
+                    return {background:style.backgroundColor,opacity:style.opacity,top:header.getBoundingClientRect().top,
                       linksOpaque:[...header.querySelectorAll('.nav-link')].every(function (link) {
                         return getComputedStyle(link).opacity === '1';
                       })};
                 """)
-                check(f'{page} at {width}px: translucent navbar keeps text opaque', navbar['background'] == 'rgba(27, 24, 21, 0.75)' and navbar['opacity'] == '1' and navbar['linksOpaque'], navbar)
+                check(f'{page} at {width}px: translucent navbar keeps text opaque', navbar['background'] == 'rgba(0, 0, 0, 0.55)' and navbar['opacity'] == '1' and navbar['linksOpaque'], navbar)
+                check(f'{page} at {width}px: navbar starts at the top without a belt', abs(navbar['top']) < 1 and not driver.find_elements('css selector', '.jj-topline'), navbar)
                 fonts = driver.execute_script("""
                     var expected = getComputedStyle(document.documentElement).fontFamily;
                     var mismatches = [...document.querySelectorAll('body *')].filter(function (element) {
@@ -91,6 +93,14 @@ def main():
                     return {stack:expected,mismatches:mismatches};
                 """)
                 check(f'{page} at {width}px: SF stack applied throughout', 'SF Pro Text' in fonts['stack'] and not fonts['mismatches'], fonts)
+                palette = driver.execute_script("""
+                    var root = getComputedStyle(document.documentElement);
+                    return {wilds:root.getPropertyValue('--jj-wilds').trim(),leaf:root.getPropertyValue('--jj-leaf').trim(),
+                      mismatches:[...document.querySelectorAll('.btn-primary')].filter(function (button) {
+                        return getComputedStyle(button).backgroundColor !== 'rgb(77, 107, 51)';
+                      }).map(function (button) { return button.textContent.trim(); })};
+                """)
+                check(f'{page} at {width}px: Wilds Roast greens applied consistently', palette['wilds'] == '#98b176' and palette['leaf'] == '#4d6b33' and not palette['mismatches'], palette)
                 dashes = driver.execute_script("""
                     return [...document.querySelectorAll('body *')].filter(function (element) {
                       if (['SCRIPT','STYLE','NOSCRIPT'].includes(element.tagName)) return false;
@@ -124,18 +134,20 @@ def main():
                     check(f'welcome slide at {width}px: only its photo is dimmed', welcome['opacity'] == '0.6' and welcome['copyOpacity'] == '1' and welcome['otherImagesOpaque'], welcome)
                     check(f'welcome slide at {width}px: copy and buttons fit above controls', welcome['copyFits'] and welcome['buttons'] == ['shop.html', 'equipment.html'], welcome)
 
-        # Keep the approved pre-redesign appearance as a regression requirement.
+        # The owner requested a Mint-inspired local preview, retaining Jozi's content.
         driver.set_window_size(1440, 1100)
         driver.get(BASE + 'index.html')
         heading = text(driver, '.jj-wordmark')
-        check('original Equipment & Beans / Delivered headline restored', 'Equipment & Beans' in heading and 'Delivered' in heading)
-        check('original desktop hero height restored', driver.execute_script("return document.querySelector('.jj-hero-slides').getBoundingClientRect().height;") == 750)
-        check('original 140px desktop logo restored', driver.execute_script("return document.querySelector('.jj-nav-logo').getBoundingClientRect().width;") == 140)
-        check('original poster backdrop restored', driver.execute_script("return getComputedStyle(document.body).backgroundImage.includes('jozi-bg-960.webp');"))
-        check('square original-style buttons retained', driver.execute_script("return getComputedStyle(document.querySelector('.btn-primary')).borderRadius;") == '0px')
-        check('original wholesale photo mosaic restored', len(driver.find_elements('css selector', '.jj-photo-mosaic img')) == 4)
-        check('original full-width gallery restored', len(driver.find_elements('css selector', '.jj-home-gallery img')) == 4)
-        check('added promotional footer removed', not driver.find_elements('css selector', '.jj-footer-top'))
+        check('Equipment & Beans / Delivered headline retained', 'Equipment & Beans' in heading and 'Delivered' in heading)
+        check('desktop hero responds to viewport height', driver.execute_script("var height=document.querySelector('.jj-hero-slides').getBoundingClientRect().height; return Math.abs(height-Math.min(780,Math.max(640,innerHeight-118)))<1;"))
+        check('compact desktop logo uses its intended size', driver.execute_script("return document.querySelector('.jj-nav-logo').getBoundingClientRect().width;") == 64)
+        check('light preview replaces the old fixed poster backdrop', driver.execute_script("return document.body.classList.contains('jj-refresh') && getComputedStyle(document.body).backgroundImage==='none' && getComputedStyle(document.body).backgroundColor==='rgb(255, 255, 255)';"))
+        check('crisp square buttons retained', driver.execute_script("return getComputedStyle(document.querySelector('.btn-primary')).borderRadius;") == '0px')
+        check('wholesale photo mosaic retained', len(driver.find_elements('css selector', '.jj-photo-mosaic img')) == 4)
+        check('four-photo gallery retained', len(driver.find_elements('css selector', '.jj-home-gallery img')) == 4)
+        check('service pathways link to all four business areas', driver.execute_script("return [...document.querySelectorAll('.jj-service-card')].map(a=>a.getAttribute('href'));") == ['shop.html', 'equipment.html', 'tuktuk.html', 'wholesale.html'])
+        check('new headings do not use the old glow effect', driver.execute_script("return getComputedStyle(document.querySelector('.jj-pathways h2')).textShadow;") == 'none')
+        check('footer keeps a real contact destination', driver.find_element('css selector', '.jj-footer-intro a').get_attribute('href') == BASE + 'contact.html#enquiry')
         stub_popup(driver, blocked=True)
         fill(driver, {'home-name': 'Home Enquiry', 'home-phone': '0821234567', 'home-email': 'home@example.co.za', 'home-message': 'Please help with coffee supply.'})
         submit(driver, '#jj-home-contact-form')
@@ -152,10 +164,15 @@ def main():
         check('mobile menu starts collapsed', menu.get_attribute('aria-expanded') == 'false')
         menu.click()
         check('mobile menu opens accessibly', menu.get_attribute('aria-expanded') == 'true' and driver.find_element('id', 'ftco-nav').is_displayed())
-        check('expanded mobile menu keeps translucent backdrop', driver.execute_script("return getComputedStyle(document.getElementById('ftco-navbar')).backgroundColor;") == 'rgba(27, 24, 21, 0.75)')
+        check('expanded mobile menu keeps translucent backdrop', driver.execute_script("return getComputedStyle(document.getElementById('ftco-navbar')).backgroundColor;") == 'rgba(0, 0, 0, 0.55)')
         from selenium.webdriver.common.keys import Keys
         menu.send_keys(Keys.ESCAPE)
         check('Escape closes mobile menu', menu.get_attribute('aria-expanded') == 'false')
+        menu.click()
+        driver.set_window_size(1280, 950)
+        wait.until(lambda d: not d.find_element('id', 'ftco-navbar').get_attribute('class').endswith('is-open'))
+        check('resizing to desktop clears mobile menu state', driver.find_element('css selector', '.jj-menu-toggle').get_attribute('aria-expanded') == 'false' and driver.find_element('id', 'ftco-nav').is_displayed())
+        driver.set_window_size(390, 950)
         check('home reduced motion pauses carousel', driver.find_element('css selector', '.jj-motion-toggle').get_attribute('aria-pressed') == 'true')
         check('home has 5 manual slide controls', len(driver.find_elements('css selector', '.jj-hero-dots button')) == 5)
         driver.execute_script("document.querySelector('.jj-slide-next').click();")
@@ -258,7 +275,7 @@ def main():
         # Capture reviewable screenshots outside the repository.
         captures = Path('/tmp/opencode/jozi-java')
         captures.mkdir(parents=True, exist_ok=True)
-        for page, width in [('index.html', 1440), ('shop.html', 390), ('equipment.html', 1440), ('contact.html', 390)]:
+        for page, width in [('index.html', 1440), ('index.html', 390), ('shop.html', 390), ('equipment.html', 1440), ('contact.html', 390)]:
             driver.set_window_size(width, 1000)
             driver.get(BASE + page)
             driver.save_screenshot(str(captures / (page[:-5] + f'-{width}.png')))

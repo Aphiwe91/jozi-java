@@ -30,39 +30,63 @@ Python 3 and Pillow are required for local generation. There is no npm dependenc
 | `templates/product.html` | Dedicated roast detail pages |
 | `data/pages.json` | Page titles, descriptions, navigation and script configuration |
 | `data/catalog.json` | Single source for the three roasts, 17 equipment entries and preview shipping rates |
-| `css/base.css`, `css/pages.css` | Lightweight foundations and shared blue/SF-system-font design |
+| `css/base.css`, `css/pages.css`, `css/refresh.css` | Foundations, structural layouts and the current Mint-inspired preview design |
 | `js/cart.js` | Validated cart, quantities, explicit grind choice, checkout and WhatsApp order preparation |
 | `js/site.js` | Mobile navigation, equipment filters, enquiry forms, deposit/build planners, journal filters and opt-in map |
 | `js/shop.js` | Instant search, `?q=` search, sorting and empty states |
 | `js/home.js` | Five home slides and three category carousels, each on a 10-second cycle; pause/manual controls; stable story typing |
 
-### Design reference — keep the previous homepage
+### Current design direction — local preview, not yet approved for publishing
 
-The broad navy/card-based redesign was rejected. The visual reference is the
-homepage at commit `abe71e5`: the 140px desktop badge, social/search/navigation
-arrangement, tall photographic slides, **Equipment & Beans / Delivered** headline,
-blue-glow headings, black contact strip, overlapping story, wholesale photo mosaic,
-three image carousels, photo gallery and café-style footer.
+The owner requested a new direction inspired by `https://za.mintgroup.net/`, with a
+local preview before any GitHub push. The reference homepage, about page and
+services page informed the clear navigation, strong photographic opening, open
+service pathways, generous whitespace, alternating light/dark sections and clear
+contact prompts. No Mint artwork, logos, videos, copy or runtime code is reused.
 
-The current lightweight styles reproduce that direction without reintroducing the
-old runtime dependencies. Inner pages use the client's portrait poster and simple
-page titles. Use open text/photo layouts and straightforward business copy; do not
-replace them with rounded promotional panels, giant split slogans or new branding.
-The equipment catalogue is a filterable price/specification table, not a grid of
-placeholder product images. Coffee product cards remain appropriate for the shop.
+`css/refresh.css` is a final, shared design layer compiled into `css/site.min.css`.
+It uses Jozi Java's own photography, warm cream surfaces and The Wilds Roast's green palette,
+native SF typography and responsive layouts throughout. The 55%-opacity navbar,
+60%-opacity full-width welcome image, existing headline, business details, product
+data and cart/enquiry behaviour are retained. The old structural stylesheet stays
+available underneath the refresh; the previous published design is in git history.
+The equipment catalogue remains a working specification/price table. The announcement
+belt above the navbar has been removed; navigation starts at the top of the page.
+
+### The Wilds Roast colour theme
+
+The green palette is sampled from the catalogue's Wilds Roast photograph,
+`images/jozi/jozi-03.jpeg`: sage `#98b176`, with dark olive `#4d6b33` and moss
+`#344c22` companions for readable text and buttons. Shared tokens in `css/refresh.css`
+carry the theme through buttons, links, icons, selected options, focus and hover
+states, banners, forms, the cart, dark feature sections and footer. Product photos
+and catalogue data are not recoloured or changed. This is a photographic colour
+reference, not a claim to an official print colour specification.
 
 The restored homepage contact form uses the same working WhatsApp preparation and
 consent handling as the contact page. Fake testimonials, invented discounts and
 dead template links were not brought back with the previous look.
+
+### Interaction details
+
+The refresh includes button lifts and arrow feedback, raised service/product cards,
+subtle image zoom, equipment-row highlighting, navigation underlines and footer-link
+feedback. Keyboard focus gets equivalent highlights and visible outlines. All actions
+and information remain available without hovering. Moving effects only apply to a
+fine pointer that supports hover and when reduced motion is not requested; touch
+and reduced-motion users keep the static layout and usable controls. Hero image
+opacity, navbar opacity, SF typography and the removed announcement belt are unchanged.
 
 ### Typography — Apple SF family throughout
 
 `--jj-font` in `css/base.css` is the only active font-family stack. It applies to
 all site text, headings, navigation, prices, form controls, generated labels and
 message previews (including `pre`/`code`, which otherwise default to monospace).
-Apple devices resolve `-apple-system` / `BlinkMacSystemFont` to native San Francisco;
-locally installed SF Pro is also named explicitly. Other platforms use a system
-sans-serif fallback. Apple's proprietary font binaries are not bundled, downloaded
+Locally installed `SF Pro Text`, `SF Pro Display` and `SF Pro` are prioritised
+explicitly, followed by `-apple-system` / `BlinkMacSystemFont` for native San Francisco
+on Apple devices. Other platforms without SF use a system sans-serif fallback.
+Automatic optical sizing and native font smoothing are enabled. Apple's proprietary
+font binaries are not bundled, downloaded
 from an unofficial CDN or redistributed. The inline SVG icons are unaffected.
 
 ### Website copy — no dash punctuation
@@ -174,6 +198,7 @@ integration or automated handoff is assumed without agreement with CCS.
 python3 tests/static_test.py
 python3 tests/cart_test.py
 python3 tests/site_test.py
+xvfb-run -a python3 tests/hover_test.py  # real mouse, keyboard, touch and reduced motion
 python3 tests/accessibility_test.py /path/to/axe.min.js  # optional axe-core audit
 ```
 

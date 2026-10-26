@@ -135,6 +135,7 @@ class StaticSiteTest(unittest.TestCase):
         self.assertIn('"SF Pro Text"', css)
         self.assertIn('"SF Pro Display"', css)
         self.assertIn('"SF Pro"', css)
+        self.assertIn('--jj-font:"SF Pro Text","SF Pro Display","SF Pro",-apple-system,BlinkMacSystemFont', css)
         self.assertIn('.jj-site *::before', css)
         self.assertNotIn('@font-face', css)
         for name, doc in self.pages.items():
@@ -149,6 +150,26 @@ class StaticSiteTest(unittest.TestCase):
                 for _, attrs in doc.tags:
                     for key in ('alt', 'title', 'aria-label', 'aria-description', 'placeholder'):
                         self.assertIsNone(re.search(r'[-\u2010-\u2015]', attrs.get(key, '')))
+
+    def test_refresh_uses_shared_design_and_local_assets(self):
+        css = (ROOT / 'css/site.min.css').read_text()
+        self.assertIn('.jj-services-grid', css)
+        self.assertIn('.jj-brand-wordmark', css)
+        self.assertIn('--jj-wilds:#98b176', css)
+        self.assertIn('--jj-leaf:#4d6b33', css)
+        for name, doc in self.pages.items():
+            with self.subTest(page=name):
+                self.assertIn('jj-refresh', doc.select('body')[0]['class'].split())
+                self.assertFalse(any('jj-topline' in attrs.get('class', '').split() for _, attrs in doc.tags))
+                self.assertTrue(any(attrs.get('name') == 'theme-color' and attrs.get('content') == '#344c22' for attrs in doc.select('meta')))
+                self.assertNotIn('mintgroup.net', (ROOT / name).read_text())
+                self.assertEqual(len([a for tag, a in doc.tags if tag == 'nav' and a.get('aria-label') == 'Main navigation']), 1)
+
+    def test_equipment_catalogue_has_no_machine_or_grinder_photos(self):
+        doc = self.pages['equipment.html']
+        self.assertFalse(any('jj-equipment-thumb' in attrs.get('class', '').split() for _, attrs in doc.tags))
+        self.assertTrue(any(attrs.get('id') == 'casadio-2' for _, attrs in doc.tags))
+        self.assertTrue(any(attrs.get('id') == 'buddy' for _, attrs in doc.tags))
 
     def test_copy_cleanup_preserves_code_and_ranges(self):
         self.assertEqual(clean_copy('Bean-to-cup — 10–25kg, 07:00–17:00'), 'Bean to cup, 10 to 25kg, 07:00 to 17:00')

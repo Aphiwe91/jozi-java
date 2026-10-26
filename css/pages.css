@@ -37,7 +37,8 @@ body.jj-site::before { content:""; position:fixed; inset:0; z-index:-1; pointer-
 
 /* Previous logo/search/nav arrangement, without the added tagline. */
 .jj-header { position:sticky; top:0; z-index:1050; border-bottom:1px solid rgba(255,255,255,.16); }
-.jj-site #ftco-navbar { background:rgba(27,24,21,.90); padding:12px 28px 8px; backdrop-filter:blur(8px); }
+/* Only the backdrop is translucent; navigation text and controls stay fully opaque. */
+.jj-site #ftco-navbar { background:rgba(27,24,21,.75); padding:12px 28px 8px; backdrop-filter:blur(8px); }
 .jj-nav-shell { position:relative; max-width:1440px; margin:auto; padding-left:164px; }
 .jj-site #ftco-navbar .jj-nav-brand { min-height:76px; padding-bottom:12px; gap:22px; }
 .jj-site #ftco-navbar .navbar-brand { position:absolute; left:-10px; top:calc(50% - 2px); width:140px; height:140px; transform:translateY(-50%); }

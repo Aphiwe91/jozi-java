@@ -72,6 +72,15 @@ def main():
                 check(f'{page} at {width}px: images load', not broken, broken)
                 errors = [e['message'] for e in driver.get_log('browser') if e['level'] == 'SEVERE']
                 check(f'{page} at {width}px: no browser errors', not errors, errors)
+                navbar = driver.execute_script("""
+                    var header = document.getElementById('ftco-navbar');
+                    var style = getComputedStyle(header);
+                    return {background:style.backgroundColor,opacity:style.opacity,
+                      linksOpaque:[...header.querySelectorAll('.nav-link')].every(function (link) {
+                        return getComputedStyle(link).opacity === '1';
+                      })};
+                """)
+                check(f'{page} at {width}px: translucent navbar keeps text opaque', navbar['background'] == 'rgba(27, 24, 21, 0.75)' and navbar['opacity'] == '1' and navbar['linksOpaque'], navbar)
                 fonts = driver.execute_script("""
                     var expected = getComputedStyle(document.documentElement).fontFamily;
                     var mismatches = [...document.querySelectorAll('body *')].filter(function (element) {
@@ -118,6 +127,7 @@ def main():
         check('mobile menu starts collapsed', menu.get_attribute('aria-expanded') == 'false')
         menu.click()
         check('mobile menu opens accessibly', menu.get_attribute('aria-expanded') == 'true' and driver.find_element('id', 'ftco-nav').is_displayed())
+        check('expanded mobile menu keeps translucent backdrop', driver.execute_script("return getComputedStyle(document.getElementById('ftco-navbar')).backgroundColor;") == 'rgba(27, 24, 21, 0.75)')
         from selenium.webdriver.common.keys import Keys
         menu.send_keys(Keys.ESCAPE)
         check('Escape closes mobile menu', menu.get_attribute('aria-expanded') == 'false')
